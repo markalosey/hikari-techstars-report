@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPORTS — Sports &amp; Care · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="sports" id="page-SPORTS">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-trophy-fill me-2" style="color: var(--hikari-facility);"></i>Sports &amp; Care</h3>
+          <div class="text-secondary small">Baltimore's beloved teams → MedStar (a Techstars anchor) → our provider graph.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: SPORTS</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="card mb-4" data-eid="SPORTS-story">
+      <div class="card-body">
+        <h4 class="mb-2" id="SPORTS-headline" data-eid="SPORTS-headline"></h4>
+        <p class="text-secondary mb-2" id="SPORTS-subhead" data-eid="SPORTS-subhead"></p>
+        <div class="alert alert-light border small mb-0" id="SPORTS-medstar-note" data-eid="SPORTS-medstar-note"></div>
+      </div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — subtle one-line badge, rendered by common.js -->
+    <div id="SPORTS-md-host"></div>
+
+    <h6 class="text-muted text-uppercase small mb-2">The franchises &amp; their medical team</h6>
+    <div class="row g-3 mb-3" id="SPORTS-teams" data-eid="SPORTS-teams"></div>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Celebration framing (spec §4b-sports): only flattering stats are
+      surfaced here. The Ravens' specific team physician is <em>discovery pending</em> (MedStar provides the
+      medical team; the named physician is an open item in findings 01h).
+    </p>
+  </main>
+
+  <!-- Orioles team-doctor drawer: Leigh Ann Curl, MD (best stats only) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="SPORTS-curl-drawer" data-eid="DRAWER-curl" style="width: 460px;">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title"><i class="bi bi-trophy me-2 text-warning"></i>Orioles team physician</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="SPORTS-curl-body" data-eid="DRAWER-curl-body"></div>
+  </div>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../assets/page-sports.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

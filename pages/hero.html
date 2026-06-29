@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HERO — Baltimore Metro hero · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="hero" data-sr-map="1" id="page-HERO">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0" data-eid="HERO-heading"><i class="bi bi-geo-alt-fill me-2" style="color: var(--hikari-geography);"></i>Metro Hero</h3>
+          <div class="text-secondary small">The 7-county MSA as an entity — verdict, KPIs vs the nation, per-county profile.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: HERO</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="row g-3 mb-3">
+      <!-- LEFT: metro choropleth "profile" card -->
+      <div class="col-lg-5">
+        <div class="metro-profile-card h-100 figure-card" data-figure-id="kpi_benes" data-eid="HERO-profile-card">
+          <div class="px-3 pt-3 pb-1 d-flex align-items-center">
+            <i class="bi bi-geo-alt-fill fs-4 me-2" style="color: var(--hikari-geography);"></i>
+            <div>
+              <h4 class="mb-0">Baltimore Metro</h4>
+              <div class="text-muted small" id="HERO-location" data-eid="HERO-location">7-county MSA</div>
+            </div>
+          </div>
+          <div id="HERO-profile-map" class="metro-map" data-eid="HERO-profile-map"></div>
+          <div class="px-3 pb-2 text-muted small">
+            <i class="bi bi-info-circle me-1"></i>County borders (v1) · shaded by scored-provider density.
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: verdict + headline -->
+      <div class="col-lg-7">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start flex-wrap">
+              <h5 class="card-title mb-2"><i class="bi bi-fire me-1 text-danger"></i>The verdict</h5>
+              <div class="card figure-card text-center mb-2" id="HERO-headline-card" data-eid="HERO-headline" style="min-width: 220px;">
+                <div class="kpi-band" style="background: var(--hikari-signal-green);"></div>
+                <div class="card-body py-2">
+                  <div class="text-muted small">Annual addressable market</div>
+                  <div class="fs-3 fw-bold text-success" id="HERO-headline-value">$—</div>
+                </div>
+              </div>
+            </div>
+            <p class="text-secondary mb-0" id="HERO-verdict" data-eid="HERO-verdict">Loading…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — rendered by common.js renderMdLayer -->
+    <div id="HERO-md-host"></div>
+
+    <!-- Techstars hero card → roster drawer -->
+    <div class="card figure-card techstars-card mb-4" id="HERO-techstars-card"
+         data-eid="HERO-techstars-card" data-drawer="roster" role="button"></div>
+
+    <!-- KPI dashboard -->
+    <h6 class="text-muted text-uppercase small mb-2" data-eid="HERO-kpi-heading">Metro KPIs <span class="text-muted">— vs national benchmark</span></h6>
+    <div class="row g-3 mb-3" id="HERO-kpis" data-eid="HERO-kpis"></div>
+
+    <!-- Outlier slot (real national per-metro outliers, e11 / findings 13) -->
+    <h6 class="text-muted text-uppercase small mb-2" data-eid="HERO-outlier-heading">Outlier stats <span class="text-muted">— national per-metro extremes (CBSA 12580 of 209 metros)</span></h6>
+    <div class="row g-3 mb-3" id="HERO-outliers" data-eid="HERO-outliers"></div>
+
+    <!-- Story-of-time sparklines (e12 / findings 14) -->
+    <h6 class="text-muted text-uppercase small mb-2" data-eid="HERO-spark-heading">Story of time <span class="text-muted">— metro trajectory, start → latest</span></h6>
+    <div class="row g-3 mb-3" id="HERO-sparklines" data-eid="HERO-sparklines"></div>
+
+    <!-- County table -->
+    <div class="card">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-table me-1"></i>7-county profile + metro &amp; national benchmark</div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-sm hikari-table mb-0" id="HERO-county-table" data-eid="HERO-county-table"></table>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-muted small mt-3">
+      <i class="bi bi-shield-lock me-1"></i>Click any card for its formula + inputs + source query.
+      Outlier stats are national per-metro ranks (e11 / findings 13); sparklines are the metro trajectory (e12 / findings 14).
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../data/baltimore_metro.geo.js"></script>
+  <script src="../assets/roster.js"></script>
+  <script src="../assets/page-hero.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

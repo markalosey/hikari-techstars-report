@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GRAPH — Graph Algorithms · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="graph" id="page-GRAPH">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-diagram-3-fill me-2" style="color: var(--hikari-quality-measure);"></i>Graph Algorithms</h3>
+          <div class="text-secondary small">Every FalkorDB algorithm run over the Baltimore subgraph of <code>hikari_national</code> (findings 11).</div>
+        </div>
+        <span class="page-eid-chip">PAGE: GRAPH</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-6"><div class="card h-100" data-eid="GRAPH-census-providers-card"><div class="card-body py-2">
+        <div class="text-muted small"><i class="bi bi-people me-1"></i>Region providers in subgraph</div>
+        <div class="fs-3 fw-bold" id="GRAPH-census-providers">—</div>
+        <div class="small text-secondary">Provider{state:'MD'} · city in the 133-city metro set</div></div></div></div>
+      <div class="col-md-6"><div class="card h-100" data-eid="GRAPH-census-facilities-card"><div class="card-body py-2">
+        <div class="text-muted small"><i class="bi bi-hospital me-1"></i>Region facilities</div>
+        <div class="fs-3 fw-bold" id="GRAPH-census-facilities">—</div>
+        <div class="small text-secondary">7-county FIPS set or metro city</div></div></div></div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — subtle one-line badge, rendered by common.js -->
+    <div id="GRAPH-md-host"></div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-share me-1"></i>Region provider edge census</div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="GRAPH-edge-census" data-eid="GRAPH-edge-census"></table>
+      </div></div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+        <span class="fw-semibold"><i class="bi bi-bezier2 me-1"></i>Degree / membership centrality — top connectivity providers</span>
+        <span class="small text-muted" id="GRAPH-degree-env" data-eid="GRAPH-degree-env"></span>
+      </div>
+      <div class="card-body p-0"><div class="table-responsive graph-table-wrap" id="GRAPH-pagerank-table" data-eid="GRAPH-pagerank-table"></div></div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+            <span class="fw-semibold"><i class="bi bi-people-fill me-1"></i>Largest communities of care</span>
+            <span class="small text-muted" id="GRAPH-community-env" data-eid="GRAPH-community-env"></span>
+          </div>
+          <div class="card-body p-0"><div class="table-responsive" id="GRAPH-community-table" data-eid="GRAPH-community-table"></div></div>
+          <div class="card-footer bg-transparent small text-muted" id="GRAPH-wcc-note" data-eid="GRAPH-wcc-note"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+            <span class="fw-semibold"><i class="bi bi-capsule me-1"></i>Drug hubs (shared-drug nodes)</span>
+            <span class="small text-muted" id="GRAPH-drug-env" data-eid="GRAPH-drug-env"></span>
+          </div>
+          <div class="card-body p-0"><div class="table-responsive" id="GRAPH-drug-table" data-eid="GRAPH-drug-table"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-rocket-takeoff me-1"></i>Techstars anchor 2-hop reach (BILLS_THROUGH backbone)</div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="GRAPH-anchor-table" data-eid="GRAPH-anchor-table"></table>
+      </div></div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-exclamation-octagon me-1"></i>Structurally-flat algorithms (recorded facts)</div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="GRAPH-flat-table" data-eid="GRAPH-flat-table"></table>
+      </div></div>
+    </div>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Click any algorithm row / name cell for its Cypher + envelope + source query.
+      Load-bearing claims use COMPLETE edges (MEMBER_OF, BILLS_THROUGH); PRACTICES_AT results are provisional (C-5).
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../assets/page-graph.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

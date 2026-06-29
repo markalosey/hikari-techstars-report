@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TGT — Targets (groups &amp; providers) · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="targets" data-sr-map="1" id="page-TGT">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-bullseye me-2" style="color: var(--hikari-service);"></i>Targets</h3>
+          <div class="text-secondary small">Group practices &amp; providers ranked by recoverable $ — top / median / bottom.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: TGT</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4"><div class="card figure-card h-100" data-figure-id="groups_table" data-eid="TGT-groups-count">
+        <div class="card-body py-2"><div class="text-muted small">Target group practices</div>
+          <div class="fs-3 fw-bold" id="TGT-groups-n">—</div><div class="small text-secondary">via org_pac_id (BILLS_THROUGH)</div></div></div></div>
+      <div class="col-md-4"><div class="card figure-card h-100" data-figure-id="providers_table" data-eid="TGT-providers-count">
+        <div class="card-body py-2"><div class="text-muted small">Scored providers</div>
+          <div class="fs-3 fw-bold" id="TGT-providers-n">—</div><div class="small text-secondary">pre-fit ranking</div></div></div></div>
+      <div class="col-md-4"><div class="card h-100" data-eid="TGT-solo-card">
+        <div class="card-body py-2"><div class="text-muted small">Solo / unassigned providers</div>
+          <div class="fs-3 fw-bold" id="TGT-solo-oppty">—</div><div class="small text-secondary">aggregate annual oppty</div></div></div></div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — rendered by common.js renderMdLayer -->
+    <div id="TGT-md-host"></div>
+
+    <!-- Missing-quality (no MIPS) panel — the absence-of-quality signal AHEAD's EPCP rewards closing -->
+    <div class="card mb-4" data-eid="TGT-missingq-panel">
+      <div class="card-header bg-transparent fw-semibold d-flex justify-content-between align-items-center flex-wrap">
+        <span><i class="bi bi-patch-question me-1"></i>Missing-quality (no CMS MIPS score) — region clusters</span>
+        <span class="md-badge"><i class="bi bi-layers-half"></i>AHEAD quality gap</span>
+      </div>
+      <div class="card-body">
+        <p class="text-secondary small" id="TGT-missingq-headline" data-eid="TGT-missingq-headline"></p>
+        <div class="row g-3">
+          <div class="col-lg-5">
+            <div class="metro-profile-card h-100">
+              <div id="TGT-missingq-map" class="metro-map" data-eid="TGT-missingq-map"></div>
+              <div class="px-3 pb-2 text-muted small"><i class="bi bi-info-circle me-1"></i>Shaded by % of region providers with no MIPS score (higher = redder).</div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-2 mb-2" id="TGT-missingq-tiles" data-eid="TGT-missingq-tiles"></div>
+            <div class="table-responsive"><table class="table table-sm hikari-table mb-0" id="TGT-missingq-table" data-eid="TGT-missingq-table"></table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maryland AHEAD scorecard (DS-5) — measures mapped to our experiments (e7 / e6) -->
+    <div id="TGT-md-scorecard-host"></div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-bar-chart me-1"></i>Top group practices by annual opportunity</div>
+      <div class="card-body"><div id="TGT-group-chart" class="section-chart" data-eid="TGT-group-chart"></div></div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-diagram-2 me-1"></i>Target group practices — top / median / bottom</div>
+      <div class="card-body p-0"><div class="table-responsive" id="TGT-groups-table" data-eid="TGT-groups-table"></div></div>
+    </div>
+
+    <div class="alert alert-warning" data-eid="TGT-fit-caveat-box">
+      <strong><i class="bi bi-funnel me-1"></i>Pre-fit caveat:</strong>
+      <span id="TGT-fit-caveat"></span>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-person-vcard me-1"></i>Target providers — top / median / bottom (pre-fit)</div>
+      <div class="card-body p-0"><div class="table-responsive" id="TGT-providers-table" data-eid="TGT-providers-table"></div></div>
+    </div>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Click any name cell for the rollup formula + source query.
+      <code>leverage_score</code> (E3) and <code>fit_flags</code> (E6) are NULL placeholders — the ranking is the raw recoverable-$ upper envelope.
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../data/baltimore_metro.geo.js"></script>
+  <script src="../assets/page-targets.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

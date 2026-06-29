@@ -1,0 +1,360 @@
+/* Hikari — minimal custom styles */
+/* VENDORED COPY of src/hikari/ui/static/hikari/hikari.css (do NOT edit the original).
+ * Imported by the multi-page special_reports preview so it matches the production look. */
+
+:root {
+    --hikari-primary: #0d6efd;
+    --hikari-dark: #212529;
+    --hikari-sidebar-width: 280px;
+
+    /* Quality semantic colors (RFC-006 R-36) */
+    --hikari-quality-good: #198754;
+    --hikari-quality-warning: #ffc107;
+    --hikari-quality-poor: #dc3545;
+    --hikari-quality-na: #6c757d;
+
+    /* Entity type colors (RFC-006 R-1) */
+    --hikari-provider: #0d6efd;
+    --hikari-facility: #dc3545;
+    --hikari-aco: #6f42c1;
+    --hikari-organization: #198754;
+    --hikari-group-practice: #0dcaf0;
+    --hikari-specialty: #ffc107;
+    --hikari-geography: #6c757d;
+    --hikari-quality-measure: #6610f2;
+    --hikari-service: #e85d04;
+    --hikari-drug: #d63384;
+
+    /* Semantic text tokens (RFC-015 R-020) */
+    --hikari-text-primary: #212529;
+    --hikari-text-secondary: #495057;
+    --hikari-text-muted: #6c757d;
+
+    /* Surface tokens (RFC-015 R-020) */
+    --hikari-surface-primary: #ffffff;
+    --hikari-surface-secondary: #f8f9fa;
+    --hikari-surface-hover: #f0f4ff;
+
+    /* Spacing tokens (RFC-015 R-020) */
+    --hikari-spacing-xs: 0.25rem;
+    --hikari-spacing-sm: 0.5rem;
+    --hikari-spacing-md: 1rem;
+    --hikari-spacing-lg: 1.5rem;
+    --hikari-spacing-xl: 2rem;
+
+    /* Border/chrome tokens (RFC-015 R-023 — ECharts theme) */
+    --hikari-border-default: #dee2e6;
+    --hikari-border-subtle: #e9ecef;
+    --hikari-border-muted: #adb5bd;
+    --hikari-primary-subtle: #cfe2ff;
+
+    /* Signal tokens (RFC-015 R-021) */
+    --hikari-signal-green: #198754;
+    --hikari-signal-yellow: #ffc107;
+    --hikari-signal-red: #dc3545;
+}
+
+/* Signal classes — quality comparison indicators (RFC-015 R-022)
+ * Applied via `comparison` field from query return values (R-005).
+ * Text color variants: */
+.hikari-signal-better { color: var(--hikari-signal-green); }
+.hikari-signal-same   { color: var(--hikari-signal-yellow); }
+.hikari-signal-worse  { color: var(--hikari-signal-red); }
+
+/* Background variants: */
+.hikari-signal-better-bg { background-color: var(--hikari-signal-green); color: #fff; }
+.hikari-signal-same-bg   { background-color: var(--hikari-signal-yellow); color: var(--hikari-text-primary); }
+.hikari-signal-worse-bg  { background-color: var(--hikari-signal-red); color: #fff; }
+
+/* Hero verdict — star rating + domain indicators */
+.hikari-hero-verdict {}
+.hikari-hero-stars { line-height: 1; }
+
+/* Domain indicator cards in hero section */
+.hikari-domain-card {
+    border: 1px solid var(--hikari-border-subtle);
+    background: var(--hikari-surface-secondary);
+    transition: border-color 0.15s ease;
+}
+.hikari-domain-card.hikari-domain-active {
+    border-color: var(--hikari-signal-green);
+    background: #f0fdf4;
+}
+.hikari-domain-card.hikari-domain-nodata {
+    border-color: var(--hikari-border-subtle);
+    opacity: 0.65;
+}
+
+/* Domain status dot */
+.hikari-domain-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-bottom: 2px;
+}
+.hikari-domain-dot-active {
+    background-color: var(--hikari-signal-green);
+}
+.hikari-domain-dot-nodata {
+    background-color: var(--hikari-text-muted);
+}
+
+/* Layout */
+.hikari-layout {
+    display: flex;
+    min-height: calc(100vh - 56px);
+}
+
+.hikari-sidebar {
+    width: var(--hikari-sidebar-width);
+    min-width: var(--hikari-sidebar-width);
+    background: #fff;
+    border-right: 1px solid #e9ecef;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+/* Sidebar nav-pills: subtle hover, no background on inactive */
+.hikari-sidebar .nav-link {
+    color: #495057;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hikari-sidebar .nav-link:hover {
+    background-color: #f0f4ff;
+    color: var(--hikari-primary);
+}
+.hikari-sidebar .nav-link.active {
+    background-color: var(--hikari-primary);
+    color: #fff;
+}
+
+.hikari-main {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Summary cards */
+.hikari-stat-card {
+    border-left: 4px solid var(--hikari-primary);
+}
+
+a.hikari-stat-card {
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+a.hikari-stat-card:hover {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.hikari-stat-card .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--hikari-dark);
+}
+
+.hikari-stat-card .stat-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Ranked list */
+.hikari-ranked-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hikari-ranked-list .rank-badge {
+    min-width: 2rem;
+    text-align: center;
+}
+
+/* Distribution table */
+.hikari-distribution td.bar-cell {
+    position: relative;
+}
+
+.hikari-distribution .bar {
+    height: 1.25rem;
+    background: var(--hikari-primary);
+    opacity: 0.7;
+    border-radius: 2px;
+    min-width: 2px;
+}
+
+/* HTMX loading indicator */
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request .htmx-indicator {
+    display: inline-block;
+}
+
+.htmx-request.htmx-indicator {
+    display: inline-block;
+}
+
+/* Clickable rows */
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Entity type color utilities (RFC-006 R-1) — extends Bootstrap text-/bg- */
+.text-aco { color: var(--hikari-aco); }
+.bg-aco { background-color: var(--hikari-aco); color: white; }
+.text-quality-measure { color: var(--hikari-quality-measure); }
+.bg-quality-measure { background-color: var(--hikari-quality-measure); color: white; }
+.text-service { color: var(--hikari-service); }
+.bg-service { background-color: var(--hikari-service); color: white; }
+.text-drug { color: var(--hikari-drug); }
+.bg-drug { background-color: var(--hikari-drug); color: white; }
+
+/* Entity card border — color by data-entity-type attribute */
+.hikari-entity-card { border-left: 4px solid var(--hikari-primary); }
+.hikari-entity-card[data-entity-type="provider"] { border-left-color: var(--hikari-provider); }
+.hikari-entity-card[data-entity-type="facility"] { border-left-color: var(--hikari-facility); }
+.hikari-entity-card[data-entity-type="aco"] { border-left-color: var(--hikari-aco); }
+.hikari-entity-card[data-entity-type="organization"] { border-left-color: var(--hikari-organization); }
+.hikari-entity-card[data-entity-type="group_practice"] { border-left-color: var(--hikari-group-practice); }
+.hikari-entity-card[data-entity-type="specialty"] { border-left-color: var(--hikari-specialty); }
+.hikari-entity-card[data-entity-type="geography"] { border-left-color: var(--hikari-geography); }
+.hikari-entity-card[data-entity-type="quality_measure"] { border-left-color: var(--hikari-quality-measure); }
+.hikari-entity-card[data-entity-type="service"] { border-left-color: var(--hikari-service); }
+.hikari-entity-card[data-entity-type="drug"] { border-left-color: var(--hikari-drug); }
+
+/* Entity card hover — clickable cards with subtle lift effect */
+.hikari-entity-card {
+    cursor: pointer;
+    transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+.hikari-entity-card:hover {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Domain accordion — entity-type color accent on expanded header */
+#facility-domains .accordion-button:not(.collapsed) {
+    border-left: 3px solid var(--hikari-facility);
+    color: var(--hikari-text-primary);
+    background-color: var(--hikari-surface-secondary);
+}
+
+/* Entity-type color overrides for accordion accent */
+[data-entity-type="provider"] #facility-domains .accordion-button:not(.collapsed) {
+    border-left-color: var(--hikari-provider);
+}
+[data-entity-type="geography"] #facility-domains .accordion-button:not(.collapsed) {
+    border-left-color: var(--hikari-geography);
+}
+[data-entity-type="aco"] #facility-domains .accordion-button:not(.collapsed) {
+    border-left-color: var(--hikari-aco);
+}
+
+/* HTMX lazy-load skeleton (RFC-006 R-5) */
+.hikari-skeleton {
+    min-height: 4rem;
+}
+.hikari-skeleton .placeholder {
+    opacity: 0.3;
+}
+
+/* Micro popovers (RFC-006 R-6) */
+.hikari-popover {
+    max-width: 360px;
+}
+.hikari-popover .popover-body {
+    padding: 0;
+}
+
+/* Entity refs — clickable inline references with popover support */
+.entity-ref {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+    cursor: pointer;
+}
+.entity-ref:hover {
+    color: var(--hikari-primary);
+}
+
+/* R-9: Disable popover hover on touch devices — tap navigates directly */
+@media (hover: none) {
+    .entity-ref {
+        border-bottom: none;
+    }
+}
+
+/* Search typeahead (RFC-008 R-29) */
+.hikari-typeahead {
+    position: relative;
+}
+
+.hikari-typeahead-spinner {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.hikari-typeahead-results {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    background: #fff;
+    border-radius: 0 0 0.375rem 0.375rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    max-height: 360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.hikari-typeahead-results:empty {
+    display: none;
+}
+
+.hikari-typeahead-list .list-group-item {
+    border-left: 0;
+    border-right: 0;
+    transition: background-color 0.1s ease;
+}
+
+.hikari-typeahead-list .list-group-item:first-child {
+    border-top: 0;
+}
+
+.hikari-typeahead-list .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.hikari-typeahead-list .list-group-item:hover,
+.hikari-typeahead-list .list-group-item:focus {
+    background-color: #f0f4ff;
+}
+
+/* Responsive: collapse sidebar on small screens */
+@media (max-width: 768px) {
+    .hikari-layout {
+        flex-direction: column;
+    }
+
+    .hikari-sidebar {
+        width: 100%;
+        min-width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+}

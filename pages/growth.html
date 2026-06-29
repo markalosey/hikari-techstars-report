@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GROW — Growth contacts (mentor network) · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="growth" id="page-GROW">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-graph-up-arrow me-2" style="color: var(--hikari-signal-green);"></i>Growth — mentor-network contacts</h3>
+          <div class="text-secondary small">The contact list Emily McLanahan asked for: who's reachable through each Techstars mentor, ranked by recoverable $.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: GROW</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <p class="text-secondary" id="GROW-intro" data-eid="GROW-intro"></p>
+
+    <!-- Strongest warm path -->
+    <div class="card figure-card mb-4" id="GROW-warmpath" data-figure-id="growth_warmpath" data-eid="GROW-warmpath"
+         style="border:1px solid var(--hikari-signal-green);">
+      <div class="kpi-band" style="background: var(--hikari-signal-green);"></div>
+      <div class="card-body"></div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — rendered by common.js renderMdLayer -->
+    <div id="GROW-md-host"></div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-diagram-3 me-1"></i>Reach per mentor / institution (E8)</div>
+      <div class="card-body p-0"><div class="table-responsive"><table class="table table-sm hikari-table mb-0" id="GROW-reach-table" data-eid="GROW-reach-table"></table></div></div>
+    </div>
+    <p class="text-muted small mb-4" id="GROW-carefirst-note" data-eid="GROW-carefirst-note"></p>
+
+    <div class="card mb-4">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-bullseye me-1"></i>Top mentor-reachable group contacts (E2-scored, ranked by recoverable $)</div>
+      <div class="card-body"><div id="GROW-group-chart" class="section-chart" data-eid="GROW-group-chart"></div></div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-body p-0"><div class="table-responsive"><table class="table table-sm hikari-table mb-0" id="GROW-group-table" data-eid="GROW-group-table"></table></div></div>
+    </div>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Click the warm-path card or a group row for the rollup formula + source query.
+      Reach uses COMPLETE edges (BILLS_THROUGH / MEMBER_OF / org-name match); facility-ownership reach is provisional (C-5) and never ranks a contact.
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../assets/page-growth.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AHEAD — Maryland AHEAD (the payment-model layer) · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="ahead" id="page-AHEAD">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-bank2 me-2" style="color: var(--hikari-maryland);"></i>Maryland AHEAD <span class="md-badge align-middle"><i class="bi bi-layers-half"></i>Maryland AHEAD</span></h3>
+          <div class="text-secondary small">The payment-model layer — why Maryland changes the care-management math. The "we researched AHEAD" beat.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: AHEAD</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <!-- Layer banner: AHEAD = a SEPARATE intelligence layer (spec §4j) -->
+    <div class="alert d-flex flex-column gap-2" id="AHEAD-layer-banner" data-eid="AHEAD-layer-banner"
+         style="border:1px solid var(--hikari-maryland); background: rgba(184,15,58,0.04);">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+        <div class="small text-secondary" id="AHEAD-intro" data-eid="AHEAD-intro"></div>
+        <div id="AHEAD-legend" data-eid="AHEAD-legend"></div>
+      </div>
+      <div class="small text-muted" id="AHEAD-layer-note" data-eid="AHEAD-layer-note"></div>
+    </div>
+
+    <!-- The 5 AHEAD context cards (rendered by page-ahead.js) -->
+    <div class="row g-3 mb-3" id="AHEAD-grid" data-eid="AHEAD-grid"></div>
+
+    <!-- ===== Maryland AHEAD — grabbed datasets (REAL Maryland values, findings/15) ===== -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-4 mb-2"
+         id="AHEAD-md-section" data-eid="AHEAD-md-section">
+      <h4 class="mb-0">
+        <i class="bi bi-database-down me-2" style="color: var(--hikari-maryland);"></i>Maryland AHEAD — grabbed datasets
+        <span class="md-badge align-middle"><i class="bi bi-layers-half"></i>Maryland AHEAD</span>
+      </h4>
+      <div id="AHEAD-md-section-legend" data-eid="AHEAD-md-section-legend"></div>
+    </div>
+    <p class="text-secondary small mb-3" id="AHEAD-md-section-note" data-eid="AHEAD-md-section-note"></p>
+
+    <!-- Maryland stat cards — each .md-card, click → source URL in the provenance drawer -->
+    <div class="row g-3 mb-3" id="AHEAD-md-grid" data-eid="AHEAD-md-grid"></div>
+
+    <!-- Maryland savings LINE — distinct crimson/dashed "Maryland AHEAD" series (the literal Maryland data line) -->
+    <div class="card md-card mb-4 figure-card" id="AHEAD-md-savings-card" data-figure-id="AHEAD-md-savings-trend" data-eid="AHEAD-md-savings-card">
+      <div class="kpi-band"></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+          <div>
+            <h5 class="card-title mb-1" id="AHEAD-md-savings-title" data-eid="AHEAD-md-savings-title"></h5>
+            <div class="text-secondary small mb-2" id="AHEAD-md-savings-subtitle" data-eid="AHEAD-md-savings-subtitle"></div>
+          </div>
+          <div id="AHEAD-md-savings-legend" data-eid="AHEAD-md-savings-legend"></div>
+        </div>
+        <div id="AHEAD-md-savings-chart" class="section-chart" data-eid="AHEAD-md-savings-trend"></div>
+        <div class="small text-muted mt-2" id="AHEAD-md-savings-note" data-eid="AHEAD-md-savings-note"></div>
+      </div>
+    </div>
+
+    <!-- Distinct-series demo chart (spec §4j) -->
+    <div class="card md-card mb-4 figure-card" id="AHEAD-ma-chart-card" data-figure-id="ahead_ma_series" data-eid="AHEAD-ma-chart-card">
+      <div class="kpi-band"></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+          <div>
+            <h5 class="card-title mb-1" id="AHEAD-ma-chart-title" data-eid="AHEAD-ma-chart-title"></h5>
+            <div class="text-secondary small mb-2" id="AHEAD-ma-chart-subtitle" data-eid="AHEAD-ma-chart-subtitle"></div>
+          </div>
+          <div id="AHEAD-ma-chart-legend" data-eid="AHEAD-ma-chart-legend"></div>
+        </div>
+        <div id="AHEAD-ma-chart" class="section-chart" data-eid="AHEAD-ma-chart"></div>
+        <div class="small text-muted mt-2" id="AHEAD-ma-chart-note" data-eid="AHEAD-ma-chart-note"></div>
+      </div>
+    </div>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Every figure on this page is Maryland/AHEAD-sourced (findings 01j/01k) and
+      rendered as a distinct <span class="md-badge"><i class="bi bi-layers-half"></i>Maryland AHEAD</span> layer —
+      never merged with our <span class="hk-badge"><i class="bi bi-database"></i>Hikari (CMS)</span> series (spec §4j).
+      Click any card for its source citation. We don't have Maryland MCDB (all-payer claims) yet — real Maryland
+      data lines drop into this structure later.
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../assets/page-ahead.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

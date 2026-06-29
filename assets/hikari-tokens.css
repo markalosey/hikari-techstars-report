@@ -1,0 +1,556 @@
+/* Hikari preview helpers — multi-page /explore/techstars lab prototype.
+ *
+ * The :root token block below mirrors src/hikari/ui/static/hikari/hikari.css. As of the
+ * multi-page rebuild the real hikari.css is ALSO vendored (assets/hikari.css) and imported
+ * first, so these tokens are redundant-but-identical (kept so this file renders standalone
+ * and the ECharts theme has its CSS vars even if load order changes). Everything below the
+ * :root block is preview-only chrome: the metro profile card, figure cards, hikari-table
+ * look, the secret-sauce drawer, the lab card-grid landing, the roster + sports drawers,
+ * and the graph-algorithm tables. */
+
+:root {
+    --hikari-primary: #0d6efd;
+    --hikari-dark: #212529;
+
+    /* Quality semantic colors (RFC-006 R-36) */
+    --hikari-quality-good: #198754;
+    --hikari-quality-warning: #ffc107;
+    --hikari-quality-poor: #dc3545;
+    --hikari-quality-na: #6c757d;
+
+    /* Entity type colors (RFC-006 R-1) */
+    --hikari-provider: #0d6efd;
+    --hikari-facility: #dc3545;
+    --hikari-aco: #6f42c1;
+    --hikari-organization: #198754;
+    --hikari-group-practice: #0dcaf0;
+    --hikari-specialty: #ffc107;
+    --hikari-geography: #6c757d;
+    --hikari-quality-measure: #6610f2;
+    --hikari-service: #e85d04;
+    --hikari-drug: #d63384;
+
+    /* Semantic text tokens (RFC-015 R-020) */
+    --hikari-text-primary: #212529;
+    --hikari-text-secondary: #495057;
+    --hikari-text-muted: #6c757d;
+
+    /* Surface tokens (RFC-015 R-020) */
+    --hikari-surface-primary: #ffffff;
+    --hikari-surface-secondary: #f8f9fa;
+    --hikari-surface-hover: #f0f4ff;
+
+    /* Spacing tokens (RFC-015 R-020) */
+    --hikari-spacing-xs: 0.25rem;
+    --hikari-spacing-sm: 0.5rem;
+    --hikari-spacing-md: 1rem;
+    --hikari-spacing-lg: 1.5rem;
+    --hikari-spacing-xl: 2rem;
+
+    /* Border/chrome tokens (RFC-015 R-023 — ECharts theme) */
+    --hikari-border-default: #dee2e6;
+    --hikari-border-subtle: #e9ecef;
+    --hikari-border-muted: #adb5bd;
+    --hikari-primary-subtle: #cfe2ff;
+
+    /* Signal tokens (RFC-015 R-021) */
+    --hikari-signal-green: #198754;
+    --hikari-signal-yellow: #ffc107;
+    --hikari-signal-red: #dc3545;
+
+    /* Maryland AHEAD = a SEPARATE intelligence layer (spec §4j). Distinct crimson so any
+       Maryland/AHEAD figure is visibly never merged with our Hikari (CMS) blue series. */
+    --hikari-maryland: #b80f3a;
+}
+
+/* Signal classes (RFC-015 R-022) */
+.hikari-signal-better { color: var(--hikari-signal-green); }
+.hikari-signal-same   { color: var(--hikari-signal-yellow); }
+.hikari-signal-worse  { color: var(--hikari-signal-red); }
+
+/* ---- Preview-only helpers for /explore/techstars showcase ---- */
+
+body { background: var(--hikari-surface-secondary); color: var(--hikari-text-primary); }
+
+/* The metro "profile" choropleth card — boxed/framed like an avatar */
+.metro-profile-card {
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 0.75rem;
+    background: var(--hikari-surface-primary);
+    overflow: hidden;
+}
+.metro-profile-card .metro-map { width: 100%; height: 320px; }
+
+/* KPI / answer cards — clickable (every card opens the drawer) */
+.figure-card {
+    cursor: pointer;
+    border: 1px solid var(--hikari-border-subtle);
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.figure-card:hover {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+    border-color: var(--hikari-primary-subtle);
+}
+.figure-card .kpi-band {
+    height: 4px;
+    background: var(--hikari-primary);
+}
+
+/* vs-nation arrows (neutral palette — direction only, no value judgment) */
+.vs-up   { color: var(--hikari-service); }   /* metro above national */
+.vs-down { color: var(--hikari-primary); }   /* metro below national */
+.vs-par  { color: var(--hikari-text-muted); }
+
+/* Outlier placeholder cards */
+.outlier-pending {
+    border: 1px dashed var(--hikari-border-muted);
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #fafbfc 10px, #fafbfc 20px);
+    opacity: 0.85;
+}
+
+/* Answer card (the headline of each accordion's four-layer pattern) */
+.answer-card {
+    border-left: 4px solid var(--hikari-primary);
+    background: var(--hikari-surface-primary);
+}
+
+/* django-tables2-style table look */
+.hikari-table thead th {
+    background: var(--hikari-surface-secondary);
+    border-bottom: 2px solid var(--hikari-border-default);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--hikari-text-secondary);
+}
+.hikari-table tbody tr.row-top    { background: #f0fdf4; }
+.hikari-table tbody tr.row-median { background: #fffdf0; }
+.hikari-table tbody tr.row-bottom { background: #fff5f5; }
+.hikari-table td, .hikari-table th { font-size: 0.85rem; vertical-align: middle; }
+
+.section-chart { width: 100%; height: 360px; }
+
+/* Drawer "secret sauce" code block */
+.secret-sauce pre {
+    background: var(--hikari-dark);
+    color: #e6edf3;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    overflow-x: auto;
+}
+.secret-sauce .formula-box {
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-family: var(--bs-font-monospace);
+    font-size: 0.85rem;
+}
+.layer-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hikari-text-muted);
+    font-weight: 600;
+}
+
+/* ============================================================
+ * Multi-page rebuild — lab landing, page chrome, roster/sports
+ * ============================================================ */
+
+/* Lab-style card-grid landing (like /_lab/) */
+.lab-card {
+    border: 1px solid var(--hikari-border-subtle);
+    border-left: 4px solid var(--hikari-primary);
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    height: 100%;
+}
+.lab-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+.lab-card .lab-card-stat {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--hikari-dark);
+    line-height: 1.1;
+}
+.lab-card .lab-card-icon { font-size: 1.5rem; }
+/* per-card accent colours (entity palette) */
+.lab-card[data-accent="hero"]    { border-left-color: var(--hikari-geography); }
+.lab-card[data-accent="opp"]     { border-left-color: var(--hikari-signal-green); }
+.lab-card[data-accent="foot"]    { border-left-color: var(--hikari-group-practice); }
+.lab-card[data-accent="targets"] { border-left-color: var(--hikari-service); }
+.lab-card[data-accent="graph"]   { border-left-color: var(--hikari-quality-measure); }
+.lab-card[data-accent="tech"]    { border-left-color: var(--hikari-aco); }
+.lab-card[data-accent="sports"]  { border-left-color: var(--hikari-facility); }
+.lab-card[data-accent="ahead"]   { border-left-color: var(--hikari-maryland); }
+.lab-card[data-accent="fac"]     { border-left-color: var(--hikari-facility); }
+.lab-card[data-accent="grow"]    { border-left-color: var(--hikari-signal-green); }
+/* AHEAD landing card reads as the headline beat */
+.lab-card[data-accent="ahead"]   { border-left-width: 5px; background: linear-gradient(180deg, #fff, #fff6f8); }
+
+/* ============================================================
+ * Maryland AHEAD = SEPARATE data layer (spec §4j)
+ * Distinct badges, dual-legend, and a card accent so a Maryland/AHEAD
+ * figure is always visibly its own layer (never merged with Hikari/CMS).
+ * ============================================================ */
+.md-badge,
+.hk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 1rem;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+.md-badge {
+    color: var(--hikari-maryland);
+    background: rgba(184, 15, 58, 0.08);
+    border: 1px solid var(--hikari-maryland);
+}
+.hk-badge {
+    color: var(--hikari-primary);
+    background: var(--hikari-primary-subtle);
+    border: 1px solid var(--hikari-primary);
+}
+.md-badge .md-badge-extra { font-weight: 600; text-transform: none; letter-spacing: 0; opacity: 0.85; }
+
+/* AHEAD page card — its own crimson layer, dashed to echo the dashed Maryland chart line */
+.md-card {
+    border: 1px solid var(--hikari-border-subtle);
+    border-left: 4px solid var(--hikari-maryland) !important;
+}
+.md-card .kpi-band { background: var(--hikari-maryland); }
+.md-stat {
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.7rem;
+}
+.md-stat .md-stat-value { font-size: 1.2rem; font-weight: 700; color: var(--hikari-maryland); line-height: 1.1; }
+.md-stat .md-stat-label { font-size: 0.72rem; color: var(--hikari-text-muted); }
+
+/* Reusable Maryland AHEAD CONTEXT STRIP — the cross-page layer (spec §4j).
+   Same crimson treatment everywhere so it's unmistakably a SEPARATE layer from Hikari (CMS). */
+.md-context-strip {
+    display: flex;
+    gap: 0.75rem;
+    align-items: stretch;
+    background: rgba(184, 15, 58, 0.045);
+    border: 1px solid var(--hikari-maryland);
+    border-radius: 0.6rem;
+    padding: 0.7rem 0.9rem 0.7rem 0;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.md-context-strip .md-context-strip-accent {
+    flex: 0 0 4px;
+    background: var(--hikari-maryland);
+    align-self: stretch;
+}
+.md-context-strip .md-context-strip-main { flex: 1 1 auto; min-width: 0; }
+.md-context-strip .md-context-strip-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+.md-context-strip .md-context-info {
+    color: var(--hikari-maryland);
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+    display: inline-flex;
+}
+.md-context-strip .md-context-strip-body { font-size: 0.85rem; color: var(--hikari-text-secondary); }
+.md-context-strip .md-context-strip-body strong,
+.md-context-strip .md-context-strip-body b { color: var(--hikari-maryland); }
+.md-context-strip .md-spark { width: 100%; height: 60px; margin-top: 0.4rem; }
+/* Compact one-liner variant (graph / techstars / sports) — badge + ⓘ + text on one row */
+.md-context-strip--inline { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+.md-context-strip--inline .md-context-strip-main {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+.md-context-strip--inline .md-context-strip-head { margin-bottom: 0; }
+
+/* Dual legend — always show both layers side by side */
+.md-dual-legend {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--hikari-text-secondary);
+}
+.md-legend-item { display: inline-flex; align-items: center; gap: 0.4rem; }
+.md-legend-swatch { display: inline-block; width: 22px; height: 0; border-top-width: 3px; border-top-style: solid; }
+.md-legend-hk { border-top-color: var(--hikari-primary); }
+.md-legend-md { border-top-color: var(--hikari-maryland); border-top-style: dashed; }
+
+/* AHEAD payment-model timeline */
+.ahead-timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.ahead-timeline li {
+    position: relative;
+    padding: 0 0 0.9rem 1.4rem;
+    border-left: 2px solid var(--hikari-maryland);
+}
+.ahead-timeline li:last-child { padding-bottom: 0; }
+.ahead-timeline li::before {
+    content: "";
+    position: absolute;
+    left: -0.42rem;
+    top: 0.15rem;
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 50%;
+    background: var(--hikari-maryland);
+    border: 2px solid #fff;
+}
+.ahead-timeline .ahead-year { font-weight: 700; color: var(--hikari-maryland); font-size: 0.85rem; }
+.ahead-timeline .ahead-event { font-size: 0.85rem; color: var(--hikari-text-secondary); }
+
+/* Hero sparkline tiles (e12 story-of-time) */
+.spark-card { border: 1px solid var(--hikari-border-subtle); }
+.spark-chart { width: 100%; height: 46px; }
+.spark-delta-up   { color: var(--hikari-service); font-weight: 700; }
+.spark-delta-down { color: var(--hikari-primary); font-weight: 700; }
+
+/* Page header band shared across exploration pages */
+.page-band {
+    background: linear-gradient(180deg, var(--hikari-surface-primary), var(--hikari-surface-secondary));
+    border-bottom: 1px solid var(--hikari-border-default);
+}
+.page-eid-chip {
+    font-family: var(--bs-font-monospace);
+    font-size: 0.7rem;
+    color: var(--hikari-text-muted);
+    border: 1px dashed var(--hikari-border-muted);
+    border-radius: 0.375rem;
+    padding: 0.1rem 0.4rem;
+}
+
+/* Techstars hero card — stat pills */
+.techstars-card { border: 1px solid var(--hikari-aco); }
+.techstars-card .kpi-band { background: var(--hikari-aco); }
+.stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 2rem;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Roster drawer — person rows with photo */
+.roster-row {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--hikari-border-subtle);
+}
+.roster-row:last-child { border-bottom: none; }
+.roster-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 56px;
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+}
+.roster-pin {
+    border-left: 3px solid var(--hikari-primary);
+    padding-left: 0.55rem;
+}
+.roster-in-data {
+    border-left: 3px solid var(--hikari-signal-green);
+    padding-left: 0.55rem;
+}
+.roster-section-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hikari-text-muted);
+    font-weight: 700;
+    margin: 0.75rem 0 0.25rem;
+}
+
+/* Roster grid cards (techstars page) */
+.person-card { border: 1px solid var(--hikari-border-subtle); height: 100%; transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.person-card.figure-card:hover { transform: translateY(-2px); }
+.person-card .person-photo {
+    width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--hikari-border-default);
+}
+.person-card.in-data { border-color: var(--hikari-signal-green); }
+.person-card.interviewer { border-color: var(--hikari-primary); }
+
+/* Sports cards + team doctor drawer */
+.team-card { border: 1px solid var(--hikari-border-subtle); height: 100%; }
+.team-logo { width: 96px; height: 96px; object-fit: contain; }
+.team-logo-sm { width: 40px; height: 40px; object-fit: contain; }
+.curl-stat {
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.8rem;
+}
+.curl-stat .curl-stat-value { font-size: 1.35rem; font-weight: 700; color: var(--hikari-dark); }
+.curl-stat .curl-stat-label { font-size: 0.75rem; color: var(--hikari-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Graph algorithm tables — compact, scrollable */
+.graph-table-wrap { max-height: 420px; overflow-y: auto; }
+.algo-status {
+    font-size: 0.7rem;
+    font-family: var(--bs-font-monospace);
+    border-radius: 0.25rem;
+    padding: 0.05rem 0.4rem;
+}
+.algo-status.ok { background: #f0fdf4; color: var(--hikari-signal-green); border: 1px solid var(--hikari-signal-green); }
+.algo-status.flat { background: #fffdf0; color: #997404; border: 1px solid var(--hikari-signal-yellow); }
+.algo-status.pending { background: #fff5f5; color: var(--hikari-signal-red); border: 1px dashed var(--hikari-signal-red); }
+
+/* ============================================================
+ * Persistent "Graph & MECS" proof/education side tab (spec §4h)
+ * A fixed graph-symbol tab docked on the right edge of every page
+ * (assets/graphinfo.js) → opens a Bootstrap offcanvas of pretty cards.
+ * ============================================================ */
+.graphinfo-tab {
+    position: fixed;
+    top: 38%;
+    right: 0;
+    z-index: 1035; /* below offcanvas (1045), above page chrome */
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid var(--hikari-quality-measure);
+    border-right: none;
+    background: var(--hikari-quality-measure);
+    color: #fff;
+    padding: 0.6rem 0.5rem;
+    border-radius: 0.6rem 0 0 0.6rem;
+    box-shadow: -0.15rem 0.15rem 0.6rem rgba(0, 0, 0, 0.18);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    cursor: pointer;
+    transition: padding-right 0.15s ease, background 0.15s ease;
+}
+.graphinfo-tab:hover { padding-right: 0.85rem; background: #520dc2; }
+.graphinfo-tab .graphinfo-tab-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.graphinfo-tab .bi { writing-mode: horizontal-tb; }
+
+.graphinfo-drawer { width: 540px; max-width: 92vw; }
+.graphinfo-card {
+    border: 1px solid var(--hikari-border-subtle);
+    border-left: 4px solid var(--hikari-quality-measure);
+}
+.graphinfo-card[data-accent="graph"]          { border-left-color: var(--hikari-quality-measure); }
+.graphinfo-card[data-accent="service"]        { border-left-color: var(--hikari-service); }
+.graphinfo-card[data-accent="quality-measure"]{ border-left-color: var(--hikari-quality-measure); }
+.graphinfo-card[data-accent="aco"]            { border-left-color: var(--hikari-aco); }
+.graphinfo-card-head {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+}
+.graphinfo-card-head .bi { font-size: 1.15rem; color: var(--hikari-quality-measure); }
+.graphinfo-kicker {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 700;
+    color: var(--hikari-text-muted);
+}
+.graphinfo-stat {
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.4rem;
+    text-align: center;
+}
+.graphinfo-stat-icon { font-size: 1rem; color: var(--hikari-quality-measure); }
+.graphinfo-stat-value { font-size: 1.15rem; font-weight: 700; color: var(--hikari-dark); line-height: 1.15; }
+.graphinfo-stat-label { font-size: 0.68rem; color: var(--hikari-text-muted); }
+.graphinfo-table td, .graphinfo-table th { font-size: 0.78rem; padding: 0.25rem 0.4rem; vertical-align: middle; }
+.graphinfo-table thead th {
+    background: var(--hikari-surface-secondary);
+    border-bottom: 1px solid var(--hikari-border-default);
+    text-transform: uppercase;
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+    color: var(--hikari-text-secondary);
+}
+.graphinfo-table code { font-size: 0.74rem; }
+.graphinfo-list { padding-left: 1.05rem; margin-bottom: 0.4rem; }
+.graphinfo-list li { color: var(--hikari-text-secondary); }
+.graphinfo-pill {
+    display: inline-block;
+    background: var(--hikari-surface-secondary);
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 1rem;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--hikari-text-secondary);
+}
+.graphinfo-source {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    color: var(--hikari-text-muted);
+    border-top: 1px dashed var(--hikari-border-subtle);
+    padding-top: 0.4rem;
+}
+
+/* MECS star-schema motif: dim_* center + radiating fact_* points */
+.mecs-star {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: radial-gradient(circle at center, var(--hikari-surface-secondary), #fff);
+    border: 1px dashed var(--hikari-aco);
+    border-radius: 0.6rem;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.mecs-star .mecs-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+}
+.mecs-star .mecs-point {
+    background: #fff;
+    border: 1px solid var(--hikari-border-default);
+    border-radius: 0.4rem;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.72rem;
+}
+.mecs-star .mecs-center {
+    background: var(--hikari-aco);
+    color: #fff;
+    border-radius: 2rem;
+    padding: 0.3rem 0.9rem;
+    font-weight: 700;
+    font-size: 0.82rem;
+}
+.mecs-star .mecs-center code, .mecs-star .mecs-point code { color: inherit; }
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baltimore Metro — Hikari /explore/techstars lab (landing)</title>
+
+  <!-- Bootstrap 5 + icons VENDORED locally (assets/vendor/) — no CDN, so the
+       preview works offline and by double-click (file://). Regenerate with build.py. -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- VENDORED production styling -->
+  <link rel="stylesheet" href="assets/hikari.css">
+  <!-- Preview-only helpers (lab grid, drawer, tables, sports/roster) -->
+  <link rel="stylesheet" href="assets/hikari-tokens.css">
+</head>
+<body data-sr-page="home" id="page-HOME">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-4 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <nav aria-label="breadcrumb" class="mb-2">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item">Hikari</li>
+          <li class="breadcrumb-item">Explore</li>
+          <li class="breadcrumb-item active" aria-current="page">Baltimore Metro — lab</li>
+        </ol>
+      </nav>
+      <div class="d-flex align-items-center gap-3 flex-wrap">
+        <i class="bi bi-flask fs-1" style="color: var(--hikari-aco);"></i>
+        <div>
+          <h2 class="mb-1" data-eid="HOME-title">Baltimore Metro — exploration lab</h2>
+          <p class="text-secondary mb-0" data-eid="HOME-subtitle">
+            Each card opens one self-contained exploration page. Static prototype for the
+            <code>/explore/techstars</code> pitch surface — pick which clusters become accordion
+            sections later. Every page + element is addressable via <code>data-eid</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+    <div class="row g-4" id="home-grid" data-eid="HOME-grid"></div>
+
+    <p class="text-muted small mt-4" data-eid="HOME-footnote">
+      <i class="bi bi-shield-lock me-1"></i>100% static. All numbers trace to the harness facts
+      (<code>raw/*.json</code> → <code>data/showcase.json</code>) and the findings (02, 03, 04, 08, 09, 10,
+      11, 12, 13, 14, 01b–01k). The <strong>Maryland AHEAD</strong> layer (findings 01j/01k) renders as a
+      <span class="md-badge"><i class="bi bi-layers-half"></i>Maryland AHEAD</span> series — distinct from our
+      <span class="hk-badge"><i class="bi bi-database"></i>Hikari (CMS)</span> series — and never merged
+      (spec §4j). Figures labeled "discovery pending" are not yet in the facts — not invented.
+    </p>
+  </main>
+
+  <!-- ECharts + Bootstrap VENDORED locally (no CDN) + embedded data (no fetch) -->
+  <script src="assets/vendor/echarts.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/echarts-hikari-theme.js"></script>
+  <script src="assets/hikari.js"></script>
+  <script>window.SR_BASE = "";</script>
+  <script src="data/showcase.data.js"></script>
+  <!-- Define SR_PAGE BEFORE common.js: boot() now runs synchronously (no fetch). -->
+  <script>
+    // Landing card content (summaries + headline stats from findings 02/03/04/11/12 + roster).
+    var HOME_CARDS = {
+      ahead:       { accent: "ahead",   color: "maryland",       summary: "★ The Maryland AHEAD beat: REAL Maryland datasets (DS-1…DS-5: TCOC savings line, ≈$689M net savings, growth-vs-cap, global budgets, AHEAD quality measures) merged in as a SEPARATE crimson \"Maryland AHEAD\" layer — distinct from our Hikari (CMS) figures.", stat: "Maryland data merged", statLabel: "5 real Maryland AHEAD datasets (DS-1…DS-5) · TCOC savings line" },
+      hero:        { accent: "hero",    color: "geography",      summary: "The 7-county MSA treated as an ENTITY: profile map, verdict, KPI tiles vs the nation, national outlier cards, story-of-time sparklines, 7-county table.", stat: "550,864", statLabel: "Medicare beneficiaries" },
+      opportunity: { accent: "opp",     color: "signal-green",   summary: "Population-anchored care-management addressable market: CCM/APCM + RPM + TCM, decomposed by lever.", stat: "$496.3M", statLabel: "Annual addressable market" },
+      footprint:   { accent: "foot",    color: "group-practice", summary: "Low Medicare-Advantage penetration → an uncapitated FFS population with near-zero CCM/RPM capture today.", stat: "25.1%", statLabel: "MA penetration vs 51.0% national" },
+      targets:     { accent: "targets", color: "service",        summary: "Group practices & providers ranked by recoverable $ — top / median / bottom (pre-fit envelope) + the 90.2% missing-quality choropleth.", stat: "1,698 / 14,199", statLabel: "target groups / providers" },
+      facilities:  { accent: "fac",     color: "facility",       summary: "CMS facility quality for the metro: discharge-weighted readmission ERR + ED wait times (OP_18b) — top / median / bottom hospitals (the global-budget targets).", stat: "1.077 ERR", statLabel: "worst readmissions (Mercy) · 19 rankable" },
+      growth:      { accent: "grow",    color: "signal-green",   summary: "The mentor-network contact list Emily asked for: who's reachable through each Techstars mentor, ranked by recoverable $ — with the strongest warm path surfaced.", stat: "$169.8M", statLabel: "Leigh Curl → MedStar Group II warm path" },
+      graph:       { accent: "graph",   color: "quality-measure", summary: "Every FalkorDB algorithm run over the Baltimore subgraph: connectivity, communities, drug hubs, anchor reach.", stat: "100,845", statLabel: "region providers in subgraph" },
+      techstars:   { accent: "tech",    color: "aco",            summary: "The accelerator roster measured against our own data — photos, roles, and the two mentors in our graph.", stat: "2", statLabel: "mentors in our provider graph" },
+      sports:      { accent: "sports",  color: "facility",       summary: "Baltimore loves its teams → its teams get the highest care. Ravens & Orioles → MedStar (a Techstars anchor).", stat: "MIPS 80.18", statLabel: "Orioles team doctor (L.A. Curl, MD)" },
+    };
+    window.SR_PAGE = function () {
+      var grid = document.getElementById("home-grid");
+      grid.innerHTML = window.SR_PAGES.map(function (p) {
+        var c = HOME_CARDS[p.slug];
+        var href = "pages/" + p.file;
+        return (
+          '<div class="col-12 col-md-6 col-xl-4">' +
+          '  <a class="card lab-card text-decoration-none text-reset h-100" data-accent="' + c.accent +
+          '" data-eid="HOME-card-' + p.slug + '" href="' + href + '">' +
+          '    <div class="card-body d-flex flex-column">' +
+          '      <div class="d-flex align-items-center mb-2">' +
+          '        <i class="bi ' + p.icon + ' lab-card-icon me-2" style="color: var(--hikari-' + c.color + ');"></i>' +
+          '        <h5 class="card-title mb-0">' + p.title + "</h5>" +
+          "      </div>" +
+          '      <p class="card-text text-secondary small flex-grow-1">' + c.summary + "</p>" +
+          '      <div class="mt-2">' +
+          '        <div class="lab-card-stat">' + c.stat + "</div>" +
+          '        <div class="text-muted small">' + c.statLabel + "</div>" +
+          "      </div>" +
+          "    </div>" +
+          '    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">' +
+          '      <span class="page-eid-chip">HOME-card-' + p.slug + "</span>" +
+          '      <span class="small text-primary">Open <i class="bi bi-arrow-right"></i></span>' +
+          "    </div>" +
+          "  </a></div>"
+        );
+      }).join("");
+    };
+  </script>
+  <script src="assets/common.js"></script>
+  <script src="assets/graphinfo.js"></script>
+</body>
+</html>

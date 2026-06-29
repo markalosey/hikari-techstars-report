@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAC — Facilities (readmissions &amp; ED) · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="facilities" id="page-FAC">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-hospital me-2" style="color: var(--hikari-facility);"></i>Facilities — quality</h3>
+          <div class="text-secondary small">CMS facility quality for the metro: readmissions (ERR) + ED throughput (OP_18b) — top / median / bottom. The global-budget targets.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: FAC</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-3"><div class="card h-100" data-eid="FAC-count-region">
+        <div class="card-body py-2"><div class="text-muted small">Region facilities</div>
+          <div class="fs-3 fw-bold" id="FAC-region-n">—</div><div class="small text-secondary">resolved (FIPS + ZIP bridge)</div></div></div></div>
+      <div class="col-md-3"><div class="card h-100" data-eid="FAC-count-readmit">
+        <div class="card-body py-2"><div class="text-muted small">Rankable — readmissions</div>
+          <div class="fs-3 fw-bold" id="FAC-readmit-n">—</div><div class="small text-secondary">≥1 non-null HRRP ERR cohort</div></div></div></div>
+      <div class="col-md-3"><div class="card h-100" data-eid="FAC-count-ed">
+        <div class="card-body py-2"><div class="text-muted small">Rankable — ED OP_18b</div>
+          <div class="fs-3 fw-bold" id="FAC-ed-n">—</div><div class="small text-secondary">discharged-ED median minutes</div></div></div></div>
+      <div class="col-md-3"><div class="card figure-card h-100" data-figure-id="ahead_incentive_flip" data-eid="FAC-ahead-link">
+        <div class="kpi-band" style="background: var(--hikari-maryland);"></div>
+        <div class="card-body py-2"><div class="text-muted small"><i class="bi bi-layers-half me-1"></i>Why it matters</div>
+          <div class="fw-semibold small">Under Maryland global budgets, cutting these readmissions = retained margin.</div>
+          <div class="small text-secondary mt-1">Maryland AHEAD context →</div></div></div></div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — rendered by common.js renderMdLayer -->
+    <div id="FAC-md-host"></div>
+
+    <div class="card mb-2">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-arrow-repeat me-1"></i>Readmissions — discharge-weighted excess-readmission ratio (top / median / bottom)</div>
+      <div class="card-body p-0"><div class="table-responsive" id="FAC-readmit-table" data-eid="FAC-readmit-table"></div></div>
+    </div>
+    <p class="text-muted small mb-4" id="FAC-readmit-note" data-eid="FAC-readmit-note"></p>
+
+    <div class="card mb-2">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-clock-history me-1"></i>ED throughput — OP_18b median minutes (top / median / bottom)</div>
+      <div class="card-body p-0"><div class="table-responsive" id="FAC-ed-table" data-eid="FAC-ed-table"></div></div>
+    </div>
+    <p class="text-muted small" id="FAC-ed-note" data-eid="FAC-ed-note"></p>
+
+    <p class="text-muted small mt-3">
+      <i class="bi bi-shield-lock me-1"></i>Click the metric header cell for the measure's formula + source query.
+      Facility→provider linkage runs on the COMPLETE graph (BILLS_THROUGH / org_pac_id), never the sparse PRACTICES_AT edge (C-5).
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../assets/page-facilities.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TECH — Techstars Ecosystem · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="techstars" id="page-TECH">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-rocket-takeoff me-2" style="color: var(--hikari-aco);"></i>Techstars Ecosystem</h3>
+          <div class="text-secondary small">The accelerator roster measured against our own provider data.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: TECH</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="card techstars-card mb-4" data-eid="TECH-overview">
+      <div class="kpi-band"></div>
+      <div class="card-body">
+        <h5 class="card-title mb-1"><i class="bi bi-people-fill me-2" style="color: var(--hikari-aco);"></i>Techstars AI Health Baltimore</h5>
+        <div class="text-muted small mb-2" id="TECH-roster-summary" data-eid="TECH-roster-summary"></div>
+        <div class="d-flex flex-wrap gap-2 mb-2" id="TECH-pills" data-eid="TECH-pills"></div>
+        <div class="text-muted small" id="TECH-anchors-note" data-eid="TECH-anchors-note"></div>
+      </div>
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — subtle one-line badge, rendered by common.js -->
+    <div id="TECH-md-host"></div>
+
+    <h6 class="text-muted text-uppercase small mb-2">The roster <span class="text-muted">— click any card for the full profile drawer</span></h6>
+    <div class="row g-3" id="TECH-roster-grid" data-eid="TECH-roster-grid"></div>
+
+    <p class="text-muted small mt-3">
+      <i class="bi bi-shield-lock me-1"></i>Interviewers (Culbertson, McLanahan) pinned first; the two advisors
+      in our provider data (Hasselfeld 1700270360, Najjar 1952691214) flagged green. Profile facts: findings 01b–01f.
+      Third-party headshots — internal preview use only.
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../assets/roster.js"></script>
+  <script src="../assets/page-techstars.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>

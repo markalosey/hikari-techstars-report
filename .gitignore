@@ -1,0 +1,18 @@
+# Python (build.py is the only script; it imports stdlib only)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# macOS / Windows / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Logs / scratch
+*.log
+.cache/

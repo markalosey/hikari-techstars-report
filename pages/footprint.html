@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FOOT — Care-Management Footprint · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="footprint" data-sr-map="1" id="page-FOOT">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-clipboard2-pulse me-2" style="color: var(--hikari-group-practice);"></i>Care-Management Footprint</h3>
+          <div class="text-secondary small">Where managed care exists vs where it doesn't — and the open capture gap.</div>
+        </div>
+        <span class="page-eid-chip">PAGE: FOOT</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <div class="alert alert-light border" data-eid="FOOT-thesis">
+      <i class="bi bi-info-circle me-1"></i>
+      Baltimore runs at <strong>25.1% Medicare-Advantage penetration vs 51.0% nationally</strong> — roughly
+      half. That leaves a fee-for-service-heavy population where CCM / RPM / TCM billing is uncapitated and
+      recoverable, and where care-management capture today is near zero.
+    </div>
+
+    <!-- Maryland AHEAD context layer (spec §4j) — rendered by common.js renderMdLayer -->
+    <div id="FOOT-md-host"></div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <span class="fw-semibold"><i class="bi bi-map me-1"></i>Reusable metro choropleth</span>
+            <div class="btn-group btn-group-sm" id="FOOT-map-toggle" data-eid="FOOT-map-toggle" role="group"></div>
+          </div>
+          <div class="card-body">
+            <div id="FOOT-map" class="section-chart" data-eid="FOOT-map"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header bg-transparent fw-semibold"><i class="bi bi-bar-chart-steps me-1"></i>Captured today vs open gap (by lever)</div>
+          <div class="card-body"><div id="FOOT-capture-chart" class="section-chart" data-eid="FOOT-capture-chart"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h6 class="text-muted text-uppercase small mb-2">Capture rate by lever</h6>
+    <div class="row g-3" id="FOOT-capture-tiles" data-eid="FOOT-capture-tiles"></div>
+
+    <p class="text-muted small mt-3">
+      <i class="bi bi-shield-lock me-1"></i>Click a capture card for its formula + inputs + source query.
+      Capture % = served / (served + gap) per the E2 lever math.
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../data/maryland.data.js"></script>
+  <script src="../data/baltimore_metro.geo.js"></script>
+  <script src="../assets/page-footprint.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+</body>
+</html>
