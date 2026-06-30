@@ -25,8 +25,8 @@ window.SHOWCASE = {
       "../../findings/01j-web-maryland-ahead-tcoc.md",
       "../../findings/01k-mpir-ahead-deep.md"
     ],
-    "generated_at": "2026-06-29T18:14:34Z (source harness vintage)",
-    "git_sha": "1c5d6af7d09a2c166e17fc47e6e891d9d624d849",
+    "generated_at": "2026-06-30T16:18:39.594266+00:00",
+    "git_sha": "3786495dcb22428ce870c47d7ae3f2926801e777",
     "scope": "national",
     "note": "100% static snapshot. Every figure traces to a FACT in raw/*.json. Figures not present in the facts are labeled 'discovery pending'."
   },
@@ -57,7 +57,7 @@ window.SHOWCASE = {
     "location_line": "7 counties · Maryland (FIPS 24) · 510, 005, 003, 013, 025, 027, 035",
     "headline_stat": {
       "label": "Annual addressable market",
-      "value_usd": 496294650.8613802,
+      "value_usd": 496294650.86138034,
       "figure_id": "tam_headline"
     },
     "verdict": "The Baltimore–Columbia–Towson metro is a 7-county, 550,864-beneficiary Medicare market that only makes sense once you account for Maryland's payment model. Medicare Advantage penetration is just 25.1% — about half the national 51% — but that is not market weakness: Maryland's all-payer system sets Medicare fee-for-service hospital rates, so this population is FFS by design, and the value-based machinery (hospital global budgets and, from January 2026, the AHEAD model) is delivered to those FFS beneficiaries. That reframes everything below. The metro carries the 3rd-highest Medicare readmission rate of all 205 large U.S. metros (21.1%, 99th percentile) — precisely the avoidable utilization that, under global budgets, is retained margin rather than lost fee-for-service; Maryland's model has already generated roughly $689M in net Medicare savings. Provider supply is specialist-heavy and primary-care-light (Internal Medicine ranks #6 per capita nationally while Family Practice ranks #183 of 209) — the exact gap AHEAD's primary-care investment is meant to close. And 90.2% of the metro's providers carry no quality score at all, leaving quality- and risk-based payment on the table under AHEAD's Enhanced Primary Care Payment. Net: low managed-care penetration, the nation's worst-tier readmissions, a thin primary-care base, and near-zero care-management capture combine into a $496M/yr recoverable opportunity — and in Maryland, closing it is not just new revenue, it is how systems perform under the model.",
@@ -68,8 +68,8 @@ window.SHOWCASE = {
         "label": "Medicare benes",
         "icon": "bi-people",
         "kind": "count",
-        "metro": 550864,
-        "national": 69975706,
+        "metro": 550864.0,
+        "national": 69975706.0,
         "display": "550,864",
         "national_display": "69,975,706",
         "arrow": "scale",
@@ -526,7 +526,7 @@ window.SHOWCASE = {
   },
   "tam": {
     "figure_id": "tam_headline",
-    "headline_usd": 496294650.8613802,
+    "headline_usd": 496294650.86138034,
     "headline_display": "$496,294,651",
     "region_ffs_benes": 342252,
     "region_total_benes": 551689,
@@ -545,7 +545,7 @@ window.SHOWCASE = {
       {
         "figure_id": "tam_rpm",
         "lever": "RPM",
-        "result_usd": 332398529.46314025,
+        "result_usd": 332398529.46314037,
         "result_display": "$332,398,529",
         "eligible": 298730,
         "served": 4050,
@@ -1234,7 +1234,7 @@ window.SHOWCASE = {
       {
         "icon": "bi-diagram-3",
         "value": "76,554",
-        "label": "region providers (LOCATED_IN)"
+        "label": "region providers (ZIP→county resolved)"
       },
       {
         "icon": "bi-buildings",
@@ -2010,7 +2010,7 @@ window.SHOWCASE = {
           2026
         ],
         "values": [
-          422715,
+          422715.0,
           435357,
           446147,
           457074,
@@ -2023,7 +2023,7 @@ window.SHOWCASE = {
           521949,
           532732,
           543266,
-          550864
+          550864.0
         ],
         "start_display": "422,715 (2013)",
         "end_display": "550,864 (2026)",
@@ -2813,15 +2813,15 @@ window.SHOWCASE = {
     },
     "techstars_card": {
       "title": "Techstars AI Health Baltimore — of-our-data stats",
-      "formula": "Pills compose the roster match (2 in-region NPIs), the population-anchored metro TAM ($496.3M), the LOCATED_IN region-provider census (76,554 from the E9 edge census), and the 5 named anchor institutions.",
+      "formula": "Pills compose the roster match (2 in-region NPIs), the population-anchored metro TAM ($496.3M), the region-provider count (76,554, resolved via ZIP→county from CMS provider addresses; the graph LOCATED_IN edge census of 75,078 is shown separately in the network section), and the 5 named anchor institutions.",
       "inputs": {
         "mentors_in_graph": 2,
         "metro_tam_usd": 496294651,
-        "region_providers_located_in": 76554,
+        "region_providers_zip_county_resolved": 76554,
         "anchor_institutions": 5,
         "roster_size": 15
       },
-      "source_query": "e4_techstars_ecosystem.py (roster) + e2 TAM + e9 edge census (LOCATED_IN) · findings 01b–01f, 04, 11"
+      "source_query": "e4_techstars_ecosystem.py (roster) + e2 TAM + e2 region_resolution.region_count (ZIP→county resolution) · findings 01b–01f, 04, 11"
     },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD — Orioles team physician (NPI 1659348738)",
