@@ -25,8 +25,8 @@ window.SHOWCASE = {
       "../../findings/01j-web-maryland-ahead-tcoc.md",
       "../../findings/01k-mpir-ahead-deep.md"
     ],
-    "generated_at": "2026-06-30T16:18:39.594266+00:00",
-    "git_sha": "3786495dcb22428ce870c47d7ae3f2926801e777",
+    "generated_at": "2026-06-30T18:08:32.361872+00:00",
+    "git_sha": "86abeefad99661eab938c5c4e680dd5b8f5486fc",
     "scope": "national",
     "note": "100% static snapshot. Every figure traces to a FACT in raw/*.json. Figures not present in the facts are labeled 'discovery pending'."
   },
@@ -1028,6 +1028,419 @@ window.SHOWCASE = {
         "annual_oppty_display": "$5,146"
       }
     ]
+  },
+  "targeting": {
+    "figure_id": "targeting",
+    "label": "Ideal First Customers — NEED × CAPTURE-GAP × LEVERAGE × FIT",
+    "note": "Region providers scored on three weighted axes (NEED, CAPTURE-GAP, graph LEVERAGE), gated to the care-management-amenable set (E6 fit); the ideal-first-customers cohort is the intersection of high recoverable annual_oppty, non-trivial graph leverage, and fit.",
+    "funnel": {
+      "scored": 14199,
+      "amenable": 4154,
+      "ideal_first_customers": 942,
+      "removed_non_amenable": 10045
+    },
+    "axes": {
+      "need_weight": 0.4,
+      "gap_weight": 0.4,
+      "leverage_weight": 0.2,
+      "fit_gate_rule": "is_chronic_specialty OR is_high_chronic_prescriber",
+      "ideal_rule": "annual_oppty >= p75(annual_oppty) AND leverage_score >= nonzero_median(complete_leverage) AND is_care_mgmt_amenable (E6 fit gate); leverage None (E3 unavailable) or non-amenable excluded. Ranked by annual_oppty desc.",
+      "annual_oppty_p75_usd": 223138.5541533691,
+      "complete_leverage_nonzero_median": 2.0
+    },
+    "ideal_first_customers": [
+      {
+        "npi": "1417140096",
+        "name": "THOMAS METKUS",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 5820.0,
+        "annual_oppty": 3925699.3768594223,
+        "aco_degree": 0,
+        "group_degree": 6,
+        "complete_leverage": 6,
+        "composite_score": 0.5478401682124954,
+        "is_high_chronic_prescriber": false,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      },
+      {
+        "npi": "1508984873",
+        "name": "JOSE MADRAZO",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 4235.0,
+        "annual_oppty": 2851455.367445155,
+        "aco_degree": 0,
+        "group_degree": 6,
+        "complete_leverage": 6,
+        "composite_score": 0.5437365467120009,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      },
+      {
+        "npi": "1669466850",
+        "name": "NITEEN MILAK",
+        "specialty_family": "Cardiology",
+        "county_name": "Harford",
+        "panel_beneficiaries": 3323.0,
+        "annual_oppty": 2230496.3045281526,
+        "aco_degree": 0,
+        "group_degree": 6,
+        "complete_leverage": 6,
+        "composite_score": 0.5510279589668328,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1053666107",
+        "name": "SUDARSHAN PAUDEL",
+        "specialty_family": "Cardiology",
+        "county_name": "Harford",
+        "panel_beneficiaries": 3322.0,
+        "annual_oppty": 2230212.7140523754,
+        "aco_degree": 0,
+        "group_degree": 2,
+        "complete_leverage": 2,
+        "composite_score": 0.5418732463940822,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1588004071",
+        "name": "RAKTIM GHOSH",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 3100.0,
+        "annual_oppty": 2092261.7464064278,
+        "aco_degree": 0,
+        "group_degree": 2,
+        "complete_leverage": 2,
+        "composite_score": 0.5328813618662354,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      },
+      {
+        "npi": "1942278064",
+        "name": "MASOOD ANWAR",
+        "specialty_family": "Cardiology",
+        "county_name": "Harford",
+        "panel_beneficiaries": 3094.0,
+        "annual_oppty": 2078530.0136830048,
+        "aco_degree": 0,
+        "group_degree": 2,
+        "complete_leverage": 2,
+        "composite_score": 0.5419390253714507,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1134418874",
+        "name": "DANIEL KIM",
+        "specialty_family": "Cardiology",
+        "county_name": "Howard",
+        "panel_beneficiaries": 3066.0,
+        "annual_oppty": 2036315.5589600075,
+        "aco_degree": 0,
+        "group_degree": 9,
+        "complete_leverage": 9,
+        "composite_score": 0.5137293361429047,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      },
+      {
+        "npi": "1326028473",
+        "name": "RADHIKA KUNA",
+        "specialty_family": "Cardiology",
+        "county_name": "Carroll",
+        "panel_beneficiaries": 2933.0,
+        "annual_oppty": 1960742.3309496623,
+        "aco_degree": 0,
+        "group_degree": 2,
+        "complete_leverage": 2,
+        "composite_score": 0.5348760051987135,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1508832692",
+        "name": "DIPAN DESAI",
+        "specialty_family": "Cardiology",
+        "county_name": "Harford",
+        "panel_beneficiaries": 2884.0,
+        "annual_oppty": 1935656.0436617024,
+        "aco_degree": 0,
+        "group_degree": 2,
+        "complete_leverage": 2,
+        "composite_score": 0.5387131799238155,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1083009666",
+        "name": "JASMIN SAHBAZ",
+        "specialty_family": "Cardiology",
+        "county_name": "Howard",
+        "panel_beneficiaries": 2864.0,
+        "annual_oppty": 1904772.7657537782,
+        "aco_degree": 0,
+        "group_degree": 9,
+        "complete_leverage": 9,
+        "composite_score": 0.5092432695004069,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      },
+      {
+        "npi": "1396967485",
+        "name": "CHETE EZE-NLIAM",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 2825.0,
+        "annual_oppty": 1891799.7684485146,
+        "aco_degree": 1,
+        "group_degree": 2,
+        "complete_leverage": 3,
+        "composite_score": 0.5360890967533237,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1760445886",
+        "name": "JAMES STAFFORD",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 2769.0,
+        "annual_oppty": 1865989.1444181474,
+        "aco_degree": 0,
+        "group_degree": 5,
+        "complete_leverage": 5,
+        "composite_score": 0.5079173632264156,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      },
+      {
+        "npi": "1083816987",
+        "name": "TEMILOLU AJE",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 2770.0,
+        "annual_oppty": 1854565.455465021,
+        "aco_degree": 0,
+        "group_degree": 4,
+        "complete_leverage": 4,
+        "composite_score": 0.5413982038315609,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1265621031",
+        "name": "ASGHAR FAKHRI",
+        "specialty_family": "Cardiology",
+        "county_name": "Anne Arundel",
+        "panel_beneficiaries": 2719.0,
+        "annual_oppty": 1834815.390812785,
+        "aco_degree": 0,
+        "group_degree": 3,
+        "complete_leverage": 3,
+        "composite_score": 0.550783773343288,
+        "is_high_chronic_prescriber": false,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": true
+      },
+      {
+        "npi": "1003101908",
+        "name": "RONAK PATEL",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore city",
+        "panel_beneficiaries": 2675.0,
+        "annual_oppty": 1802643.9008012079,
+        "aco_degree": 0,
+        "group_degree": 2,
+        "complete_leverage": 2,
+        "composite_score": 0.5283998151924738,
+        "is_high_chronic_prescriber": true,
+        "is_high_opioid_prescriber": false,
+        "is_missing_quality": false
+      }
+    ],
+    "top_to_know": [
+      {
+        "npi": "1386901411",
+        "name": "ALEXIS NWORAH",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore city",
+        "aco_degree": 2,
+        "group_degree": 37,
+        "complete_leverage": 39,
+        "annual_oppty": 569888.678594126
+      },
+      {
+        "npi": "1992788442",
+        "name": "SIVA SIVAKUMAR",
+        "specialty_family": "Pulmonary Disease",
+        "county_name": "Baltimore city",
+        "aco_degree": 5,
+        "group_degree": 33,
+        "complete_leverage": 38,
+        "annual_oppty": 116624.66689511554
+      },
+      {
+        "npi": "1881982114",
+        "name": "PATRICK OGUEJIOFOR",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore city",
+        "aco_degree": 2,
+        "group_degree": 34,
+        "complete_leverage": 36,
+        "annual_oppty": 591786.4929259595
+      },
+      {
+        "npi": "1497916670",
+        "name": "MOHAMED TOURKY",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Anne Arundel",
+        "aco_degree": 2,
+        "group_degree": 29,
+        "complete_leverage": 31,
+        "annual_oppty": 431314.8103638347
+      },
+      {
+        "npi": "1639139413",
+        "name": "RICHARD ADDO",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore County",
+        "aco_degree": 0,
+        "group_degree": 30,
+        "complete_leverage": 30,
+        "annual_oppty": 412938.8012333827
+      },
+      {
+        "npi": "1295268258",
+        "name": "OMEED SIZAR",
+        "specialty_family": "Family Practice",
+        "county_name": "Howard",
+        "aco_degree": 3,
+        "group_degree": 23,
+        "complete_leverage": 26,
+        "annual_oppty": 188473.8727470875
+      },
+      {
+        "npi": "1215915012",
+        "name": "JACK NEWMAN",
+        "specialty_family": "Cardiology",
+        "county_name": "Baltimore County",
+        "aco_degree": 1,
+        "group_degree": 24,
+        "complete_leverage": 25,
+        "annual_oppty": 572425.3915207147
+      },
+      {
+        "npi": "1497194559",
+        "name": "TALHA BASHIR",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore County",
+        "aco_degree": 2,
+        "group_degree": 22,
+        "complete_leverage": 24,
+        "annual_oppty": 79646.15676450853
+      },
+      {
+        "npi": "1518921873",
+        "name": "MOHAMMED MEHBOOB",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Howard",
+        "aco_degree": 1,
+        "group_degree": 20,
+        "complete_leverage": 21,
+        "annual_oppty": 269879.8049431532
+      },
+      {
+        "npi": "1386938058",
+        "name": "GABRIEL AGBANYIM",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Anne Arundel",
+        "aco_degree": 0,
+        "group_degree": 21,
+        "complete_leverage": 21,
+        "annual_oppty": 125680.66478248037
+      },
+      {
+        "npi": "1235247511",
+        "name": "QASIM RAZA",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore County",
+        "aco_degree": 2,
+        "group_degree": 18,
+        "complete_leverage": 20,
+        "annual_oppty": 447468.79239758174
+      },
+      {
+        "npi": "1295026607",
+        "name": "DAVID MOH",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore County",
+        "aco_degree": 3,
+        "group_degree": 17,
+        "complete_leverage": 20,
+        "annual_oppty": 124490.65117764365
+      },
+      {
+        "npi": "1386957579",
+        "name": "GURAMAN BHULLAR",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore city",
+        "aco_degree": 1,
+        "group_degree": 19,
+        "complete_leverage": 20,
+        "annual_oppty": 25455.33414808312
+      },
+      {
+        "npi": "1801312053",
+        "name": "ADEDIWURA JOLAOSO",
+        "specialty_family": null,
+        "county_name": "Baltimore city",
+        "aco_degree": 0,
+        "group_degree": 19,
+        "complete_leverage": 19,
+        "annual_oppty": 398384.8846067188
+      },
+      {
+        "npi": "1538447628",
+        "name": "EDUARDO ABARCA ROJAS",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore County",
+        "aco_degree": 0,
+        "group_degree": 18,
+        "complete_leverage": 18,
+        "annual_oppty": 731513.9264319108
+      }
+    ],
+    "c6": {
+      "ideal": {
+        "n": 942,
+        "median_annual_oppty": 389952.3364865547,
+        "min_annual_oppty": 223279.1863797175,
+        "max_annual_oppty": 3925699.3768594223
+      },
+      "amenable": {
+        "n": 4154,
+        "median_annual_oppty": 173929.63515244538,
+        "min_annual_oppty": 1713.0108651237854,
+        "max_annual_oppty": 3925699.3768594223
+      }
+    }
   },
   "roster": {
     "figure_id": "roster_summary",
@@ -2823,6 +3236,39 @@ window.SHOWCASE = {
       },
       "source_query": "e4_techstars_ecosystem.py (roster) + e2 TAM + e2 region_resolution.region_count (ZIP→county resolution) · findings 01b–01f, 04, 11"
     },
+    "targeting_funnel": {
+      "title": "Fit funnel — scored → amenable → ideal first customers",
+      "formula": "Region-scored providers gated to the care-management-amenable set (E6 fit gate: is_chronic_specialty OR is_high_chronic_prescriber); the ideal-first-customers cohort = amenable AND annual_oppty ≥ p75(annual_oppty) AND complete_leverage ≥ nonzero-median(complete_leverage).",
+      "inputs": {
+        "scored": 14199,
+        "amenable": 4154,
+        "ideal_first_customers": 942,
+        "removed_non_amenable": 10045
+      },
+      "source_query": "e2_opportunity_targets.py (amenable_providers + ideal_first_customers) reading E6 fit flags · findings 04, 08"
+    },
+    "targeting_ideal": {
+      "title": "Ideal First Customers — NEED × CAPTURE-GAP × LEVERAGE × FIT",
+      "formula": "Composite over three weighted axes — NEED 0.40 (dual / risk / chronic / panel), CAPTURE-GAP 0.40 (care-mgmt capture gap + MIPS), graph LEVERAGE 0.20 (MEMBER_OF + BILLS_THROUGH degree, E3) — then the intersection: annual_oppty ≥ p75 AND complete_leverage ≥ nonzero-median AND care-management-amenable (E6 fit). Ranked by annual_oppty desc.",
+      "inputs": {
+        "need_weight": 0.4,
+        "gap_weight": 0.4,
+        "leverage_weight": 0.2,
+        "annual_oppty_p75_usd": 223138.5541533691,
+        "complete_leverage_nonzero_median": 2.0,
+        "ideal_first_customers": 942
+      },
+      "source_query": "e2_opportunity_targets.py (ideal_first_customers.ranked) over e3 leverage + e6 fit · findings 04, 05, 08"
+    },
+    "targeting_top_to_know": {
+      "title": "Top providers to KNOW — graph leverage",
+      "formula": "Care-management-amenable region providers ranked by complete_leverage = size(MEMBER_OF→ACO) + size(BILLS_THROUGH→GroupPractice) (both COMPLETE edges, C-5-safe), tiebreak annual_oppty desc — the warm-intro backbone for the ideal-first-customers list.",
+      "inputs": {
+        "amenable": 4154,
+        "leverage_source": "e3 degree centrality (MEMBER_OF + BILLS_THROUGH)"
+      },
+      "source_query": "e2_opportunity_targets.py (amenable_providers.ranked) + e3 leverage · findings 04, 05"
+    },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD — Orioles team physician (NPI 1659348738)",
       "formula": "Name search (Curl / Leigh%) over national dim_provider → 1 match; profile from fact_provider_quality_mips + fact_provider_summary + fact_provider_service + hikari_national node/edges. Celebration framing: only flattering stats surfaced (spec §4b-sports).",
@@ -3531,6 +3977,4697 @@ window.SHOWCASE = {
       ],
       "note": "Star motif: dim_provider sits at the center; fact_provider_summary / fact_provider_service / fact_provider_quality_mips radiate as points; bridge tables cross stars. 'MECS' = Multi-Entity-Centered Star schema.",
       "source": "RFC-012 (MECS star schema: 10 dims / 40 facts / 10 entity stars) + findings/00 §7 (the dim_* / fact_* tables this exploration reads)"
+    }
+  },
+  "data_provenance": {
+    "figure_id": "data_provenance",
+    "label": "Data Provenance",
+    "note": "Every showcase figure traced to its public download URL(s) or research sources — deterministic from e13 (dataset catalog, derived-table lineage, query index) plus a file-scanned figure→page map.",
+    "coverage": {
+      "n_datasets": 38,
+      "n_tables": 16,
+      "n_tables_with_download_url": 16,
+      "n_queries": 56,
+      "n_sql_queries": 35,
+      "n_cypher_queries": 21,
+      "n_research_topics": 13,
+      "n_multi_source_topics": 12,
+      "n_public_download_urls": 35,
+      "n_research_urls": 29,
+      "n_showcase_figures": 60,
+      "public_download_urls": [
+        "https://api.census.gov/data/2023/acs/acs5",
+        "https://api.census.gov/data/timeseries/poverty/saipe",
+        "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/48b0263f73f1f8741101da989557a8a9_1776435355/NH_ProviderInfo_Apr2026.csv",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv",
+        "https://data.cms.gov/provider-data/sites/default/files/resources/c04d84bc5c641284494bee4f20f17f9c_1774454758/DFC_FACILITY.csv",
+        "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv",
+        "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv",
+        "https://data.cms.gov/sites/default/files/2025-04/750769a3-bb0f-4f05-81dc-7dcb6e105cb0/MUP_DPR_RY25_P04_V10_DY23_NPI.csv",
+        "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv",
+        "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/6ab42b48-325a-4bf2-9ee6-d1ee1bfddfbb/Hospital_Enrollments_2026.04.01.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/8ff9bcf4-032e-4a6f-b1c1-d8f1c2e96885/Hospital_and_other.DATA.Q1_2026.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/ddb16ed1-02c4-4de5-aae8-9d99090be023/FQHC_Enrollments_2026.04.01.csv",
+        "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv",
+        "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip",
+        "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv",
+        "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv",
+        "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv",
+        "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip",
+        "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv",
+        "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv",
+        "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip",
+        "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip",
+        "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt",
+        "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+      ]
+    },
+    "datasets": [
+      {
+        "slug": "census/reference/nchs_urban_rural",
+        "name": "NCHS Urban-Rural Classification Scheme (6-Level)",
+        "agency": "CDC",
+        "url": "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv",
+        "format": "csv",
+        "refresh": "decennial",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "cms/enrollment/geographic_variation",
+        "name": "Medicare Geographic Variation — National, State & County",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 2,
+        "tables_using_it": [
+          "fact_geography_variation"
+        ]
+      },
+      {
+        "slug": "cms/enrollment/medicare_monthly",
+        "name": "Medicare Monthly Enrollment",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv",
+        "format": "csv",
+        "refresh": "monthly",
+        "tier": 2,
+        "tables_using_it": [
+          "fact_geography_enrollment"
+        ]
+      },
+      {
+        "slug": "cms/provider/clinician_compare",
+        "name": "Clinician Compare (Doctors and Clinicians)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv",
+        "format": "csv",
+        "refresh": "monthly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_provider"
+        ]
+      },
+      {
+        "slug": "cms/provider/dialysis",
+        "name": "Dialysis Compare (Provider Information)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/c04d84bc5c641284494bee4f20f17f9c_1774454758/DFC_FACILITY.csv",
+        "format": "csv",
+        "refresh": "monthly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/provider/fqhc_enrollment",
+        "name": "FQHC Enrollments (CMS)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/ddb16ed1-02c4-4de5-aae8-9d99090be023/FQHC_Enrollments_2026.04.01.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/provider/group_practice",
+        "name": "Group Practice Reassignment (Affiliations)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv",
+        "format": "csv",
+        "refresh": "monthly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_group_practice"
+        ]
+      },
+      {
+        "slug": "cms/provider/hospital_compare",
+        "name": "Hospital Compare (Hospital General Information)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/provider/hospital_enrollments",
+        "name": "Hospital Enrollments (PECOS)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/provider/hospital_ownership",
+        "name": "Hospital Enrollments with Ownership",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/6ab42b48-325a-4bf2-9ee6-d1ee1bfddfbb/Hospital_Enrollments_2026.04.01.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/provider/nppes",
+        "name": "NPPES NPI Registry",
+        "agency": "CMS",
+        "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip",
+        "format": "zip",
+        "refresh": "monthly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_provider"
+        ]
+      },
+      {
+        "slug": "cms/provider/nursing_home",
+        "name": "Nursing Home Compare (Provider Information)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/48b0263f73f1f8741101da989557a8a9_1776435355/NH_ProviderInfo_Apr2026.csv",
+        "format": "csv",
+        "refresh": "monthly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/provider/order_referring",
+        "name": "Order and Referring File",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 2,
+        "tables_using_it": [
+          "dim_provider"
+        ]
+      },
+      {
+        "slug": "cms/provider/pecos_enrollment",
+        "name": "PECOS Public Provider Enrollment",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_provider"
+        ]
+      },
+      {
+        "slug": "cms/provider/provider_of_services",
+        "name": "Provider of Services (POS)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/8ff9bcf4-032e-4a6f-b1c1-d8f1c2e96885/Hospital_and_other.DATA.Q1_2026.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/quality/hospital_readmissions",
+        "name": "Hospital Readmissions Reduction Program (HRRP)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 2,
+        "tables_using_it": [
+          "fact_facility_readmissions"
+        ]
+      },
+      {
+        "slug": "cms/quality/hospital_star_rating",
+        "name": "Overall Hospital Quality Star Rating",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 2,
+        "tables_using_it": [
+          "dim_facility"
+        ]
+      },
+      {
+        "slug": "cms/quality/mips_overall",
+        "name": "MIPS Clinician Public Reporting — Overall Performance",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_provider",
+          "fact_provider_quality_mips"
+        ]
+      },
+      {
+        "slug": "cms/quality/timely_effective_care",
+        "name": "Timely and Effective Care — Hospital",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 2,
+        "tables_using_it": [
+          "fact_facility_timely_care"
+        ]
+      },
+      {
+        "slug": "cms/utilization/fi_attending_rendering",
+        "name": "Fiscal Intermediary Attending and Rendering Providers",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_provider"
+        ]
+      },
+      {
+        "slug": "cms/utilization/opioid_prescribing_geo",
+        "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "fact_geography_opioid"
+        ]
+      },
+      {
+        "slug": "cms/utilization/part_d_prescriber_by_provider",
+        "name": "Medicare Part D Prescribers — by Provider (Summary)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2025-04/750769a3-bb0f-4f05-81dc-7dcb6e105cb0/MUP_DPR_RY25_P04_V10_DY23_NPI.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 2,
+        "tables_using_it": [
+          "fact_provider_prescribing_summary"
+        ]
+      },
+      {
+        "slug": "cms/utilization/physician_by_provider",
+        "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 1,
+        "tables_using_it": [
+          "fact_provider_summary"
+        ]
+      },
+      {
+        "slug": "cms/utilization/physician_by_provider_and_service",
+        "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+        "agency": "CMS",
+        "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv",
+        "format": "csv",
+        "refresh": "annual",
+        "tier": 1,
+        "tables_using_it": [
+          "fact_provider_service"
+        ]
+      },
+      {
+        "slug": "census/acs/demographics",
+        "name": "ACS 5-Year — ZCTA-Level Demographics (B01001, B02001, B03002)",
+        "agency": "Census",
+        "url": "https://api.census.gov/data/2023/acs/acs5",
+        "format": "json",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/acs/health_insurance",
+        "name": "ACS 5-Year — ZCTA-Level Health Insurance Tables (B27001-B27009)",
+        "agency": "Census",
+        "url": "https://api.census.gov/data/2023/acs/acs5",
+        "format": "json",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/acs/income_poverty",
+        "name": "ACS 5-Year — ZCTA-Level Income/Poverty (B19013, C17002)",
+        "agency": "Census",
+        "url": "https://api.census.gov/data/2023/acs/acs5",
+        "format": "json",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/estimates/sahie",
+        "name": "Small Area Health Insurance Estimates (SAHIE)",
+        "agency": "Census",
+        "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip",
+        "format": "zip",
+        "refresh": "annual",
+        "tier": 1,
+        "tables_using_it": [
+          "fact_geography_insurance"
+        ]
+      },
+      {
+        "slug": "census/estimates/saipe",
+        "name": "Small Area Income and Poverty Estimates (SAIPE)",
+        "agency": "Census",
+        "url": "https://api.census.gov/data/timeseries/poverty/saipe",
+        "format": "json",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/reference/cbsa_delineation",
+        "name": "CBSA Delineation File (OMB Metro/Micro Areas)",
+        "agency": "Census",
+        "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "format": "xlsx",
+        "refresh": "decennial",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/reference/fips_gazetteer",
+        "name": "County FIPS Gazetteer",
+        "agency": "Census",
+        "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip",
+        "format": "zip",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/reference/zcta_gazetteer",
+        "name": "ZCTA Gazetteer File (Centroids and Area)",
+        "agency": "Census",
+        "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip",
+        "format": "zip",
+        "refresh": "annual",
+        "tier": 3,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "census/reference/zcta_relationship",
+        "name": "Census 2020 ZCTA Relationship Files",
+        "agency": "Census",
+        "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt",
+        "format": "csv",
+        "refresh": "decennial",
+        "tier": 3,
+        "tables_using_it": [
+          "bridge_zcta_county",
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "hrsa/ahrf",
+        "name": "Area Health Resources Files (AHRF)",
+        "agency": "HRSA",
+        "url": "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip",
+        "format": "zip",
+        "refresh": "annual",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_geography"
+        ]
+      },
+      {
+        "slug": "hrsa/hpsa_dental",
+        "name": "HPSA — Dental Health Designations",
+        "agency": "HRSA",
+        "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "fact_geography_hpsa"
+        ]
+      },
+      {
+        "slug": "hrsa/hpsa_mental_health",
+        "name": "HPSA — Mental Health Designations",
+        "agency": "HRSA",
+        "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "fact_geography_hpsa"
+        ]
+      },
+      {
+        "slug": "hrsa/hpsa_primary_care",
+        "name": "HPSA — Primary Care Designations",
+        "agency": "HRSA",
+        "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv",
+        "format": "csv",
+        "refresh": "quarterly",
+        "tier": 1,
+        "tables_using_it": [
+          "fact_geography_hpsa"
+        ]
+      },
+      {
+        "slug": "cms/other/leie",
+        "name": "List of Excluded Individuals/Entities (LEIE)",
+        "agency": "OIG",
+        "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv",
+        "format": "csv",
+        "refresh": "monthly",
+        "tier": 1,
+        "tables_using_it": [
+          "dim_provider"
+        ]
+      }
+    ],
+    "derived_tables": [
+      {
+        "table": "bridge_zcta_county",
+        "source_slugs": [
+          "census/reference/zcta_relationship"
+        ],
+        "transform": "Census ZCTA-to-county relationship file -> zcta<->county_fips bridge with area_land_part for the ARG_MAX county pick (s2c two-tier ZIP->county resolution).",
+        "download_urls": [
+          "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+        ],
+        "experiments_using_it": [
+          "e1",
+          "e2",
+          "e7"
+        ]
+      },
+      {
+        "table": "dim_facility",
+        "source_slugs": [
+          "cms/provider/provider_of_services",
+          "cms/quality/hospital_star_rating",
+          "cms/provider/nursing_home",
+          "cms/provider/hospital_ownership",
+          "cms/provider/hospital_compare",
+          "cms/provider/fqhc_enrollment",
+          "cms/provider/dialysis",
+          "cms/provider/hospital_enrollments"
+        ],
+        "transform": "Provider of Services base + Hospital Compare/star-rating + nursing home + ownership + FQHC + dialysis + hospital enrollments -> facility dim keyed by CCN (fips_state_cd, fips_cnty_cd nullable for hospitals, zip_code).",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2026-04/8ff9bcf4-032e-4a6f-b1c1-d8f1c2e96885/Hospital_and_other.DATA.Q1_2026.csv",
+          "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv",
+          "https://data.cms.gov/provider-data/sites/default/files/resources/48b0263f73f1f8741101da989557a8a9_1776435355/NH_ProviderInfo_Apr2026.csv",
+          "https://data.cms.gov/sites/default/files/2026-04/6ab42b48-325a-4bf2-9ee6-d1ee1bfddfbb/Hospital_Enrollments_2026.04.01.csv",
+          "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv",
+          "https://data.cms.gov/sites/default/files/2026-04/ddb16ed1-02c4-4de5-aae8-9d99090be023/FQHC_Enrollments_2026.04.01.csv",
+          "https://data.cms.gov/provider-data/sites/default/files/resources/c04d84bc5c641284494bee4f20f17f9c_1774454758/DFC_FACILITY.csv",
+          "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment"
+        ],
+        "experiments_using_it": [
+          "e7"
+        ]
+      },
+      {
+        "table": "dim_geography",
+        "source_slugs": [
+          "census/reference/zcta_gazetteer",
+          "census/reference/zcta_relationship",
+          "census/reference/cbsa_delineation",
+          "census/acs/demographics",
+          "census/acs/health_insurance",
+          "census/acs/income_poverty",
+          "census/reference/fips_gazetteer",
+          "census/reference/nchs_urban_rural",
+          "census/estimates/saipe",
+          "hrsa/ahrf"
+        ],
+        "transform": "ZCTA gazetteer + ZCTA<->county relationship + CBSA delineation + ACS demographics/insurance/income + FIPS gazetteer + NCHS urban-rural + SAIPE + AHRF -> geography dim (zcta, county_fips, cbsa_code 1:1, population).",
+        "download_urls": [
+          "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip",
+          "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt",
+          "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+          "https://api.census.gov/data/2023/acs/acs5",
+          "https://api.census.gov/data/2023/acs/acs5",
+          "https://api.census.gov/data/2023/acs/acs5",
+          "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip",
+          "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv",
+          "https://api.census.gov/data/timeseries/poverty/saipe",
+          "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip"
+        ],
+        "experiments_using_it": [
+          "e11"
+        ]
+      },
+      {
+        "table": "dim_group_practice",
+        "source_slugs": [
+          "cms/provider/group_practice"
+        ],
+        "transform": "CMS Physician Compare group-practice file -> group dim keyed by group_pac_id (group_legal_business_name); join key for BILLS_THROUGH org_pac_id rollup.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+        ],
+        "experiments_using_it": [
+          "e2"
+        ]
+      },
+      {
+        "table": "dim_provider",
+        "source_slugs": [
+          "cms/provider/nppes",
+          "cms/provider/clinician_compare",
+          "cms/provider/pecos_enrollment",
+          "cms/provider/order_referring",
+          "cms/utilization/fi_attending_rendering",
+          "cms/other/leie",
+          "cms/quality/mips_overall"
+        ],
+        "transform": "NPPES base + Clinician Compare + PECOS enrollment + Order/Referring + FI attending/rendering + LEIE exclusions + MIPS overall -> Splink-resolved provider dim (npi, pri_spec, practice_state/city/zip5, final_mips_score).",
+        "download_urls": [
+          "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip",
+          "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv",
+          "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv",
+          "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv",
+          "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv",
+          "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv",
+          "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+        ],
+        "experiments_using_it": [
+          "e1",
+          "e11",
+          "e2",
+          "e4",
+          "e6"
+        ]
+      },
+      {
+        "table": "fact_facility_readmissions",
+        "source_slugs": [
+          "cms/quality/hospital_readmissions"
+        ],
+        "transform": "CMS Hospital Readmissions Reduction Program (HRRP) -> per-CCN x condition cohort (AMI/CABG/COPD/HF/HIP-KNEE/PN) excess-readmission ratio + predicted/expected + discharges; no hospital-wide row; TRY_CAST.",
+        "download_urls": [
+          "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv"
+        ],
+        "experiments_using_it": [
+          "e7"
+        ]
+      },
+      {
+        "table": "fact_facility_timely_care",
+        "source_slugs": [
+          "cms/quality/timely_effective_care"
+        ],
+        "transform": "CMS Hospital Timely & Effective Care -> per-CCN ED-throughput measures (OP_18a/b/c/d, OP_22, OP_23); OP_18b median ED minutes (discharged) primary; TRY_CAST score + sample.",
+        "download_urls": [
+          "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv"
+        ],
+        "experiments_using_it": [
+          "e7"
+        ]
+      },
+      {
+        "table": "fact_geography_enrollment",
+        "source_slugs": [
+          "cms/enrollment/medicare_monthly"
+        ],
+        "transform": "CMS Medicare Monthly Enrollment -> per-county monthly tot_benes, dual_benes, ma_benes (bene_geo_lvl='County'); latest = max(year) then latest month.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+        ],
+        "experiments_using_it": [
+          "e0",
+          "e11",
+          "e12"
+        ]
+      },
+      {
+        "table": "fact_geography_hpsa",
+        "source_slugs": [
+          "hrsa/hpsa_primary_care",
+          "hrsa/hpsa_dental",
+          "hrsa/hpsa_mental_health"
+        ],
+        "transform": "HRSA HPSA designations (primary care + dental + mental health) -> per-county MAX hpsa_score by discipline (hpsa_status='Designated').",
+        "download_urls": [
+          "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv",
+          "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv",
+          "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+        ],
+        "experiments_using_it": [
+          "e0"
+        ]
+      },
+      {
+        "table": "fact_geography_insurance",
+        "source_slugs": [
+          "census/estimates/sahie"
+        ],
+        "transform": "Census SAHIE small-area health-insurance estimates -> per-county uninsured % (overall row age=sex=income=race='0', geo_category='50').",
+        "download_urls": [
+          "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+        ],
+        "experiments_using_it": [
+          "e0",
+          "e11"
+        ]
+      },
+      {
+        "table": "fact_geography_opioid",
+        "source_slugs": [
+          "cms/utilization/opioid_prescribing_geo"
+        ],
+        "transform": "CMS Medicare Part D Opioid Prescribing geographic file -> per-county opioid prescribing rate (geo_level='County', breakout_type='Totals'; county FIPS in state_code); TRY_CAST.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+        ],
+        "experiments_using_it": [
+          "e0",
+          "e11",
+          "e12"
+        ]
+      },
+      {
+        "table": "fact_geography_variation",
+        "source_slugs": [
+          "cms/enrollment/geographic_variation"
+        ],
+        "transform": "CMS Geographic Variation PUF -> county/state fact rows (std spend/cap, avg risk, ED/1k, readmission %, benes_ffs_cnt, benes_ip_cvrd_stay_cnt); TRY_CAST numeric; bene_age_lvl='All' filter.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+        ],
+        "experiments_using_it": [
+          "e0",
+          "e1",
+          "e11",
+          "e12",
+          "e2"
+        ]
+      },
+      {
+        "table": "fact_provider_prescribing_summary",
+        "source_slugs": [
+          "cms/utilization/part_d_prescriber_by_provider"
+        ],
+        "transform": "Medicare Part D Prescribers by-Provider summary -> per-NPI total claims/30-day fills, opioid claims+prescriber rate, antibiotic, brand/generic, antipsychotic ge65; CMS-suppressed cells -> NULL.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2025-04/750769a3-bb0f-4f05-81dc-7dcb6e105cb0/MUP_DPR_RY25_P04_V10_DY23_NPI.csv"
+        ],
+        "experiments_using_it": [
+          "e6"
+        ]
+      },
+      {
+        "table": "fact_provider_quality_mips",
+        "source_slugs": [
+          "cms/quality/mips_overall"
+        ],
+        "transform": "CMS MIPS overall (QPP) -> per-NPI final_mips_score + category scores; TRY_CAST numeric (NULL = no quality score).",
+        "download_urls": [
+          "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+        ],
+        "experiments_using_it": [
+          "e4"
+        ]
+      },
+      {
+        "table": "fact_provider_service",
+        "source_slugs": [
+          "cms/utilization/physician_by_provider_and_service"
+        ],
+        "transform": "Medicare Physician & Other Practitioners by-Provider-and-Service -> per-NPI x HCPCS service rows (beneficiaries, services); the CARE_MGMT HCPCS capture source; hcpcs_code VARCHAR.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+        ],
+        "experiments_using_it": [
+          "e1",
+          "e2",
+          "e4"
+        ]
+      },
+      {
+        "table": "fact_provider_summary",
+        "source_slugs": [
+          "cms/utilization/physician_by_provider"
+        ],
+        "transform": "Medicare Physician & Other Practitioners by-Provider summary -> per-NPI panel, dual cnt, HCC risk, total allowed + 25 cc_*_pct chronic-condition columns; TRY_CAST numeric.",
+        "download_urls": [
+          "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+        ],
+        "experiments_using_it": [
+          "e2",
+          "e4"
+        ]
+      }
+    ],
+    "research_sources": [
+      {
+        "topic": "care_management_value",
+        "finding_doc": "findings/01-care-management-value-research.md",
+        "urls": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11368639"
+        ],
+        "multi_source": true,
+        "note": "Care-management value: ~69% of FFS Medicare have 2+ chronic conditions (CCM/APCM-eligible); only ~3.4% received CCM (2019). Sources: CMS MMS Hub, Avalere, Kim et al. (PMC11368639)."
+      },
+      {
+        "topic": "discharge_billing",
+        "finding_doc": "findings/01e-web-discharge-opportunities.md",
+        "urls": [],
+        "multi_source": true,
+        "note": "ADT->revenue discharge-triggered billing (TCM 99495/99496 etc.). Sources named in provenance header only (HFMA, RHIhub, ThoroughCare, AAPC, Prevounce, HealthArc, CorroHealth, Sciometrix, Bamboo Health); no canonical inline URL captured."
+      },
+      {
+        "topic": "elitecare_company",
+        "finding_doc": "findings/01a-web-elitecaretec.md",
+        "urls": [
+          "https://elitecaretec.com/",
+          "https://elitecaretec.com/solutions/revenue-optimization",
+          "https://hikari.kepric.io/"
+        ],
+        "multi_source": false,
+        "note": "Elite Care Technologies site (spidered): positions Hikari as the intelligence layer finding where care-management (TCM/CCM/RPM/quality) is undercaptured; the three /hikari/* product pages 404 (not built)."
+      },
+      {
+        "topic": "maryland_ahead_model",
+        "finding_doc": "findings/01k-mpir-ahead-deep.md",
+        "urls": [
+          "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+          "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+          "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+          "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+          "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+        ],
+        "multi_source": true,
+        "note": "Maryland all-payer/AHEAD deep dive; HSCRC sets Medicare FFS hospital rates under the half-century waiver -> Baltimore's low MA% (25% vs 51%) is the model by design, strengthening the FFS care-mgmt TAM."
+      },
+      {
+        "topic": "maryland_ahead_tcoc",
+        "finding_doc": "findings/01j-web-maryland-ahead-tcoc.md",
+        "urls": [
+          "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+          "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+          "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+          "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+          "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+        ],
+        "multi_source": true,
+        "note": "Maryland AHEAD / TCOC foundation: hospital global budgets, all-payer TCOC growth target, savings deepen in TCOC era (2019 -$450/bene/yr -3.2%); waiver expires Dec 2026 -> AHEAD."
+      },
+      {
+        "topic": "maryland_datasets",
+        "finding_doc": "findings/15-maryland-datasets.md",
+        "urls": [
+          "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+          "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+          "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+          "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+          "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+        ],
+        "multi_source": true,
+        "note": "Maryland-program datasets grabbed for the demo (MCDB/HSCRC layer): DS-1 TCOC savings time series, DS-2 ~$689M net savings, DS-3 revenue-growth vs cap, DS-4 HCTTF structural facts, DS-5 AHEAD PC quality measures."
+      },
+      {
+        "topic": "nick_culbertson",
+        "finding_doc": "findings/01f-mpir-nick-culbertson.md",
+        "urls": [
+          "https://www.techstars.com/about/managing-director-nick-culbertson",
+          "https://pattillmanfoundation.org/meet-our-scholars/nicholas-culbertson",
+          "https://www.citybiz.co/article/696149/qa-with-nick-culbertson-managing-director-of-techstars-ai-health-accelerator",
+          "https://councils.forbes.com/profile/Nick-Culbertson-CEO-Protenus/bc03db43-8380-480c-8047-a2719db16a53"
+        ],
+        "multi_source": true,
+        "note": "MPIR on Nick Culbertson: Protenus co-founder/CEO (sold to JH Health System), US Army Special Forces / Tillman Scholar, Johns Hopkins B.S. + MD candidate."
+      },
+      {
+        "topic": "sports_orioles",
+        "finding_doc": "findings/01i-web-sports-orioles.md",
+        "urls": [
+          "https://www.mlb.com/press-release/press-release-medstar-health-renewed-as-the-official-medical-team-of-the-baltimo",
+          "https://www.mlb.com/press-release/press-release-baltimore-orioles-extend-medical-partnership-with-medstar-health",
+          "https://www.medstarhealth.org/partnerships/orioles",
+          "https://www.medstarhealth.org/doctors/leigh-ann-curl-md"
+        ],
+        "multi_source": true,
+        "note": "Orioles<->MedStar official medical team (MLB press releases); Leigh Ann Curl MD as a sports figure who is a billing provider in dim_provider."
+      },
+      {
+        "topic": "sports_overview",
+        "finding_doc": "findings/01g-web-sports-overview.md",
+        "urls": [
+          "https://www.medstarhealth.org/partnerships",
+          "https://www.medstarhealth.org/partnerships/ravens",
+          "https://www.medstarhealth.org/partnerships/orioles",
+          "https://www.medstarhealth.org/doctors/leigh-ann-curl-md"
+        ],
+        "multi_source": true,
+        "note": "MedStar Health is official medical provider for Ravens (NFL) + Orioles (MLB) + Capitals/Wizards; Leigh Ann Curl MD (Orioles head team physician, orthopedic surgery, MD) -> in dim_provider."
+      },
+      {
+        "topic": "sports_ravens",
+        "finding_doc": "findings/01h-web-sports-ravens.md",
+        "urls": [
+          "https://www.baltimoreravens.com/news/baltimore-ravens-extend-medical-partnership-with-medstar-health-for-another-decade",
+          "https://www.medstarhealth.org/partnerships/ravens",
+          "https://baltimore.org/what-to-do/sports"
+        ],
+        "multi_source": true,
+        "note": "Ravens<->MedStar decade medical-partnership extension; Visit Baltimore + Wikipedia corroboration."
+      },
+      {
+        "topic": "techstars_baltimore",
+        "finding_doc": "findings/01b-web-techstars-baltimore.md",
+        "urls": [
+          "https://www.techstars.com/accelerators/baltimore-ai-health"
+        ],
+        "multi_source": true,
+        "note": "Techstars AI Health Baltimore: $220k/company; anchors Johns Hopkins, CareFirst BCBS, MedStar, University of Maryland Baltimore, UMMS; full team + 12-advisor roster (program page + newsroom + blog)."
+      },
+      {
+        "topic": "techstars_interviewers",
+        "finding_doc": "findings/01c-web-interviewers.md",
+        "urls": [
+          "https://www.techstars.com/accelerators/baltimore-ai-health",
+          "https://www.techstars.com/about/managing-director-nick-culbertson"
+        ],
+        "multi_source": true,
+        "note": "Interviewer FACTS for Nick Culbertson (Managing Director) + Emily McLanahan (Investment Manager); sourced across MedCity News, citybiz, Pat Tillman Foundation, hisummits, CtHIMA, LinkedIn (>=2 sources)."
+      },
+      {
+        "topic": "techstars_roster",
+        "finding_doc": "findings/01d-web-techstars-roster.md",
+        "urls": [
+          "https://www.techstars.com/accelerators/baltimore-ai-health"
+        ],
+        "multi_source": true,
+        "note": "All 15 roster names (team + 12 advisors); physician advisors located in dim_provider: Brian Hasselfeld MD (NPI 1700270360), Peter Najjar MD (NPI 1952691214); sourced across institution bios + LinkedIn + citybiz."
+      }
+    ],
+    "query_index": [
+      {
+        "query": "e0_national_benchmark.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_variation"
+        ]
+      },
+      {
+        "query": "e0_national_enrollment.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_enrollment"
+        ]
+      },
+      {
+        "query": "e0_national_insurance.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_insurance"
+        ]
+      },
+      {
+        "query": "e0_national_opioid.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_opioid"
+        ]
+      },
+      {
+        "query": "e0_region_enrollment.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_enrollment"
+        ]
+      },
+      {
+        "query": "e0_region_hpsa.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_hpsa"
+        ]
+      },
+      {
+        "query": "e0_region_insurance.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_insurance"
+        ]
+      },
+      {
+        "query": "e0_region_opioid.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_opioid"
+        ]
+      },
+      {
+        "query": "e0_region_variation.sql",
+        "experiments": [
+          "e0"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_variation"
+        ]
+      },
+      {
+        "query": "e11_cbsa_enrollment.sql",
+        "experiments": [
+          "e11"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_enrollment",
+          "dim_geography"
+        ]
+      },
+      {
+        "query": "e11_cbsa_insurance.sql",
+        "experiments": [
+          "e11"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_insurance",
+          "dim_geography"
+        ]
+      },
+      {
+        "query": "e11_cbsa_labels.sql",
+        "experiments": [
+          "e11"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_geography"
+        ]
+      },
+      {
+        "query": "e11_cbsa_opioid.sql",
+        "experiments": [
+          "e11"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_opioid",
+          "dim_geography"
+        ]
+      },
+      {
+        "query": "e11_cbsa_variation.sql",
+        "experiments": [
+          "e11"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_variation",
+          "dim_geography"
+        ]
+      },
+      {
+        "query": "e11_provider_cbsa_specialty.sql",
+        "experiments": [
+          "e11"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_provider",
+          "dim_geography"
+        ]
+      },
+      {
+        "query": "e12_enrollment_series.sql",
+        "experiments": [
+          "e12"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_enrollment"
+        ]
+      },
+      {
+        "query": "e12_opioid_series.sql",
+        "experiments": [
+          "e12"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_opioid"
+        ]
+      },
+      {
+        "query": "e12_variation_series.sql",
+        "experiments": [
+          "e12"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_variation"
+        ]
+      },
+      {
+        "query": "e1_caremgmt_footprint.sql",
+        "experiments": [
+          "e1"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_service"
+        ]
+      },
+      {
+        "query": "e1_national_eligible.sql",
+        "experiments": [
+          "e1"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_variation"
+        ]
+      },
+      {
+        "query": "e2_caremgmt_billed.sql",
+        "experiments": [
+          "e2"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_service"
+        ]
+      },
+      {
+        "query": "e2_group_rollup.sql",
+        "experiments": [
+          "e2"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_provider",
+          "dim_group_practice"
+        ]
+      },
+      {
+        "query": "e2_provider_eligibility.sql",
+        "experiments": [
+          "e2"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_summary"
+        ]
+      },
+      {
+        "query": "e2_provider_region.sql",
+        "experiments": [
+          "e2",
+          "e1"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_provider",
+          "bridge_zcta_county"
+        ]
+      },
+      {
+        "query": "e2_region_discharge.sql",
+        "experiments": [
+          "e2"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_geography_variation"
+        ]
+      },
+      {
+        "query": "e4_provider_edges.cypher",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e4_provider_mips.sql",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_quality_mips"
+        ]
+      },
+      {
+        "query": "e4_provider_node.cypher",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e4_provider_service.sql",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_service"
+        ]
+      },
+      {
+        "query": "e4_provider_service_caremgmt.sql",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_service"
+        ]
+      },
+      {
+        "query": "e4_provider_summary.sql",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_summary"
+        ]
+      },
+      {
+        "query": "e4_roster_match.sql",
+        "experiments": [
+          "e4"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_provider"
+        ]
+      },
+      {
+        "query": "e6_prescribing.sql",
+        "experiments": [
+          "e6"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_prescribing_summary"
+        ]
+      },
+      {
+        "query": "e6_provider_specialty.sql",
+        "experiments": [
+          "e6"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_provider"
+        ]
+      },
+      {
+        "query": "e7_readmissions.sql",
+        "experiments": [
+          "e7"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_readmissions"
+        ]
+      },
+      {
+        "query": "e7_region_facilities.sql",
+        "experiments": [
+          "e7"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_facility",
+          "bridge_zcta_county"
+        ]
+      },
+      {
+        "query": "e7_timely_care.sql",
+        "experiments": [
+          "e7"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_timely_care"
+        ]
+      },
+      {
+        "query": "e8_anchor_group_reach.cypher",
+        "experiments": [
+          "e8"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e8_anchor_provider_reach.cypher",
+        "experiments": [
+          "e8"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e8_mentor_aco_reach.cypher",
+        "experiments": [
+          "e8"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e8_mentor_group_reach.cypher",
+        "experiments": [
+          "e8"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e8_mentor_profile.cypher",
+        "experiments": [
+          "e8"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_anchor_reach_facility.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_anchor_reach_group.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_betweenness.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_bipartite_drug_hub.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_bipartite_facility_hub.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_census_facilities.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_census_providers.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_community_labelprop.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_community_wcc.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_degree_centrality.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_khop_reach.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_pagerank.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_similarity_drug.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e9_subgraph_edges.cypher",
+        "experiments": [
+          "e9"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      }
+    ],
+    "figure_page_index": {
+      "AHEAD-md-globalbudget": [],
+      "AHEAD-md-growth": [],
+      "AHEAD-md-measures": [],
+      "AHEAD-md-netsavings": [],
+      "AHEAD-md-savings-trend": [
+        "ahead"
+      ],
+      "FAC-md-strip": [],
+      "FOOT-md-strip": [],
+      "GRAPH-md-badge": [],
+      "GROW-md-strip": [],
+      "HERO-md-strip": [],
+      "OPP-md-strip": [],
+      "SPORTS-md-badge": [],
+      "TECH-md-badge": [],
+      "TGT-md-strip": [],
+      "ahead_incentive_flip": [
+        "facilities"
+      ],
+      "ahead_ma_explainer": [],
+      "ahead_ma_series": [
+        "ahead"
+      ],
+      "ahead_measures_map": [],
+      "ahead_savings": [],
+      "ahead_timeline": [],
+      "fac_ed": [
+        "facilities"
+      ],
+      "fac_readmissions": [
+        "facilities"
+      ],
+      "graph_anchor_reach": [
+        "graph"
+      ],
+      "graph_community": [
+        "graph"
+      ],
+      "graph_degree": [
+        "graph"
+      ],
+      "graph_drug_hub": [
+        "graph"
+      ],
+      "graph_pagerank": [
+        "graph"
+      ],
+      "groups_table": [
+        "targets"
+      ],
+      "growth_groups": [
+        "growth"
+      ],
+      "growth_reach": [
+        "growth"
+      ],
+      "growth_warmpath": [
+        "growth"
+      ],
+      "kpi_benes": [
+        "hero"
+      ],
+      "kpi_dual_pct": [],
+      "kpi_ed": [],
+      "kpi_ma_pct": [],
+      "kpi_opioid": [],
+      "kpi_readmit": [],
+      "kpi_risk": [],
+      "kpi_std_spend": [],
+      "kpi_uninsured": [],
+      "missing_quality": [
+        "targets"
+      ],
+      "outlier_fp": [],
+      "outlier_im": [],
+      "outlier_readmit": [],
+      "outliers_e11": [],
+      "providers_table": [
+        "targets"
+      ],
+      "roster_summary": [],
+      "sports_curl": [],
+      "tam_ccm": [],
+      "tam_headline": [],
+      "tam_rpm": [],
+      "tam_tcm": [],
+      "targeting_funnel": [
+        "targeting"
+      ],
+      "targeting_ideal": [
+        "targeting"
+      ],
+      "targeting_top_to_know": [
+        "targeting"
+      ],
+      "techstars_card": [],
+      "temporal_ed": [],
+      "temporal_ma": [],
+      "temporal_opioid": [],
+      "temporal_pop": []
+    },
+    "figure_lineage": {
+      "AHEAD-md-globalbudget": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "AHEAD-md-growth": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "AHEAD-md-measures": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "AHEAD-md-netsavings": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "AHEAD-md-savings-trend": {
+        "presenting_pages": [
+          "ahead"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "FAC-md-strip": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "FOOT-md-strip": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "GRAPH-md-badge": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "GROW-md-strip": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "HERO-md-strip": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "OPP-md-strip": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "SPORTS-md-badge": {
+        "presenting_pages": [],
+        "experiments": [
+          "e10"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "sports_overview",
+            "urls": [
+              "https://www.medstarhealth.org/partnerships",
+              "https://www.medstarhealth.org/partnerships/ravens",
+              "https://www.medstarhealth.org/partnerships/orioles",
+              "https://www.medstarhealth.org/doctors/leigh-ann-curl-md"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "sports_ravens",
+            "urls": [
+              "https://www.baltimoreravens.com/news/baltimore-ravens-extend-medical-partnership-with-medstar-health-for-another-decade",
+              "https://www.medstarhealth.org/partnerships/ravens",
+              "https://baltimore.org/what-to-do/sports"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "sports_orioles",
+            "urls": [
+              "https://www.mlb.com/press-release/press-release-medstar-health-renewed-as-the-official-medical-team-of-the-baltimo",
+              "https://www.mlb.com/press-release/press-release-baltimore-orioles-extend-medical-partnership-with-medstar-health",
+              "https://www.medstarhealth.org/partnerships/orioles",
+              "https://www.medstarhealth.org/doctors/leigh-ann-curl-md"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "TECH-md-badge": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "TGT-md-strip": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "ahead_incentive_flip": {
+        "presenting_pages": [
+          "facilities"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "ahead_ma_explainer": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0",
+          "e2",
+          "e12"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "ahead_ma_series": {
+        "presenting_pages": [
+          "ahead"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "ahead_measures_map": {
+        "presenting_pages": [],
+        "experiments": [
+          "e6",
+          "e7",
+          "e11"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_facility",
+          "dim_geography",
+          "dim_provider",
+          "fact_facility_readmissions",
+          "fact_facility_timely_care",
+          "fact_geography_enrollment",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation",
+          "fact_provider_prescribing_summary"
+        ],
+        "datasets": [
+          {
+            "name": "ACS 5-Year — ZCTA-Level Demographics (B01001, B02001, B03002)",
+            "url": "https://api.census.gov/data/2023/acs/acs5"
+          },
+          {
+            "name": "Small Area Income and Poverty Estimates (SAIPE)",
+            "url": "https://api.census.gov/data/timeseries/poverty/saipe"
+          },
+          {
+            "name": "Hospital Enrollments (PECOS)",
+            "url": "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment"
+          },
+          {
+            "name": "Timely and Effective Care — Hospital",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv"
+          },
+          {
+            "name": "Nursing Home Compare (Provider Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/48b0263f73f1f8741101da989557a8a9_1776435355/NH_ProviderInfo_Apr2026.csv"
+          },
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Hospital Compare (Hospital General Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv"
+          },
+          {
+            "name": "Hospital Readmissions Reduction Program (HRRP)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv"
+          },
+          {
+            "name": "Dialysis Compare (Provider Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/c04d84bc5c641284494bee4f20f17f9c_1774454758/DFC_FACILITY.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Prescribers — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/750769a3-bb0f-4f05-81dc-7dcb6e105cb0/MUP_DPR_RY25_P04_V10_DY23_NPI.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Hospital Enrollments with Ownership",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/6ab42b48-325a-4bf2-9ee6-d1ee1bfddfbb/Hospital_Enrollments_2026.04.01.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "Provider of Services (POS)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8ff9bcf4-032e-4a6f-b1c1-d8f1c2e96885/Hospital_and_other.DATA.Q1_2026.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "FQHC Enrollments (CMS)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/ddb16ed1-02c4-4de5-aae8-9d99090be023/FQHC_Enrollments_2026.04.01.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "Area Health Resources Files (AHRF)",
+            "url": "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "NCHS Urban-Rural Classification Scheme (6-Level)",
+            "url": "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv"
+          },
+          {
+            "name": "County FIPS Gazetteer",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip"
+          },
+          {
+            "name": "ZCTA Gazetteer File (Centroids and Area)",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          },
+          {
+            "name": "CBSA Delineation File (OMB Metro/Micro Areas)",
+            "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "ahead_savings": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "ahead_timeline": {
+        "presenting_pages": [],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": [
+          {
+            "topic": "maryland_ahead_tcoc",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/ahead",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://www.commonwealthfund.org/publications/fund-reports/2024/jun/hospital-global-budgeting-lessons-maryland-selected-nations",
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://nashp.org/looking-at-the-ahead-model-key-model-aspects-and-state-considerations"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_ahead_model",
+            "urls": [
+              "https://www.cms.gov/priorities/innovation/innovation-models/maryland-all-payer-model",
+              "https://www.linkedin.com/posts/bob-atlas-4b9b194_cms-cmmi-marylandmodel-activity-7361870080000856064-EVNN",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/Documents/AHEAD/State%20Agreement%20Public%20SummaryFINAL%2010_30_2024.pdf",
+              "https://www.cms.gov/files/document/ahead-fin-specs-my2026.pdf"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "maryland_datasets",
+            "urls": [
+              "https://hscrc.maryland.gov/Documents/Modernization/MD_TCOC_Evaluation_Quantitative-Only%20Report.pdf",
+              "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2826156",
+              "https://hscrc.maryland.gov/documents/legal-legislative/reports/2019%20reports/april%202019%20biannual%20report%20final.pdf",
+              "https://hcttf.org/wp-content/uploads/2020/10/HCTTF-Assessment_MD-All-Payer-Model.pdf",
+              "https://health.maryland.gov/mdpcp/Documents/12-16-2025%20_State%20of%20Maryland_AHEAD_Primary_Care_Programs_All-Call.pdf"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "fac_ed": {
+        "presenting_pages": [
+          "facilities"
+        ],
+        "experiments": [
+          "e7"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_facility",
+          "fact_facility_readmissions",
+          "fact_facility_timely_care"
+        ],
+        "datasets": [
+          {
+            "name": "Hospital Enrollments (PECOS)",
+            "url": "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment"
+          },
+          {
+            "name": "Timely and Effective Care — Hospital",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv"
+          },
+          {
+            "name": "Nursing Home Compare (Provider Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/48b0263f73f1f8741101da989557a8a9_1776435355/NH_ProviderInfo_Apr2026.csv"
+          },
+          {
+            "name": "Hospital Compare (Hospital General Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv"
+          },
+          {
+            "name": "Hospital Readmissions Reduction Program (HRRP)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv"
+          },
+          {
+            "name": "Dialysis Compare (Provider Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/c04d84bc5c641284494bee4f20f17f9c_1774454758/DFC_FACILITY.csv"
+          },
+          {
+            "name": "Hospital Enrollments with Ownership",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/6ab42b48-325a-4bf2-9ee6-d1ee1bfddfbb/Hospital_Enrollments_2026.04.01.csv"
+          },
+          {
+            "name": "Provider of Services (POS)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8ff9bcf4-032e-4a6f-b1c1-d8f1c2e96885/Hospital_and_other.DATA.Q1_2026.csv"
+          },
+          {
+            "name": "FQHC Enrollments (CMS)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/ddb16ed1-02c4-4de5-aae8-9d99090be023/FQHC_Enrollments_2026.04.01.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "fac_readmissions": {
+        "presenting_pages": [
+          "facilities"
+        ],
+        "experiments": [
+          "e7"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_facility",
+          "fact_facility_readmissions",
+          "fact_facility_timely_care"
+        ],
+        "datasets": [
+          {
+            "name": "Hospital Enrollments (PECOS)",
+            "url": "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment"
+          },
+          {
+            "name": "Timely and Effective Care — Hospital",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv"
+          },
+          {
+            "name": "Nursing Home Compare (Provider Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/48b0263f73f1f8741101da989557a8a9_1776435355/NH_ProviderInfo_Apr2026.csv"
+          },
+          {
+            "name": "Hospital Compare (Hospital General Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv"
+          },
+          {
+            "name": "Hospital Readmissions Reduction Program (HRRP)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv"
+          },
+          {
+            "name": "Dialysis Compare (Provider Information)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/c04d84bc5c641284494bee4f20f17f9c_1774454758/DFC_FACILITY.csv"
+          },
+          {
+            "name": "Hospital Enrollments with Ownership",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/6ab42b48-325a-4bf2-9ee6-d1ee1bfddfbb/Hospital_Enrollments_2026.04.01.csv"
+          },
+          {
+            "name": "Provider of Services (POS)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8ff9bcf4-032e-4a6f-b1c1-d8f1c2e96885/Hospital_and_other.DATA.Q1_2026.csv"
+          },
+          {
+            "name": "FQHC Enrollments (CMS)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/ddb16ed1-02c4-4de5-aae8-9d99090be023/FQHC_Enrollments_2026.04.01.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "graph_anchor_reach": {
+        "presenting_pages": [
+          "graph"
+        ],
+        "experiments": [
+          "e3",
+          "e9"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "graph_community": {
+        "presenting_pages": [
+          "graph"
+        ],
+        "experiments": [
+          "e3",
+          "e9"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "graph_degree": {
+        "presenting_pages": [
+          "graph"
+        ],
+        "experiments": [
+          "e3",
+          "e9"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "graph_drug_hub": {
+        "presenting_pages": [
+          "graph"
+        ],
+        "experiments": [
+          "e3",
+          "e9"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "graph_pagerank": {
+        "presenting_pages": [
+          "graph"
+        ],
+        "experiments": [
+          "e3",
+          "e9"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "groups_table": {
+        "presenting_pages": [
+          "targets"
+        ],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "growth_groups": {
+        "presenting_pages": [
+          "growth"
+        ],
+        "experiments": [
+          "e8"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "growth_reach": {
+        "presenting_pages": [
+          "growth"
+        ],
+        "experiments": [
+          "e8"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "growth_warmpath": {
+        "presenting_pages": [
+          "growth"
+        ],
+        "experiments": [
+          "e8"
+        ],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "kpi_benes": {
+        "presenting_pages": [
+          "hero"
+        ],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_dual_pct": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_ed": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_ma_pct": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_opioid": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_readmit": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_risk": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_std_spend": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "kpi_uninsured": {
+        "presenting_pages": [],
+        "experiments": [
+          "e0"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_hpsa",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "HPSA — Dental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_DH.csv"
+          },
+          {
+            "name": "HPSA — Mental Health Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_MH.csv"
+          },
+          {
+            "name": "HPSA — Primary Care Designations",
+            "url": "https://data.hrsa.gov/DataDownload/DD_Files/BCD_HPSA_FCT_DET_PC.csv"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "missing_quality": {
+        "presenting_pages": [
+          "targets"
+        ],
+        "experiments": [
+          "e6"
+        ],
+        "tables": [
+          "dim_provider",
+          "fact_provider_prescribing_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Part D Prescribers — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/750769a3-bb0f-4f05-81dc-7dcb6e105cb0/MUP_DPR_RY25_P04_V10_DY23_NPI.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          }
+        ],
+        "research": []
+      },
+      "outlier_fp": {
+        "presenting_pages": [],
+        "experiments": [
+          "e11"
+        ],
+        "tables": [
+          "dim_geography",
+          "dim_provider",
+          "fact_geography_enrollment",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "ACS 5-Year — ZCTA-Level Demographics (B01001, B02001, B03002)",
+            "url": "https://api.census.gov/data/2023/acs/acs5"
+          },
+          {
+            "name": "Small Area Income and Poverty Estimates (SAIPE)",
+            "url": "https://api.census.gov/data/timeseries/poverty/saipe"
+          },
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "Area Health Resources Files (AHRF)",
+            "url": "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "NCHS Urban-Rural Classification Scheme (6-Level)",
+            "url": "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv"
+          },
+          {
+            "name": "County FIPS Gazetteer",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip"
+          },
+          {
+            "name": "ZCTA Gazetteer File (Centroids and Area)",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          },
+          {
+            "name": "CBSA Delineation File (OMB Metro/Micro Areas)",
+            "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "outlier_im": {
+        "presenting_pages": [],
+        "experiments": [
+          "e11"
+        ],
+        "tables": [
+          "dim_geography",
+          "dim_provider",
+          "fact_geography_enrollment",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "ACS 5-Year — ZCTA-Level Demographics (B01001, B02001, B03002)",
+            "url": "https://api.census.gov/data/2023/acs/acs5"
+          },
+          {
+            "name": "Small Area Income and Poverty Estimates (SAIPE)",
+            "url": "https://api.census.gov/data/timeseries/poverty/saipe"
+          },
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "Area Health Resources Files (AHRF)",
+            "url": "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "NCHS Urban-Rural Classification Scheme (6-Level)",
+            "url": "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv"
+          },
+          {
+            "name": "County FIPS Gazetteer",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip"
+          },
+          {
+            "name": "ZCTA Gazetteer File (Centroids and Area)",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          },
+          {
+            "name": "CBSA Delineation File (OMB Metro/Micro Areas)",
+            "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "outlier_readmit": {
+        "presenting_pages": [],
+        "experiments": [
+          "e11"
+        ],
+        "tables": [
+          "dim_geography",
+          "dim_provider",
+          "fact_geography_enrollment",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "ACS 5-Year — ZCTA-Level Demographics (B01001, B02001, B03002)",
+            "url": "https://api.census.gov/data/2023/acs/acs5"
+          },
+          {
+            "name": "Small Area Income and Poverty Estimates (SAIPE)",
+            "url": "https://api.census.gov/data/timeseries/poverty/saipe"
+          },
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "Area Health Resources Files (AHRF)",
+            "url": "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "NCHS Urban-Rural Classification Scheme (6-Level)",
+            "url": "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv"
+          },
+          {
+            "name": "County FIPS Gazetteer",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip"
+          },
+          {
+            "name": "ZCTA Gazetteer File (Centroids and Area)",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          },
+          {
+            "name": "CBSA Delineation File (OMB Metro/Micro Areas)",
+            "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "outliers_e11": {
+        "presenting_pages": [],
+        "experiments": [
+          "e11"
+        ],
+        "tables": [
+          "dim_geography",
+          "dim_provider",
+          "fact_geography_enrollment",
+          "fact_geography_insurance",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "ACS 5-Year — ZCTA-Level Demographics (B01001, B02001, B03002)",
+            "url": "https://api.census.gov/data/2023/acs/acs5"
+          },
+          {
+            "name": "Small Area Income and Poverty Estimates (SAIPE)",
+            "url": "https://api.census.gov/data/timeseries/poverty/saipe"
+          },
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "Area Health Resources Files (AHRF)",
+            "url": "https://data.hrsa.gov/DataDownload/AHRF/AHRF_2024-2025_CSV.zip"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "NCHS Urban-Rural Classification Scheme (6-Level)",
+            "url": "https://www.cdc.gov/nchs/data/data-analysis/NCHSurb-rural-codes.csv"
+          },
+          {
+            "name": "County FIPS Gazetteer",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip"
+          },
+          {
+            "name": "ZCTA Gazetteer File (Centroids and Area)",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          },
+          {
+            "name": "CBSA Delineation File (OMB Metro/Micro Areas)",
+            "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+          },
+          {
+            "name": "Small Area Health Insurance Estimates (SAHIE)",
+            "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
+          }
+        ],
+        "research": []
+      },
+      "providers_table": {
+        "presenting_pages": [
+          "targets"
+        ],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "roster_summary": {
+        "presenting_pages": [],
+        "experiments": [
+          "e4"
+        ],
+        "tables": [
+          "dim_provider",
+          "fact_provider_quality_mips",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          }
+        ],
+        "research": [
+          {
+            "topic": "techstars_roster",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "sports_curl": {
+        "presenting_pages": [],
+        "experiments": [
+          "e4",
+          "e10"
+        ],
+        "tables": [
+          "dim_provider",
+          "fact_provider_quality_mips",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          }
+        ],
+        "research": [
+          {
+            "topic": "sports_overview",
+            "urls": [
+              "https://www.medstarhealth.org/partnerships",
+              "https://www.medstarhealth.org/partnerships/ravens",
+              "https://www.medstarhealth.org/partnerships/orioles",
+              "https://www.medstarhealth.org/doctors/leigh-ann-curl-md"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "sports_ravens",
+            "urls": [
+              "https://www.baltimoreravens.com/news/baltimore-ravens-extend-medical-partnership-with-medstar-health-for-another-decade",
+              "https://www.medstarhealth.org/partnerships/ravens",
+              "https://baltimore.org/what-to-do/sports"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "sports_orioles",
+            "urls": [
+              "https://www.mlb.com/press-release/press-release-medstar-health-renewed-as-the-official-medical-team-of-the-baltimo",
+              "https://www.mlb.com/press-release/press-release-baltimore-orioles-extend-medical-partnership-with-medstar-health",
+              "https://www.medstarhealth.org/partnerships/orioles",
+              "https://www.medstarhealth.org/doctors/leigh-ann-curl-md"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "tam_ccm": {
+        "presenting_pages": [],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": [
+          {
+            "topic": "care_management_value",
+            "urls": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC11368639"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "tam_headline": {
+        "presenting_pages": [],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": [
+          {
+            "topic": "care_management_value",
+            "urls": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC11368639"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "tam_rpm": {
+        "presenting_pages": [],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": [
+          {
+            "topic": "care_management_value",
+            "urls": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC11368639"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "tam_tcm": {
+        "presenting_pages": [],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": [
+          {
+            "topic": "discharge_billing",
+            "urls": [],
+            "multi_source": true
+          },
+          {
+            "topic": "care_management_value",
+            "urls": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC11368639"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "targeting_funnel": {
+        "presenting_pages": [
+          "targeting"
+        ],
+        "experiments": [
+          "e2"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "targeting_ideal": {
+        "presenting_pages": [
+          "targeting"
+        ],
+        "experiments": [
+          "e2",
+          "e3",
+          "e6"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_prescribing_summary",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Part D Prescribers — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/750769a3-bb0f-4f05-81dc-7dcb6e105cb0/MUP_DPR_RY25_P04_V10_DY23_NPI.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "targeting_top_to_know": {
+        "presenting_pages": [
+          "targeting"
+        ],
+        "experiments": [
+          "e2",
+          "e3"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": []
+      },
+      "techstars_card": {
+        "presenting_pages": [],
+        "experiments": [
+          "e2",
+          "e4"
+        ],
+        "tables": [
+          "bridge_zcta_county",
+          "dim_group_practice",
+          "dim_provider",
+          "fact_geography_variation",
+          "fact_provider_quality_mips",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Group Practice Reassignment (Affiliations)",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/aa08807f-702e-4ede-aca5-b3d3d7ec7cfc/revalidation_clinic_group_practice_reassignment_pa_xref.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          },
+          {
+            "name": "Census 2020 ZCTA Relationship Files",
+            "url": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_county20_natl.txt"
+          }
+        ],
+        "research": [
+          {
+            "topic": "techstars_baltimore",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "techstars_interviewers",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health",
+              "https://www.techstars.com/about/managing-director-nick-culbertson"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "techstars_roster",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "nick_culbertson",
+            "urls": [
+              "https://www.techstars.com/about/managing-director-nick-culbertson",
+              "https://pattillmanfoundation.org/meet-our-scholars/nicholas-culbertson",
+              "https://www.citybiz.co/article/696149/qa-with-nick-culbertson-managing-director-of-techstars-ai-health-accelerator",
+              "https://councils.forbes.com/profile/Nick-Culbertson-CEO-Protenus/bc03db43-8380-480c-8047-a2719db16a53"
+            ],
+            "multi_source": true
+          }
+        ]
+      },
+      "temporal_ed": {
+        "presenting_pages": [],
+        "experiments": [
+          "e12"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          }
+        ],
+        "research": []
+      },
+      "temporal_ma": {
+        "presenting_pages": [],
+        "experiments": [
+          "e12"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          }
+        ],
+        "research": []
+      },
+      "temporal_opioid": {
+        "presenting_pages": [],
+        "experiments": [
+          "e12"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          }
+        ],
+        "research": []
+      },
+      "temporal_pop": {
+        "presenting_pages": [],
+        "experiments": [
+          "e12"
+        ],
+        "tables": [
+          "fact_geography_enrollment",
+          "fact_geography_opioid",
+          "fact_geography_variation"
+        ],
+        "datasets": [
+          {
+            "name": "Medicare Geographic Variation — National, State & County",
+            "url": "https://data.cms.gov/sites/default/files/2025-03/a40ac71d-9f80-4d99-92d2-fd149433d7d8/2014-2023%20Medicare%20Fee-for-Service%20Geographic%20Variation%20Public%20Use%20File.csv"
+          },
+          {
+            "name": "Medicare Part D Opioid Prescribing Rates — by Geography",
+            "url": "https://data.cms.gov/sites/default/files/2025-08/cf2479d8-af8d-454b-91f9-ab2762bf8100/OMT_MDCR_RY25_P04_V10_Y23_GEO.csv"
+          },
+          {
+            "name": "Medicare Monthly Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/8abc9ec4-38b0-4ee9-b539-609a9bb040bb/Medicare%20Monthly%20Enrollment%20Data_January%202026.csv"
+          }
+        ],
+        "research": []
+      }
     }
   }
 };

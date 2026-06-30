@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IFC — Ideal First Customers (NEED &times; CAPTURE-GAP &times; LEVERAGE &times; FIT) · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="targeting" id="page-IFC">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-crosshair me-2" style="color: var(--hikari-aco);"></i>Ideal First Customers</h3>
+          <div class="text-secondary small" id="IFC-subtitle" data-eid="IFC-subtitle">&mdash;</div>
+        </div>
+        <span class="page-eid-chip">PAGE: IFC</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <!-- Layer 1 — answer card (the headline of the four-layer pattern) -->
+    <div class="card answer-card figure-card mb-4" data-figure-id="targeting_ideal" data-eid="IFC-answer-card" role="button">
+      <div class="kpi-band" style="background: var(--hikari-aco);"></div>
+      <div class="card-body">
+        <div class="row align-items-center g-3">
+          <div class="col-md-4 text-center">
+            <div class="display-4 fw-bold" style="color: var(--hikari-aco);" id="IFC-answer-n" data-eid="IFC-answer-n">&mdash;</div>
+            <div class="text-uppercase small fw-semibold text-muted">ideal first customers</div>
+            <div class="small text-secondary mt-1">NEED &times; CAPTURE-GAP &times; LEVERAGE &times; FIT</div>
+          </div>
+          <div class="col-md-8">
+            <p class="mb-1" id="IFC-answer-note" data-eid="IFC-answer-note"></p>
+            <div class="small text-muted"><i class="bi bi-shield-lock me-1"></i>Click for the composite formula + axis weights + source query.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 2 — fit funnel visual -->
+    <div class="card figure-card mb-4" data-figure-id="targeting_funnel" data-eid="IFC-funnel-card" role="button">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-funnel me-1"></i>Fit funnel &mdash; scored &rarr; amenable &rarr; ideal first customers</div>
+      <div class="card-body">
+        <div id="IFC-funnel-chart" class="section-chart" data-eid="IFC-funnel-chart"></div>
+        <p class="text-muted small mb-0 mt-2" id="IFC-funnel-removed" data-eid="IFC-funnel-removed"></p>
+      </div>
+    </div>
+
+    <!-- Layer 3 — axes / weights explainer (why these providers) -->
+    <h6 class="text-muted text-uppercase small mb-2">Why these providers &mdash; three weighted axes + the FIT gate</h6>
+    <div class="row g-3 mb-3" id="IFC-axes" data-eid="IFC-axes"></div>
+    <div class="card mb-4" data-eid="IFC-rules-card">
+      <div class="card-body">
+        <div class="mb-2"><span class="badge text-bg-secondary me-1">FIT gate</span>
+          <code id="IFC-fit-gate" data-eid="IFC-fit-gate"></code></div>
+        <div><span class="badge text-bg-secondary me-1">Ideal rule</span>
+          <span class="small text-secondary" id="IFC-ideal-rule" data-eid="IFC-ideal-rule"></span></div>
+      </div>
+    </div>
+
+    <!-- Layer 4 — ideal first customers supporting table -->
+    <div class="card mb-2">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-stars me-1"></i>Ideal First Customers &mdash; top 15 by annual opportunity</div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="IFC-ideal-table" data-eid="IFC-ideal-table"></table>
+      </div></div>
+    </div>
+    <p class="text-muted small mb-4" id="IFC-ideal-c6" data-eid="IFC-ideal-c6"></p>
+
+    <!-- "Top providers to KNOW" — leverage panel -->
+    <div class="card figure-card mb-2" data-figure-id="targeting_top_to_know" data-eid="IFC-toknow-card" role="button">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-diagram-3 me-1"></i>Top providers to KNOW &mdash; highest graph leverage (amenable)</div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="IFC-toknow-table" data-eid="IFC-toknow-table"></table>
+      </div></div>
+    </div>
+    <p class="text-muted small mb-4" id="IFC-toknow-note" data-eid="IFC-toknow-note"></p>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Click the answer card, funnel, or leverage panel for its composite formula + source query.
+      Leverage = <code>complete_leverage</code> (MEMBER_OF&rarr;ACO + BILLS_THROUGH&rarr;GroupPractice, COMPLETE edges, C-5-safe).
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../assets/page-targeting.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+  <script src="../assets/provenance.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROV — Data Provenance (every figure traced to its public source) · Hikari /explore/techstars lab</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/hikari.css">
+  <link rel="stylesheet" href="../assets/hikari-tokens.css">
+</head>
+<body data-sr-page="provenance" id="page-PROV">
+
+  <div id="sr-topnav"></div>
+
+  <header class="page-band py-3 mb-4">
+    <div class="container-fluid" style="max-width: 1320px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <h3 class="mb-0"><i class="bi bi-database me-2" style="color: var(--hikari-service);"></i>Data Provenance</h3>
+          <div class="text-secondary small" id="PROV-subtitle" data-eid="PROV-subtitle">&mdash;</div>
+        </div>
+        <span class="page-eid-chip">PAGE: PROV</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid pb-5" style="max-width: 1320px;">
+
+    <!-- Coverage summary -->
+    <h6 class="text-muted text-uppercase small mb-2">Coverage &mdash; everything is traceable</h6>
+    <div class="row g-3 mb-4" id="PROV-coverage" data-eid="PROV-coverage"></div>
+
+    <!-- Public source datasets (grouped by agency) -->
+    <div class="card mb-4">
+      <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+        <span class="fw-semibold"><i class="bi bi-cloud-download me-1"></i>Public source datasets</span>
+        <span class="small text-muted" id="PROV-datasets-env" data-eid="PROV-datasets-env"></span>
+      </div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="PROV-datasets-table" data-eid="PROV-datasets-table"></table>
+      </div></div>
+    </div>
+
+    <!-- Derived tables -> sources -->
+    <div class="card mb-4">
+      <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+        <span class="fw-semibold"><i class="bi bi-table me-1"></i>Derived tables &rarr; source datasets</span>
+        <span class="small text-muted" id="PROV-derived-env" data-eid="PROV-derived-env"></span>
+      </div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="PROV-derived-table" data-eid="PROV-derived-table"></table>
+      </div></div>
+    </div>
+
+    <!-- Research sources -->
+    <div class="card mb-4">
+      <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+        <span class="fw-semibold"><i class="bi bi-journal-text me-1"></i>Research sources</span>
+        <span class="small text-muted" id="PROV-research-env" data-eid="PROV-research-env"></span>
+      </div>
+      <div class="card-body" id="PROV-research-list" data-eid="PROV-research-list"></div>
+    </div>
+
+    <!-- Figure -> page index (links back to the presenting pages) -->
+    <div class="card mb-4">
+      <div class="card-header bg-transparent d-flex justify-content-between align-items-center flex-wrap">
+        <span class="fw-semibold"><i class="bi bi-diagram-2 me-1"></i>Figure &rarr; page index</span>
+        <span class="small text-muted" id="PROV-figindex-env" data-eid="PROV-figindex-env"></span>
+      </div>
+      <div class="card-body p-0"><div class="table-responsive">
+        <table class="table table-sm hikari-table mb-0" id="PROV-figindex-table" data-eid="PROV-figindex-table"></table>
+      </div></div>
+    </div>
+
+    <!-- Query index (collapsible) -->
+    <div class="card mb-4">
+      <div class="card-header bg-transparent">
+        <button class="btn btn-link p-0 text-decoration-none fw-semibold" type="button"
+                data-bs-toggle="collapse" data-bs-target="#PROV-queries-collapse"
+                aria-expanded="false" data-eid="PROV-queries-toggle">
+          <i class="bi bi-chevron-right me-1"></i><i class="bi bi-code-square me-1"></i>Query index
+          <span class="small text-muted ms-1" id="PROV-queries-env" data-eid="PROV-queries-env"></span>
+        </button>
+      </div>
+      <div class="collapse" id="PROV-queries-collapse">
+        <div class="card-body p-0"><div class="table-responsive">
+          <table class="table table-sm hikari-table mb-0" id="PROV-queries-table" data-eid="PROV-queries-table"></table>
+        </div></div>
+      </div>
+    </div>
+
+    <p class="text-muted small">
+      <i class="bi bi-shield-lock me-1"></i>Every showcase figure traces to its public download URL(s) or named research sources
+      (deterministic from e13: dataset catalog, derived-table lineage, query index) plus a file-scanned figure&rarr;page map.
+      The bottom <strong>Data Provenance</strong> drawer (on every page) scans the live DOM for the figures actually rendered.
+    </p>
+  </main>
+
+  <script src="../assets/vendor/echarts.min.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/echarts-hikari-theme.js"></script>
+  <script src="../assets/hikari.js"></script>
+  <script>window.SR_BASE = "../";</script>
+  <script src="../data/showcase.data.js"></script>
+  <script src="../assets/page-provenance.js"></script>
+  <script src="../assets/common.js"></script>
+  <script src="../assets/graphinfo.js"></script>
+  <script src="../assets/provenance.js"></script>
+</body>
+</html>

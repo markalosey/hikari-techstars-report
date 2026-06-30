@@ -76,36 +76,54 @@
       techstars:   { accent: "tech",    color: "aco",            summary: "The accelerator roster measured against our own data — photos, roles, and the two mentors in our graph.", stat: "2", statLabel: "mentors in our provider graph" },
       sports:      { accent: "sports",  color: "facility",       summary: "Baltimore loves its teams → its teams get the highest care. Ravens & Orioles → MedStar (a Techstars anchor).", stat: "MIPS 80.18", statLabel: "Orioles team doctor (L.A. Curl, MD)" },
     };
+    // Extra landing cards for pages not in the shared SR_PAGES nav registry (added without
+    // touching common.js): the Ideal First Customers (IFC) targeting story.
+    var EXTRA_CARDS = [
+      { slug: "targeting", file: "targeting.html", title: "Ideal First Customers", icon: "bi-crosshair",
+        accent: "tech", color: "aco",
+        summary: "The targeting story: region providers scored on NEED \u00d7 CAPTURE-GAP \u00d7 LEVERAGE, gated to the care-management-amenable set (E6 fit), narrowed to the ideal-first-customers cohort \u2014 with the fit funnel, the weighted axes, the ranked list, and the highest-leverage \u201cproviders to KNOW\u201d.",
+        stat: "942", statLabel: "ideal first customers (of 14,199 scored)" },
+      { slug: "provenance", file: "provenance.html", title: "Data Provenance", icon: "bi-database",
+        accent: "foot", color: "service",
+        summary: "Every showcase figure traced to its public download URL(s) or named research sources: the 38-dataset catalog (grouped by agency), the 16 derived-table lineages, the 13 research topics, and the figure\u2192page index that links each figure back to the page(s) presenting it. The same data drives the bottom \u201cData Provenance\u201d drawer on every page.",
+        stat: "38 datasets", statLabel: "16 tables \u00b7 56 queries \u00b7 29 research URLs \u00b7 all traceable" },
+    ];
+    function cardHtml(p, c, href) {
+      return (
+        '<div class="col-12 col-md-6 col-xl-4">' +
+        '  <a class="card lab-card text-decoration-none text-reset h-100" data-accent="' + c.accent +
+        '" data-eid="HOME-card-' + p.slug + '" href="' + href + '">' +
+        '    <div class="card-body d-flex flex-column">' +
+        '      <div class="d-flex align-items-center mb-2">' +
+        '        <i class="bi ' + p.icon + ' lab-card-icon me-2" style="color: var(--hikari-' + c.color + ');"></i>' +
+        '        <h5 class="card-title mb-0">' + p.title + "</h5>" +
+        "      </div>" +
+        '      <p class="card-text text-secondary small flex-grow-1">' + c.summary + "</p>" +
+        '      <div class="mt-2">' +
+        '        <div class="lab-card-stat">' + c.stat + "</div>" +
+        '        <div class="text-muted small">' + c.statLabel + "</div>" +
+        "      </div>" +
+        "    </div>" +
+        '    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">' +
+        '      <span class="page-eid-chip">HOME-card-' + p.slug + "</span>" +
+        '      <span class="small text-primary">Open <i class="bi bi-arrow-right"></i></span>' +
+        "    </div>" +
+        "  </a></div>"
+      );
+    }
     window.SR_PAGE = function () {
       var grid = document.getElementById("home-grid");
-      grid.innerHTML = window.SR_PAGES.map(function (p) {
-        var c = HOME_CARDS[p.slug];
-        var href = "pages/" + p.file;
-        return (
-          '<div class="col-12 col-md-6 col-xl-4">' +
-          '  <a class="card lab-card text-decoration-none text-reset h-100" data-accent="' + c.accent +
-          '" data-eid="HOME-card-' + p.slug + '" href="' + href + '">' +
-          '    <div class="card-body d-flex flex-column">' +
-          '      <div class="d-flex align-items-center mb-2">' +
-          '        <i class="bi ' + p.icon + ' lab-card-icon me-2" style="color: var(--hikari-' + c.color + ');"></i>' +
-          '        <h5 class="card-title mb-0">' + p.title + "</h5>" +
-          "      </div>" +
-          '      <p class="card-text text-secondary small flex-grow-1">' + c.summary + "</p>" +
-          '      <div class="mt-2">' +
-          '        <div class="lab-card-stat">' + c.stat + "</div>" +
-          '        <div class="text-muted small">' + c.statLabel + "</div>" +
-          "      </div>" +
-          "    </div>" +
-          '    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">' +
-          '      <span class="page-eid-chip">HOME-card-' + p.slug + "</span>" +
-          '      <span class="small text-primary">Open <i class="bi bi-arrow-right"></i></span>' +
-          "    </div>" +
-          "  </a></div>"
-        );
+      var base = window.SR_PAGES.map(function (p) {
+        return cardHtml(p, HOME_CARDS[p.slug], "pages/" + p.file);
       }).join("");
+      var extra = EXTRA_CARDS.map(function (p) {
+        return cardHtml(p, p, "pages/" + p.file);
+      }).join("");
+      grid.innerHTML = base + extra;
     };
   </script>
   <script src="assets/common.js"></script>
   <script src="assets/graphinfo.js"></script>
+  <script src="assets/provenance.js"></script>
 </body>
 </html>

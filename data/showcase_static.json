@@ -372,6 +372,24 @@
       },
       "source_query": "e4_techstars_ecosystem.py (roster) + e2 TAM + e2 region_resolution.region_count (ZIP\u2192county resolution) \u00b7 findings 01b\u201301f, 04, 11"
     },
+    "targeting_funnel": {
+      "title": "Fit funnel \u2014 scored \u2192 amenable \u2192 ideal first customers",
+      "formula": "Region-scored providers gated to the care-management-amenable set (E6 fit gate: is_chronic_specialty OR is_high_chronic_prescriber); the ideal-first-customers cohort = amenable AND annual_oppty \u2265 p75(annual_oppty) AND complete_leverage \u2265 nonzero-median(complete_leverage).",
+      "inputs": {"scored": 14199, "amenable": 4154, "ideal_first_customers": 942, "removed_non_amenable": 10045},
+      "source_query": "e2_opportunity_targets.py (amenable_providers + ideal_first_customers) reading E6 fit flags \u00b7 findings 04, 08"
+    },
+    "targeting_ideal": {
+      "title": "Ideal First Customers \u2014 NEED \u00d7 CAPTURE-GAP \u00d7 LEVERAGE \u00d7 FIT",
+      "formula": "Composite over three weighted axes \u2014 NEED 0.40 (dual / risk / chronic / panel), CAPTURE-GAP 0.40 (care-mgmt capture gap + MIPS), graph LEVERAGE 0.20 (MEMBER_OF + BILLS_THROUGH degree, E3) \u2014 then the intersection: annual_oppty \u2265 p75 AND complete_leverage \u2265 nonzero-median AND care-management-amenable (E6 fit). Ranked by annual_oppty desc.",
+      "inputs": {"need_weight": 0.40, "gap_weight": 0.40, "leverage_weight": 0.20, "annual_oppty_p75_usd": 223138.5541533691, "complete_leverage_nonzero_median": 2.0, "ideal_first_customers": 942},
+      "source_query": "e2_opportunity_targets.py (ideal_first_customers.ranked) over e3 leverage + e6 fit \u00b7 findings 04, 05, 08"
+    },
+    "targeting_top_to_know": {
+      "title": "Top providers to KNOW \u2014 graph leverage",
+      "formula": "Care-management-amenable region providers ranked by complete_leverage = size(MEMBER_OF\u2192ACO) + size(BILLS_THROUGH\u2192GroupPractice) (both COMPLETE edges, C-5-safe), tiebreak annual_oppty desc \u2014 the warm-intro backbone for the ideal-first-customers list.",
+      "inputs": {"amenable": 4154, "leverage_source": "e3 degree centrality (MEMBER_OF + BILLS_THROUGH)"},
+      "source_query": "e2_opportunity_targets.py (amenable_providers.ranked) + e3 leverage \u00b7 findings 04, 05"
+    },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD \u2014 Orioles team physician (NPI 1659348738)",
       "formula": "Name search (Curl / Leigh%) over national dim_provider \u2192 1 match; profile from fact_provider_quality_mips + fact_provider_summary + fact_provider_service + hikari_national node/edges. Celebration framing: only flattering stats surfaced (spec \u00a74b-sports).",
