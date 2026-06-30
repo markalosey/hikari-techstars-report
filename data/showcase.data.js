@@ -25,8 +25,8 @@ window.SHOWCASE = {
       "../../findings/01j-web-maryland-ahead-tcoc.md",
       "../../findings/01k-mpir-ahead-deep.md"
     ],
-    "generated_at": "2026-06-30T18:08:32.361872+00:00",
-    "git_sha": "86abeefad99661eab938c5c4e680dd5b8f5486fc",
+    "generated_at": "2026-06-30T18:36:48.287939+00:00",
+    "git_sha": "666f1684750aee31566dbad7aed592d4ec393dbe",
     "scope": "national",
     "note": "100% static snapshot. Every figure traces to a FACT in raw/*.json. Figures not present in the facts are labeled 'discovery pending'."
   },
@@ -5442,32 +5442,67 @@ window.SHOWCASE = {
       }
     ],
     "figure_page_index": {
-      "AHEAD-md-globalbudget": [],
-      "AHEAD-md-growth": [],
-      "AHEAD-md-measures": [],
-      "AHEAD-md-netsavings": [],
+      "AHEAD-md-globalbudget": [
+        "ahead"
+      ],
+      "AHEAD-md-growth": [
+        "ahead"
+      ],
+      "AHEAD-md-measures": [
+        "ahead"
+      ],
+      "AHEAD-md-netsavings": [
+        "ahead"
+      ],
       "AHEAD-md-savings-trend": [
         "ahead"
       ],
-      "FAC-md-strip": [],
-      "FOOT-md-strip": [],
-      "GRAPH-md-badge": [],
-      "GROW-md-strip": [],
-      "HERO-md-strip": [],
-      "OPP-md-strip": [],
-      "SPORTS-md-badge": [],
-      "TECH-md-badge": [],
-      "TGT-md-strip": [],
-      "ahead_incentive_flip": [
+      "FAC-md-strip": [
         "facilities"
       ],
-      "ahead_ma_explainer": [],
+      "FOOT-md-strip": [
+        "footprint"
+      ],
+      "GRAPH-md-badge": [
+        "graph"
+      ],
+      "GROW-md-strip": [
+        "growth"
+      ],
+      "HERO-md-strip": [
+        "hero"
+      ],
+      "OPP-md-strip": [
+        "opportunity"
+      ],
+      "SPORTS-md-badge": [
+        "sports"
+      ],
+      "TECH-md-badge": [
+        "techstars"
+      ],
+      "TGT-md-strip": [
+        "targets"
+      ],
+      "ahead_incentive_flip": [
+        "ahead",
+        "facilities"
+      ],
+      "ahead_ma_explainer": [
+        "ahead"
+      ],
       "ahead_ma_series": [
         "ahead"
       ],
-      "ahead_measures_map": [],
-      "ahead_savings": [],
-      "ahead_timeline": [],
+      "ahead_measures_map": [
+        "ahead"
+      ],
+      "ahead_savings": [
+        "ahead"
+      ],
+      "ahead_timeline": [
+        "ahead"
+      ],
       "fac_ed": [
         "facilities"
       ],
@@ -5504,30 +5539,74 @@ window.SHOWCASE = {
       "kpi_benes": [
         "hero"
       ],
-      "kpi_dual_pct": [],
-      "kpi_ed": [],
-      "kpi_ma_pct": [],
-      "kpi_opioid": [],
-      "kpi_readmit": [],
-      "kpi_risk": [],
-      "kpi_std_spend": [],
-      "kpi_uninsured": [],
+      "kpi_dual_pct": [
+        "hero"
+      ],
+      "kpi_ed": [
+        "hero"
+      ],
+      "kpi_ma_pct": [
+        "hero"
+      ],
+      "kpi_opioid": [
+        "hero"
+      ],
+      "kpi_readmit": [
+        "hero"
+      ],
+      "kpi_risk": [
+        "hero"
+      ],
+      "kpi_std_spend": [
+        "hero"
+      ],
+      "kpi_uninsured": [
+        "hero"
+      ],
       "missing_quality": [
         "targets"
       ],
-      "outlier_fp": [],
-      "outlier_im": [],
-      "outlier_readmit": [],
-      "outliers_e11": [],
+      "outlier_fp": [
+        "hero"
+      ],
+      "outlier_im": [
+        "hero"
+      ],
+      "outlier_readmit": [
+        "hero"
+      ],
+      "outliers_e11": [
+        "hero"
+      ],
       "providers_table": [
         "targets"
       ],
-      "roster_summary": [],
-      "sports_curl": [],
-      "tam_ccm": [],
-      "tam_headline": [],
-      "tam_rpm": [],
-      "tam_tcm": [],
+      "roster_summary": [
+        "techstars"
+      ],
+      "sports_curl": [
+        "sports"
+      ],
+      "tam_ccm": [
+        "footprint",
+        "opportunity"
+      ],
+      "tam_headline": [
+        "footprint",
+        "hero",
+        "opportunity"
+      ],
+      "tam_rpm": [
+        "footprint",
+        "opportunity"
+      ],
+      "tam_tcm": [
+        "footprint",
+        "opportunity"
+      ],
+      "targeting": [
+        "targeting"
+      ],
       "targeting_funnel": [
         "targeting"
       ],
@@ -5537,15 +5616,37 @@ window.SHOWCASE = {
       "targeting_top_to_know": [
         "targeting"
       ],
-      "techstars_card": [],
-      "temporal_ed": [],
-      "temporal_ma": [],
-      "temporal_opioid": [],
-      "temporal_pop": []
+      "techstars_card": [
+        "hero",
+        "techstars"
+      ],
+      "temporal_e12": [
+        "hero"
+      ],
+      "temporal_ed": [
+        "hero"
+      ],
+      "temporal_ma": [
+        "hero"
+      ],
+      "temporal_opioid": [
+        "hero"
+      ],
+      "temporal_pop": [
+        "hero"
+      ]
+    },
+    "figure_page_index_coverage": {
+      "n_figures": 60,
+      "n_mapped": 60,
+      "n_unmapped": 0,
+      "unmapped": []
     },
     "figure_lineage": {
       "AHEAD-md-globalbudget": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5586,7 +5687,9 @@ window.SHOWCASE = {
         ]
       },
       "AHEAD-md-growth": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5627,7 +5730,9 @@ window.SHOWCASE = {
         ]
       },
       "AHEAD-md-measures": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5668,7 +5773,9 @@ window.SHOWCASE = {
         ]
       },
       "AHEAD-md-netsavings": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5752,7 +5859,9 @@ window.SHOWCASE = {
         ]
       },
       "FAC-md-strip": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "facilities"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5793,7 +5902,9 @@ window.SHOWCASE = {
         ]
       },
       "FOOT-md-strip": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "footprint"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5834,7 +5945,9 @@ window.SHOWCASE = {
         ]
       },
       "GRAPH-md-badge": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "graph"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5875,7 +5988,9 @@ window.SHOWCASE = {
         ]
       },
       "GROW-md-strip": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "growth"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -5916,7 +6031,9 @@ window.SHOWCASE = {
         ]
       },
       "HERO-md-strip": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -5994,7 +6111,9 @@ window.SHOWCASE = {
         ]
       },
       "OPP-md-strip": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "opportunity"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -6035,7 +6154,9 @@ window.SHOWCASE = {
         ]
       },
       "SPORTS-md-badge": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "sports"
+        ],
         "experiments": [
           "e10"
         ],
@@ -6107,7 +6228,9 @@ window.SHOWCASE = {
         ]
       },
       "TECH-md-badge": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "techstars"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -6148,7 +6271,9 @@ window.SHOWCASE = {
         ]
       },
       "TGT-md-strip": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "targets"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -6190,6 +6315,7 @@ window.SHOWCASE = {
       },
       "ahead_incentive_flip": {
         "presenting_pages": [
+          "ahead",
           "facilities"
         ],
         "experiments": [],
@@ -6232,7 +6358,9 @@ window.SHOWCASE = {
         ]
       },
       "ahead_ma_explainer": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [
           "e0",
           "e2",
@@ -6404,7 +6532,9 @@ window.SHOWCASE = {
         ]
       },
       "ahead_measures_map": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [
           "e6",
           "e7",
@@ -6578,7 +6708,9 @@ window.SHOWCASE = {
         ]
       },
       "ahead_savings": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -6619,7 +6751,9 @@ window.SHOWCASE = {
         ]
       },
       "ahead_timeline": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "ahead"
+        ],
         "experiments": [],
         "tables": [],
         "datasets": [],
@@ -6980,7 +7114,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_dual_pct": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7024,7 +7160,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_ed": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7068,7 +7206,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_ma_pct": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7112,7 +7252,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_opioid": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7156,7 +7298,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_readmit": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7200,7 +7344,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_risk": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7244,7 +7390,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_std_spend": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7288,7 +7436,9 @@ window.SHOWCASE = {
         "research": []
       },
       "kpi_uninsured": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e0"
         ],
@@ -7379,7 +7529,9 @@ window.SHOWCASE = {
         "research": []
       },
       "outlier_fp": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e11"
         ],
@@ -7472,7 +7624,9 @@ window.SHOWCASE = {
         "research": []
       },
       "outlier_im": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e11"
         ],
@@ -7565,7 +7719,9 @@ window.SHOWCASE = {
         "research": []
       },
       "outlier_readmit": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e11"
         ],
@@ -7658,7 +7814,9 @@ window.SHOWCASE = {
         "research": []
       },
       "outliers_e11": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e11"
         ],
@@ -7818,7 +7976,9 @@ window.SHOWCASE = {
         "research": []
       },
       "roster_summary": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "techstars"
+        ],
         "experiments": [
           "e4"
         ],
@@ -7877,7 +8037,9 @@ window.SHOWCASE = {
         ]
       },
       "sports_curl": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "sports"
+        ],
         "experiments": [
           "e4",
           "e10"
@@ -7959,7 +8121,10 @@ window.SHOWCASE = {
         ]
       },
       "tam_ccm": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "footprint",
+          "opportunity"
+        ],
         "experiments": [
           "e2"
         ],
@@ -8032,7 +8197,11 @@ window.SHOWCASE = {
         ]
       },
       "tam_headline": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "footprint",
+          "hero",
+          "opportunity"
+        ],
         "experiments": [
           "e2"
         ],
@@ -8105,7 +8274,10 @@ window.SHOWCASE = {
         ]
       },
       "tam_rpm": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "footprint",
+          "opportunity"
+        ],
         "experiments": [
           "e2"
         ],
@@ -8178,7 +8350,10 @@ window.SHOWCASE = {
         ]
       },
       "tam_tcm": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "footprint",
+          "opportunity"
+        ],
         "experiments": [
           "e2"
         ],
@@ -8465,7 +8640,10 @@ window.SHOWCASE = {
         "research": []
       },
       "techstars_card": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero",
+          "techstars"
+        ],
         "experiments": [
           "e2",
           "e4"
@@ -8565,7 +8743,9 @@ window.SHOWCASE = {
         ]
       },
       "temporal_ed": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e12"
         ],
@@ -8591,7 +8771,9 @@ window.SHOWCASE = {
         "research": []
       },
       "temporal_ma": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e12"
         ],
@@ -8617,7 +8799,9 @@ window.SHOWCASE = {
         "research": []
       },
       "temporal_opioid": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e12"
         ],
@@ -8643,7 +8827,9 @@ window.SHOWCASE = {
         "research": []
       },
       "temporal_pop": {
-        "presenting_pages": [],
+        "presenting_pages": [
+          "hero"
+        ],
         "experiments": [
           "e12"
         ],
