@@ -310,4 +310,218 @@ window.SR_PAGE = function (sc) {
       },
     ],
   });
+
+  /* ============================================================
+   * ACO Economics & County TCOC (window.SHOWCASE.aco_economics).
+   *
+   * Four-layer honesty pattern. The DEFENSIBLE HERO is the region-attributable county TCOC /
+   * HCC-risk baseline (fact_county_expenditure_risk is county-keyed → a true regional fact).
+   * The ACO shared-savings numbers are EXPLICITLY labeled national/ACO-wide context — NOT a
+   * Baltimore P&L (prominent badge + caption). The framing guardrails are rendered on-page so
+   * the caveats stay visible, not buried. Both cards open the existing secret-sauce drawer via
+   * data-figure-id (aco_economics_tcoc / aco_economics_context) — no common.js change needed.
+   * ============================================================ */
+  var aco = sc.aco_economics;
+  if (aco) {
+    var COHORTS = [
+      { key: "agdu", label: "Aged / dual" },
+      { key: "agnd", label: "Aged / non-dual" },
+      { key: "dis", label: "Disabled" },
+      { key: "esrd", label: "ESRD" },
+    ];
+    var esc = function (s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    var usd0 = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+
+    /* ---- section legend ---- */
+    document.getElementById("AHEAD-aco-section-legend").innerHTML = window.SR.dualLegend();
+
+    /* ---- (1) intro + AHEAD tie-in ---- */
+    document.getElementById("AHEAD-aco-intro").innerHTML =
+      '<div class="small text-secondary" data-eid="AHEAD-aco-intro-note">' +
+      '<i class="bi bi-info-circle me-1"></i>' + esc(aco.note) + "</div>" +
+      '<div class="small fw-semibold" style="color: var(--hikari-maryland);" data-eid="AHEAD-aco-intro-tiein">' +
+      '<i class="bi bi-arrow-repeat me-1"></i>' + esc(aco.ahead_tie_in) + "</div>";
+
+    /* ============================================================
+     * (2) DEFENSIBLE HERO — county TCOC & HCC risk (all 7 counties).
+     * ============================================================ */
+    document.getElementById("AHEAD-aco-tcoc-subtitle").textContent =
+      "Per-county per-capita total-cost-of-care + average HCC risk, by beneficiary cohort — risk year " +
+      aco.risk_year + ". This is the region number.";
+
+    // region rollup summary stats (py-weighted, 6-distinct-county), one md-stat per cohort.
+    var rollup = aco.region_rollup;
+    var rollupStats = COHORTS.map(function (c) {
+      var r = rollup[c.key];
+      return (
+        '<div class="col-6 col-lg-3">' +
+        '  <div class="md-stat h-100">' +
+        '    <div class="md-stat-value">' + usd0(r.pc) + "</div>" +
+        '    <div class="md-stat-label">' + c.label + " · HCC risk " + r.risk.toFixed(3) + "</div>" +
+        "  </div></div>"
+      );
+    }).join("");
+    document.getElementById("AHEAD-aco-tcoc-rollup").innerHTML =
+      '<div class="small fw-semibold mb-1"><span class="badge text-bg-success">region rollup</span> ' +
+      "region-attributable (county-keyed CMS data), person-year-weighted</div>" +
+      '<div class="row g-2 mb-3">' + rollupStats + "</div>" +
+      '<div class="small text-muted mb-3"><i class="bi bi-diagram-3 me-1"></i>' + esc(rollup.basis) + "</div>";
+
+    // per-county bar (per-capita $, headline cohort = aged/dual) + HCC-risk line on a 2nd axis.
+    var counties = aco.county_tcoc;
+    var countyNames = counties.map(function (r) {
+      return r.county_name + (r.city_inherits_county ? " *" : "");
+    });
+    window.SR.makeChart("AHEAD-aco-tcoc-chart", {
+      legend: { data: ["Per-capita TCOC (aged/dual)", "HCC risk (aged/dual)"], bottom: 0 },
+      tooltip: {
+        trigger: "axis",
+        formatter: function (p) {
+          var i = p[0].dataIndex;
+          var row = counties[i];
+          var lines = [
+            "<b>" + row.county_name + "</b>" +
+              (row.city_inherits_county ? ' <span style="color:' + window.SR.MD.color + '">(inherits Baltimore County)</span>' : ""),
+          ];
+          COHORTS.forEach(function (c) {
+            lines.push(c.label + ": " + usd0(row["pc_" + c.key]) + " · risk " + row["risk_" + c.key].toFixed(3));
+          });
+          return lines.join("<br/>");
+        },
+      },
+      grid: { left: 64, right: 56, top: 24, bottom: 64 },
+      xAxis: {
+        type: "category",
+        data: countyNames,
+        axisLabel: { interval: 0, rotate: 20, fontSize: 10 },
+      },
+      yAxis: [
+        { type: "value", name: "$ / bene", axisLabel: { formatter: function (v) { return "$" + (v / 1000) + "k"; } } },
+        { type: "value", name: "HCC risk", min: 0.7, max: 1.1, axisLabel: { formatter: "{value}" } },
+      ],
+      series: [
+        {
+          name: "Per-capita TCOC (aged/dual)",
+          type: "bar",
+          data: counties.map(function (r) { return Math.round(r.pc_agdu); }),
+          itemStyle: { color: window.SR.MD.color },
+        },
+        {
+          name: "HCC risk (aged/dual)",
+          type: "line",
+          yAxisIndex: 1,
+          smooth: true,
+          symbol: "circle",
+          symbolSize: 7,
+          data: counties.map(function (r) { return r.risk_agdu; }),
+          lineStyle: { color: window.SR.HK.color, width: 3 },
+          itemStyle: { color: window.SR.HK.color },
+        },
+      ],
+    });
+
+    // full per-county / per-cohort table (all cohorts, all 7 counties).
+    var tcocHead =
+      "<tr><th>County (FIPS)</th>" +
+      COHORTS.map(function (c) { return '<th class="text-end">' + c.label + "<br/><span class=\"text-muted fw-normal\">$ / risk</span></th>"; }).join("") +
+      "</tr>";
+    var tcocRows = counties.map(function (r) {
+      var flag = r.city_inherits_county
+        ? ' <span class="badge text-bg-warning">inherits Baltimore County *</span>'
+        : "";
+      var cells = COHORTS.map(function (c) {
+        return '<td class="text-end small">' + usd0(r["pc_" + c.key]) +
+          ' <span class="text-muted">/ ' + r["risk_" + c.key].toFixed(3) + "</span></td>";
+      }).join("");
+      return '<tr><td class="small fw-semibold">' + esc(r.county_name) +
+        ' <span class="text-muted fw-normal">(' + r.fips + ")</span>" + flag + "</td>" + cells + "</tr>";
+    }).join("");
+    document.getElementById("AHEAD-aco-tcoc-table").innerHTML =
+      '<table class="table table-sm hikari-table mt-2 mb-0" data-eid="AHEAD-aco-tcoc-table-el">' +
+      "<thead>" + tcocHead + "</thead><tbody>" + tcocRows + "</tbody></table>";
+
+    document.getElementById("AHEAD-aco-tcoc-note").innerHTML =
+      '<i class="bi bi-flag me-1"></i><span class="fw-semibold">* Baltimore city (24510)</span> has no independent SSA code, so it ' +
+      "inherits Baltimore County (24005) values and is collapsed out of the person-year-weighted rollup to avoid " +
+      "double-counting. Click this card for the full method &amp; source citation.";
+
+    /* ============================================================
+     * (3) NATIONAL CONTEXT — ACO shared-savings (explicitly labeled).
+     * ============================================================ */
+    var ctx = aco.aco_context;
+    // prominent "national, not a metro P&L" badge — the required honesty framing, up top.
+    document.getElementById("AHEAD-aco-context-badge").innerHTML =
+      '<span class="badge text-bg-dark p-2" style="font-size:0.8rem;" data-eid="AHEAD-aco-context-badge-pill">' +
+      '<i class="bi bi-exclamation-triangle-fill me-1"></i>National, ACO-wide context — NOT a Baltimore P&amp;L</span>';
+    document.getElementById("AHEAD-aco-context-subtitle").textContent =
+      "MSSP shared-savings for the ACOs that serve the metro's Medicare panel. Every dollar below is national/ACO-wide.";
+
+    // context stat tiles (counts + national earned/generated + positive).
+    function ctxStat(value, label, colCls) {
+      return (
+        '<div class="' + colCls + '">' +
+        '  <div class="md-stat h-100" style="border-color: var(--hikari-text-muted);">' +
+        '    <div class="md-stat-value" style="color: var(--hikari-text-muted);">' + value + "</div>" +
+        '    <div class="md-stat-label">' + label + "</div>" +
+        "  </div></div>"
+      );
+    }
+    document.getElementById("AHEAD-aco-context-stats").innerHTML =
+      '<div class="row g-2 mt-1 mb-2">' +
+      ctxStat(ctx.n_region_acos.toLocaleString("en-US"), "region ACOs", "col-6 col-lg-2") +
+      ctxStat(ctx.n_measurable.toLocaleString("en-US"), "measurable (rest CMS-suppressed)", "col-6 col-lg-2") +
+      ctxStat(ctx.n_md_domiciled.toLocaleString("en-US"), "Maryland-domiciled", "col-6 col-lg-2") +
+      ctxStat("$" + (ctx.national_earned_sum / 1e9).toFixed(2) + "B", "national earned (earn_save_loss)", "col-6 col-lg-2") +
+      ctxStat("$" + (ctx.national_generated_sum / 1e9).toFixed(2) + "B", "national generated", "col-6 col-lg-2") +
+      ctxStat(ctx.n_positive.toLocaleString("en-US"), "with positive savings", "col-6 col-lg-2") +
+      "</div>";
+
+    // bene-share FLOOR — labeled understated approximation (caption from data, not typed).
+    document.getElementById("AHEAD-aco-floor").innerHTML =
+      '<div class="alert alert-secondary py-2 px-3 mb-2" data-eid="AHEAD-aco-floor-box">' +
+      '  <div class="fw-semibold"><i class="bi bi-bar-chart-steps me-1"></i>Bene-share metro FLOOR ≈ ' +
+      "$" + (ctx.bene_share_floor_earned / 1e6).toFixed(1) + "M " +
+      '<span class="badge text-bg-warning">understated approximation</span></div>' +
+      '  <div class="small text-muted mt-1">' + esc(ctx.bene_share_floor_note) + "</div>" +
+      "</div>";
+
+    // top metro-concentrated ACOs (region bene share %, national earned $).
+    var ctxRows = ctx.top_metro_concentrated.map(function (r) {
+      return (
+        "<tr>" +
+        '<td class="small fw-semibold">' + esc(r.aco_name) + "</td>" +
+        '<td class="text-end small">' + r.region_bene_share_pct.toFixed(1) + "%</td>" +
+        '<td class="text-end small">' + usd0(r.national_earned) +
+        ' <span class="text-muted">nat\'l</span></td>' +
+        "</tr>"
+      );
+    }).join("");
+    document.getElementById("AHEAD-aco-context-table").innerHTML =
+      '<div class="small fw-semibold mb-1">Most metro-concentrated ACOs ' +
+      '<span class="text-muted fw-normal">(by region beneficiary share)</span></div>' +
+      '<table class="table table-sm hikari-table mb-0" data-eid="AHEAD-aco-context-table-el">' +
+      '<thead><tr><th>ACO</th><th class="text-end">region bene share</th><th class="text-end">national earned</th></tr></thead>' +
+      "<tbody>" + ctxRows + "</tbody></table>";
+
+    document.getElementById("AHEAD-aco-context-note").innerHTML =
+      '<i class="bi bi-slash-circle me-1"></i>' + esc(ctx.reach_note) +
+      " Click this card for the full method &amp; source citation.";
+
+    /* ============================================================
+     * (4) Framing guardrails — visible on-page (honesty caveats).
+     * ============================================================ */
+    var guardItems = aco.framing_guardrails.map(function (g) {
+      // support **bold** markers from the data without injecting raw HTML.
+      var html = esc(g).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+      return '<li class="mb-1">' + html + "</li>";
+    }).join("");
+    document.getElementById("AHEAD-aco-guardrails").innerHTML =
+      '<div class="card-body">' +
+      '  <h6 class="card-title mb-2"><i class="bi bi-shield-exclamation me-2" style="color: var(--hikari-maryland);"></i>' +
+      "Framing guardrails — read before quoting any ACO number</h6>" +
+      '  <ul class="small text-secondary mb-0" data-eid="AHEAD-aco-guardrails-list">' + guardItems + "</ul>" +
+      "</div>";
+  }
 };

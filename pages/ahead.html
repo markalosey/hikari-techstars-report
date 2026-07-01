@@ -86,6 +86,80 @@
       </div>
     </div>
 
+    <!-- ===== ACO Economics & County TCOC panel (page id prefix AHEAD; sub-ids AHEAD-aco-*) =====
+         Four-layer honesty pattern: (1) intro + AHEAD tie-in, (2) DEFENSIBLE HERO county TCOC/HCC
+         risk (region-attributable, county-keyed CMS data), (3) explicitly-labeled NATIONAL ACO
+         shared-savings context (NOT a Baltimore P&L), (4) visible framing guardrails. Rendered by
+         page-ahead.js from window.SHOWCASE.aco_economics; the two cards carry data-figure-id hooks
+         (aco_economics_tcoc / aco_economics_context) for the existing secret-sauce drawer. -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-4 mb-2"
+         id="AHEAD-aco-section" data-eid="AHEAD-aco-section">
+      <h4 class="mb-0">
+        <i class="bi bi-cash-coin me-2" style="color: var(--hikari-maryland);"></i>ACO Economics &amp; County TCOC
+        <span class="md-badge align-middle"><i class="bi bi-layers-half"></i>Maryland AHEAD</span>
+      </h4>
+      <div id="AHEAD-aco-section-legend" data-eid="AHEAD-aco-section-legend"></div>
+    </div>
+
+    <!-- (1) Section intro + AHEAD tie-in -->
+    <div class="alert d-flex flex-column gap-2" id="AHEAD-aco-intro" data-eid="AHEAD-aco-intro"
+         style="border:1px solid var(--hikari-maryland); background: rgba(184,15,58,0.04);"></div>
+
+    <!-- (2) DEFENSIBLE HERO — County TCOC & HCC risk (region-attributable, county-keyed CMS data).
+         Whole card is clickable → secret-sauce drawer (aco_economics_tcoc). -->
+    <div class="card md-card figure-card mb-4" id="AHEAD-aco-tcoc-card"
+         data-figure-id="aco_economics_tcoc" data-eid="AHEAD-aco-tcoc-card" role="button">
+      <div class="kpi-band"></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-1">
+          <div>
+            <h5 class="card-title mb-1">
+              <i class="bi bi-hospital me-2" style="color: var(--hikari-maryland);"></i>County TCOC &amp; HCC-risk baseline
+              <span class="badge text-bg-success align-middle ms-1">region-attributable · county-keyed CMS</span>
+            </h5>
+            <div class="text-secondary small mb-2" id="AHEAD-aco-tcoc-subtitle" data-eid="AHEAD-aco-tcoc-subtitle"></div>
+          </div>
+        </div>
+        <!-- region rollup summary stats (py-weighted, 6-distinct-county) -->
+        <div id="AHEAD-aco-tcoc-rollup" data-eid="AHEAD-aco-tcoc-rollup"></div>
+        <!-- per-county bar (per-capita $) + HCC-risk line, all 7 counties -->
+        <div id="AHEAD-aco-tcoc-chart" class="section-chart" data-eid="AHEAD-aco-tcoc-chart"></div>
+        <!-- full per-county / per-cohort table -->
+        <div id="AHEAD-aco-tcoc-table" data-eid="AHEAD-aco-tcoc-table"></div>
+        <div class="small text-muted mt-2" id="AHEAD-aco-tcoc-note" data-eid="AHEAD-aco-tcoc-note"></div>
+      </div>
+    </div>
+
+    <!-- (3) NATIONAL CONTEXT — ACO shared-savings. Visually distinct (NOT crimson md-card); a
+         prominent badge makes clear this is national/ACO-wide, not a Baltimore P&L. Clickable →
+         secret-sauce drawer (aco_economics_context). -->
+    <div class="card figure-card mb-4" id="AHEAD-aco-context-card"
+         data-figure-id="aco_economics_context" data-eid="AHEAD-aco-context-card" role="button"
+         style="border:1px dashed var(--hikari-text-muted); background: var(--hikari-primary-subtle, #f8f9fa);">
+      <div class="kpi-band" style="background: var(--hikari-text-muted);"></div>
+      <div class="card-body">
+        <div id="AHEAD-aco-context-badge" data-eid="AHEAD-aco-context-badge"></div>
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-1 mt-2">
+          <div>
+            <h5 class="card-title mb-1">
+              <i class="bi bi-diagram-2 me-2" style="color: var(--hikari-text-muted);"></i>ACO shared-savings — national context
+            </h5>
+            <div class="text-secondary small mb-2" id="AHEAD-aco-context-subtitle" data-eid="AHEAD-aco-context-subtitle"></div>
+          </div>
+        </div>
+        <div id="AHEAD-aco-context-stats" data-eid="AHEAD-aco-context-stats"></div>
+        <!-- bene-share FLOOR (understated approximation) -->
+        <div id="AHEAD-aco-floor" data-eid="AHEAD-aco-floor"></div>
+        <!-- top metro-concentrated ACOs (national earned $, region bene share %) -->
+        <div id="AHEAD-aco-context-table" data-eid="AHEAD-aco-context-table"></div>
+        <div class="small text-muted mt-2" id="AHEAD-aco-context-note" data-eid="AHEAD-aco-context-note"></div>
+      </div>
+    </div>
+
+    <!-- (4) Framing guardrails — honesty caveats visible on-page (not buried in the drawer). -->
+    <div class="card mb-4" id="AHEAD-aco-guardrails" data-eid="AHEAD-aco-guardrails"
+         style="border-left:4px solid var(--hikari-maryland);"></div>
+
     <p class="text-muted small">
       <i class="bi bi-shield-lock me-1"></i>Every figure on this page is Maryland/AHEAD-sourced (findings 01j/01k) and
       rendered as a distinct <span class="md-badge"><i class="bi bi-layers-half"></i>Maryland AHEAD</span> layer —

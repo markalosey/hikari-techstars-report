@@ -372,6 +372,19 @@
       },
       "source_query": "e4_techstars_ecosystem.py (roster) + e2 TAM + e2 region_resolution.region_count (ZIP\u2192county resolution) \u00b7 findings 01b\u201301f, 04, 11"
     },
+    "techstars_anchor_aco": {
+      "title": "Techstars anchor \u2192 ACO reach (facility & provider-membership channels)",
+      "formula": "Channel A (facility/org\u2192ACO): ACOs each anchor's Facilities join via the NEW Facility-PARTICIPATES_IN\u2192ACO edge (6,426 nationally, was 5), plus region providers reachable through those ACOs. Only MedStar participates (9 ACOs \u2192 267 region providers); Johns Hopkins / UMMS / CareFirst = 0 \u2014 facility affiliation stays regionally sparse for Baltimore (C-5 resolved nationally, not regionally). Channel B (provider-membership bridge): anchor region providers' ACO memberships (BILLS_THROUGH + Provider-MEMBER_OF\u2192ACO, both complete) \u2192 co-member region providers \u2014 Johns Hopkins 93\u21921,155, UMMS 87\u21921,081, MedStar 50\u2192829, CareFirst 0.",
+      "inputs": {
+        "medstar_facility_acos": 9,
+        "medstar_facility_reach_providers": 267,
+        "johns_hopkins_facility_acos": 0,
+        "umms_facility_acos": 0,
+        "carefirst_facility_acos": 0,
+        "provider_bridge_channel": "Johns Hopkins 93\u21921155, UMMS 87\u21921081, MedStar 50\u2192829, CareFirst 0"
+      },
+      "source_query": "e14_graph_insights.py \u00b7 anchor_aco_reach (Facility-PARTICIPATES_IN\u2192ACO channel A + Provider-MEMBER_OF\u2192ACO bridge channel B) \u00b7 findings/18 + findings/19"
+    },
     "targeting_funnel": {
       "title": "Fit funnel \u2014 scored \u2192 amenable \u2192 ideal first customers",
       "formula": "Region-scored providers gated to the care-management-amenable set (E6 fit gate: is_chronic_specialty OR is_high_chronic_prescriber); the ideal-first-customers cohort = amenable AND annual_oppty \u2265 p75(annual_oppty) AND complete_leverage \u2265 nonzero-median(complete_leverage).",
@@ -389,6 +402,18 @@
       "formula": "Care-management-amenable region providers ranked by complete_leverage = size(MEMBER_OF\u2192ACO) + size(BILLS_THROUGH\u2192GroupPractice) (both COMPLETE edges, C-5-safe), tiebreak annual_oppty desc \u2014 the warm-intro backbone for the ideal-first-customers list.",
       "inputs": {"amenable": 4154, "leverage_source": "e3 degree centrality (MEMBER_OF + BILLS_THROUGH)"},
       "source_query": "e2_opportunity_targets.py (amenable_providers.ranked) + e3 leverage \u00b7 findings 04, 05"
+    },
+    "aco_economics_tcoc": {
+      "title": "County TCOC & HCC-risk baseline (region-defensible)",
+      "formula": "Per-county per-capita total-cost-of-care + avg HCC risk by beneficiary cohort (aged-dual / aged-non-dual / disabled / ESRD) from fact_county_expenditure_risk (county-keyed \u2192 a true regional fact). Region rollup is person-year-weighted across the 6 DISTINCT counties; Baltimore city (24510) has no independent SSA code so it inherits Baltimore County (24005) and is excluded from the rollup to avoid double-counting.",
+      "inputs": {"risk_year": "2024", "n_distinct_counties": 6, "city_collapsed_into": "24005", "cohorts": "agdu, agnd, dis, esrd"},
+      "source_query": "e15_aco_economics.py \u00b7 fact_county_expenditure_risk (py-weighted 6-distinct-county rollup, city collapsed) \u00b7 part1_county_tcoc"
+    },
+    "aco_economics_context": {
+      "title": "ACO shared-savings context (NATIONAL \u2014 not a Baltimore P&L)",
+      "formula": "Region ACO set = distinct ACOs with \u22651 assigned-beneficiary row in the 7 region counties (fact_aco_beneficiaries_county) intersected with the latest-year MSSP performance (fact_aco_performance_mssp); earned figure = earn_save_loss (earn_shr_savings is empty this vintage). Every $ is national/ACO-wide. The bene-share-weighted FLOOR sums earn_save_loss \u00d7 (region_py / nat_py) over the 25 measurable ACOs \u2014 an understated, uniform-per-bene approximation, never a metro P&L. 0 region ACOs are Maryland-domiciled; REACH contributes 0.",
+      "inputs": {"n_region_acos": 334, "n_measurable": 25, "n_md_domiciled": 0, "bene_share_floor_earned_usd": 37003339.55, "caveat": "national context \u2014 labeled, not attributed as metro savings"},
+      "source_query": "e15_aco_economics.py \u00b7 fact_aco_beneficiaries_county \u2229 fact_aco_performance_mssp (latest year, earn_save_loss) + bene-share floor \u00b7 fact_aco_performance_reach (0 rows) \u00b7 part2_region_aco_economics"
     },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD \u2014 Orioles team physician (NPI 1659348738)",

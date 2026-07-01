@@ -93,6 +93,20 @@ window.SR_PAGE = function (sc) {
   }
   function specCell(r) { return r.specialty_family || "\u2014"; }
 
+  /* ---------------- multi-ACO "bridge" badge (aco_degree >= 2) ----------------
+   * Providers spanning >1 ACO are the network bridges (e14: 137 region providers span >1 ACO,
+   * up to 12) — multi-ACO membership = higher propagation leverage. Reads existing aco_degree. */
+  function bridgeBadge(r) {
+    if (r.aco_degree >= 2) {
+      return (
+        ' <span class="badge rounded-pill text-bg-info align-middle" data-eid="IFC-bridge-' + r.npi +
+        '" title="member of ' + r.aco_degree +
+        ' ACOs \u2014 high-propagation connector"><i class="bi bi-diagram-2 me-1"></i>multi-ACO</span>'
+      );
+    }
+    return "";
+  }
+
   /* ---------------- Layer 4 — ideal first customers table ---------------- */
   var idealHead =
     "<tr><th>NPI</th><th>Name</th><th>Specialty</th><th>County</th><th>Panel</th>" +
@@ -101,7 +115,7 @@ window.SR_PAGE = function (sc) {
     return (
       '<tr data-eid="IFC-ideal-' + r.npi + '">' +
       '<td><code>' + r.npi + "</code></td>" +
-      '<td class="fw-semibold">' + r.name + "</td>" +
+      '<td class="fw-semibold">' + r.name + bridgeBadge(r) + "</td>" +
       '<td class="small">' + specCell(r) + "</td>" +
       "<td>" + r.county_name + "</td>" +
       "<td>" + FMT.int(r.panel_beneficiaries) + "</td>" +
@@ -121,6 +135,17 @@ window.SR_PAGE = function (sc) {
     " \u00b7 range " + FMT.usd(ci.min_annual_oppty) + " \u2013 " + FMT.usd(ci.max_annual_oppty) +
     ". Table shows the top 15 by annual_oppty.";
 
+  /* multi-ACO "bridge" caption — injected under the ideal-customers table (no HTML change). */
+  document.getElementById("IFC-ideal-c6").insertAdjacentHTML(
+    "afterend",
+    '<p class="text-muted small mb-4" data-eid="IFC-ideal-bridge-note">' +
+    '<span class="badge rounded-pill text-bg-info me-1"><i class="bi bi-diagram-2 me-1"></i>multi-ACO</span>' +
+    "Rows flagged <strong>multi-ACO</strong> (<code>aco_degree \u2265 2</code>) are network " +
+    "<em>bridge</em> providers spanning more than one ACO \u2014 e14 finds 137 region providers span &gt;1 " +
+    "ACO (up to 12). Multi-ACO membership = higher propagation leverage: a single warm intro reaches " +
+    "several ACO care networks at once.</p>"
+  );
+
   /* ---------------- "Top providers to KNOW" leverage table ---------------- */
   var knowHead =
     "<tr><th>NPI</th><th>Name</th><th>Specialty</th><th>County</th><th>ACO deg</th>" +
@@ -129,7 +154,7 @@ window.SR_PAGE = function (sc) {
     return (
       '<tr data-eid="IFC-toknow-' + r.npi + '">' +
       '<td><code>' + r.npi + "</code></td>" +
-      '<td class="fw-semibold">' + r.name + "</td>" +
+      '<td class="fw-semibold">' + r.name + bridgeBadge(r) + "</td>" +
       '<td class="small">' + specCell(r) + "</td>" +
       "<td>" + r.county_name + "</td>" +
       "<td>" + r.aco_degree + "</td>" +

@@ -25,8 +25,8 @@ window.SHOWCASE = {
       "../../findings/01j-web-maryland-ahead-tcoc.md",
       "../../findings/01k-mpir-ahead-deep.md"
     ],
-    "generated_at": "2026-06-30T18:36:48.287939+00:00",
-    "git_sha": "666f1684750aee31566dbad7aed592d4ec393dbe",
+    "generated_at": "2026-07-01T22:30:22.517905+00:00",
+    "git_sha": "39a1720cc6cc993119311c9a6070c45e2443f81a",
     "scope": "national",
     "note": "100% static snapshot. Every figure traces to a FACT in raw/*.json. Figures not present in the facts are labeled 'discovery pending'."
   },
@@ -583,10 +583,10 @@ window.SHOWCASE = {
     "cross_check_note": "Gross provider-summed UPPER BOUND (double-counts population): CCM $2.84B, RPM $4.26B. Headline is population-anchored to avoid the CCM single-biller double-count."
   },
   "target_groups": {
-    "n": 1698,
+    "n": 1695,
     "solo_unassigned": {
-      "providers": 4309,
-      "panel": 903017,
+      "providers": 4310,
+      "panel": 903032,
       "annual_oppty_display": "$581,865,295"
     },
     "columns": [
@@ -1036,7 +1036,7 @@ window.SHOWCASE = {
     "funnel": {
       "scored": 14199,
       "amenable": 4154,
-      "ideal_first_customers": 942,
+      "ideal_first_customers": 944,
       "removed_non_amenable": 10045
     },
     "axes": {
@@ -1059,7 +1059,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 6,
         "complete_leverage": 6,
-        "composite_score": 0.5478401682124954,
+        "composite_score": 0.5474193124724908,
         "is_high_chronic_prescriber": false,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1074,7 +1074,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 6,
         "complete_leverage": 6,
-        "composite_score": 0.5437365467120009,
+        "composite_score": 0.5433156909719963,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1089,7 +1089,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 6,
         "complete_leverage": 6,
-        "composite_score": 0.5510279589668328,
+        "composite_score": 0.550607103226828,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1104,7 +1104,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 2,
         "complete_leverage": 2,
-        "composite_score": 0.5418732463940822,
+        "composite_score": 0.541732961147414,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1119,7 +1119,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 2,
         "complete_leverage": 2,
-        "composite_score": 0.5328813618662354,
+        "composite_score": 0.5327410766195672,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1134,7 +1134,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 2,
         "complete_leverage": 2,
-        "composite_score": 0.5419390253714507,
+        "composite_score": 0.5417987401247824,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1149,7 +1149,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 9,
         "complete_leverage": 9,
-        "composite_score": 0.5137293361429047,
+        "composite_score": 0.5130980525328976,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1164,7 +1164,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 2,
         "complete_leverage": 2,
-        "composite_score": 0.5348760051987135,
+        "composite_score": 0.5347357199520453,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1179,7 +1179,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 2,
         "complete_leverage": 2,
-        "composite_score": 0.5387131799238155,
+        "composite_score": 0.5385728946771473,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1194,7 +1194,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 9,
         "complete_leverage": 9,
-        "composite_score": 0.5092432695004069,
+        "composite_score": 0.5086119858903998,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1209,7 +1209,7 @@ window.SHOWCASE = {
         "aco_degree": 1,
         "group_degree": 2,
         "complete_leverage": 3,
-        "composite_score": 0.5360890967533237,
+        "composite_score": 0.5358786688833214,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1224,7 +1224,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 5,
         "complete_leverage": 5,
-        "composite_score": 0.5079173632264156,
+        "composite_score": 0.507566650109745,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1239,7 +1239,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 4,
         "complete_leverage": 4,
-        "composite_score": 0.5413982038315609,
+        "composite_score": 0.5411176333382245,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1254,7 +1254,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 3,
         "complete_leverage": 3,
-        "composite_score": 0.550783773343288,
+        "composite_score": 0.5505733454732856,
         "is_high_chronic_prescriber": false,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": true
@@ -1269,7 +1269,7 @@ window.SHOWCASE = {
         "aco_degree": 0,
         "group_degree": 2,
         "complete_leverage": 2,
-        "composite_score": 0.5283998151924738,
+        "composite_score": 0.5282595299458055,
         "is_high_chronic_prescriber": true,
         "is_high_opioid_prescriber": false,
         "is_missing_quality": false
@@ -1281,9 +1281,9 @@ window.SHOWCASE = {
         "name": "ALEXIS NWORAH",
         "specialty_family": "Internal Medicine",
         "county_name": "Baltimore city",
-        "aco_degree": 2,
+        "aco_degree": 3,
         "group_degree": 37,
-        "complete_leverage": 39,
+        "complete_leverage": 40,
         "annual_oppty": 569888.678594126
       },
       {
@@ -1291,9 +1291,9 @@ window.SHOWCASE = {
         "name": "SIVA SIVAKUMAR",
         "specialty_family": "Pulmonary Disease",
         "county_name": "Baltimore city",
-        "aco_degree": 5,
+        "aco_degree": 7,
         "group_degree": 33,
-        "complete_leverage": 38,
+        "complete_leverage": 40,
         "annual_oppty": 116624.66689511554
       },
       {
@@ -1361,9 +1361,9 @@ window.SHOWCASE = {
         "name": "MOHAMMED MEHBOOB",
         "specialty_family": "Internal Medicine",
         "county_name": "Howard",
-        "aco_degree": 1,
+        "aco_degree": 2,
         "group_degree": 20,
-        "complete_leverage": 21,
+        "complete_leverage": 22,
         "annual_oppty": 269879.8049431532
       },
       {
@@ -1377,6 +1377,16 @@ window.SHOWCASE = {
         "annual_oppty": 125680.66478248037
       },
       {
+        "npi": "1295026607",
+        "name": "DAVID MOH",
+        "specialty_family": "Internal Medicine",
+        "county_name": "Baltimore County",
+        "aco_degree": 4,
+        "group_degree": 17,
+        "complete_leverage": 21,
+        "annual_oppty": 124490.65117764365
+      },
+      {
         "npi": "1235247511",
         "name": "QASIM RAZA",
         "specialty_family": "Internal Medicine",
@@ -1385,16 +1395,6 @@ window.SHOWCASE = {
         "group_degree": 18,
         "complete_leverage": 20,
         "annual_oppty": 447468.79239758174
-      },
-      {
-        "npi": "1295026607",
-        "name": "DAVID MOH",
-        "specialty_family": "Internal Medicine",
-        "county_name": "Baltimore County",
-        "aco_degree": 3,
-        "group_degree": 17,
-        "complete_leverage": 20,
-        "annual_oppty": 124490.65117764365
       },
       {
         "npi": "1386957579",
@@ -1429,8 +1429,8 @@ window.SHOWCASE = {
     ],
     "c6": {
       "ideal": {
-        "n": 942,
-        "median_annual_oppty": 389952.3364865547,
+        "n": 944,
+        "median_annual_oppty": 389790.7306307857,
         "min_annual_oppty": 223279.1863797175,
         "max_annual_oppty": 3925699.3768594223
       },
@@ -1655,7 +1655,41 @@ window.SHOWCASE = {
         "label": "anchor institutions"
       }
     ],
-    "anchors_note": "Anchors: Johns Hopkins, CareFirst BCBS, MedStar Health, University of Maryland Baltimore, UMMS. Roster of 15 (3 team + 12 advisors); 2 advisors (Hasselfeld, Najjar) resolve to in-region provider NPIs."
+    "anchors_note": "Anchors: Johns Hopkins, CareFirst BCBS, MedStar Health, University of Maryland Baltimore, UMMS. Roster of 15 (3 team + 12 advisors); 2 advisors (Hasselfeld, Najjar) resolve to in-region provider NPIs.",
+    "anchor_aco": {
+      "note": "Only MedStar's facilities participate in ACOs among the four anchors (new PARTICIPATES_IN edge). provider_bridge_* is the separate, complete Provider-MEMBER_OF->ACO membership channel.",
+      "by_anchor": [
+        {
+          "anchor": "Johns Hopkins",
+          "facility_aco_count": 0,
+          "facility_aco_reach_providers": 0,
+          "provider_bridge_aco_count": 93,
+          "provider_bridge_reach": 1155
+        },
+        {
+          "anchor": "MedStar",
+          "facility_aco_count": 9,
+          "facility_aco_reach_providers": 267,
+          "provider_bridge_aco_count": 50,
+          "provider_bridge_reach": 829
+        },
+        {
+          "anchor": "UMMS",
+          "facility_aco_count": 0,
+          "facility_aco_reach_providers": 0,
+          "provider_bridge_aco_count": 87,
+          "provider_bridge_reach": 1081
+        },
+        {
+          "anchor": "CareFirst",
+          "facility_aco_count": 0,
+          "facility_aco_reach_providers": 0,
+          "provider_bridge_aco_count": 0,
+          "provider_bridge_reach": 0
+        }
+      ],
+      "source": "e14_graph_insights (Facility-PARTICIPATES_IN->ACO + Provider-MEMBER_OF->ACO)"
+    }
   },
   "sports": {
     "headline": "Baltimore loves its teams — and its teams get the highest-caliber care.",
@@ -1808,7 +1842,7 @@ window.SHOWCASE = {
         {
           "edge": "MEMBER_OF",
           "neighbor": "ACO",
-          "edges": 1302,
+          "edges": 1569,
           "distinct": 165,
           "providers": 1151,
           "complete": true
@@ -1823,7 +1857,7 @@ window.SHOWCASE = {
         "n": 100845,
         "median": 0,
         "min": 0,
-        "max": 91
+        "max": 94
       },
       "columns": [
         "NPI",
@@ -1843,7 +1877,7 @@ window.SHOWCASE = {
           "aco": 9,
           "group": 82,
           "fac": 58,
-          "complete": 91,
+          "complete": 94,
           "provisional": 149
         },
         {
@@ -2386,6 +2420,186 @@ window.SHOWCASE = {
       "maryland_series_status": "discovery pending — Maryland MCDB (all-payer claims DB) not yet acquired (findings 01k §6)"
     }
   },
+  "aco_economics": {
+    "figure_id": "aco_economics",
+    "label": "ACO Economics & County TCOC",
+    "note": "Region-attributable county total-cost-of-care / HCC-risk baseline (defensible, county-keyed) plus the national ACO shared-savings context (labeled national — not a Baltimore P&L).",
+    "risk_year": "2024",
+    "county_tcoc": [
+      {
+        "fips": "24510",
+        "county_name": "Baltimore city",
+        "pc_agdu": 24714.88,
+        "risk_agdu": 0.95245,
+        "pc_agnd": 16117.79,
+        "risk_agnd": 1.01973,
+        "pc_dis": 18486.5,
+        "risk_dis": 1.01034,
+        "pc_esrd": 123795.14,
+        "risk_esrd": 1.01175,
+        "city_inherits_county": true
+      },
+      {
+        "fips": "24005",
+        "county_name": "Baltimore County",
+        "pc_agdu": 24714.88,
+        "risk_agdu": 0.95245,
+        "pc_agnd": 16117.79,
+        "risk_agnd": 1.01973,
+        "pc_dis": 18486.5,
+        "risk_dis": 1.01034,
+        "pc_esrd": 123795.14,
+        "risk_esrd": 1.01175,
+        "city_inherits_county": false
+      },
+      {
+        "fips": "24003",
+        "county_name": "Anne Arundel",
+        "pc_agdu": 22834.94,
+        "risk_agdu": 0.95117,
+        "pc_agnd": 14592.85,
+        "risk_agnd": 1.006,
+        "pc_dis": 17178.02,
+        "risk_dis": 1.02865,
+        "pc_esrd": 121903.33,
+        "risk_esrd": 1.01592,
+        "city_inherits_county": false
+      },
+      {
+        "fips": "24013",
+        "county_name": "Carroll",
+        "pc_agdu": 27626.42,
+        "risk_agdu": 0.99909,
+        "pc_agnd": 15379.59,
+        "risk_agnd": 1.01034,
+        "pc_dis": 16301.44,
+        "risk_dis": 0.94181,
+        "pc_esrd": 105290.1,
+        "risk_esrd": 0.96786,
+        "city_inherits_county": false
+      },
+      {
+        "fips": "24025",
+        "county_name": "Harford",
+        "pc_agdu": 22925.21,
+        "risk_agdu": 0.96479,
+        "pc_agnd": 15934.58,
+        "risk_agnd": 1.02703,
+        "pc_dis": 17679.34,
+        "risk_dis": 0.96436,
+        "pc_esrd": 140343.9,
+        "risk_esrd": 1.03836,
+        "city_inherits_county": false
+      },
+      {
+        "fips": "24027",
+        "county_name": "Howard",
+        "pc_agdu": 16725.64,
+        "risk_agdu": 0.80707,
+        "pc_agnd": 13655.35,
+        "risk_agnd": 0.93975,
+        "pc_dis": 15955.31,
+        "risk_dis": 0.98466,
+        "pc_esrd": 114718.5,
+        "risk_esrd": 0.99598,
+        "city_inherits_county": false
+      },
+      {
+        "fips": "24035",
+        "county_name": "Queen Anne's",
+        "pc_agdu": 27599.89,
+        "risk_agdu": 0.93405,
+        "pc_agnd": 15016.49,
+        "risk_agnd": 1.00138,
+        "pc_dis": 18063.72,
+        "risk_dis": 1.04764,
+        "pc_esrd": 138362.11,
+        "risk_esrd": 0.93113,
+        "city_inherits_county": false
+      }
+    ],
+    "region_rollup": {
+      "agdu": {
+        "pc": 22935.79,
+        "risk": 0.92798
+      },
+      "agnd": {
+        "pc": 15291.44,
+        "risk": 1.00553
+      },
+      "dis": {
+        "pc": 17689.65,
+        "risk": 1.00154
+      },
+      "esrd": {
+        "pc": 123890.97,
+        "risk": 1.01091
+      },
+      "basis": "6 distinct counties (Baltimore city 24510 collapsed into Baltimore County 24005), person-year-weighted per-capita expenditure + avg HCC risk"
+    },
+    "aco_context": {
+      "n_region_acos": 334,
+      "n_measurable": 25,
+      "n_md_domiciled": 0,
+      "national_earned_sum": 3468957766.0,
+      "national_generated_sum": 5463071235.0,
+      "n_positive": 256,
+      "bene_share_floor_earned": 37003339.55,
+      "bene_share_floor_note": "Understated approximation: 25 of 334 region ACOs (others CMS-suppressed); assumes uniform per-beneficiary savings across each ACO's national footprint (region_py / nat_py weight). NOT a metro P&L.",
+      "top_metro_concentrated": [
+        {
+          "aco_name": "Aledade Accountable Care 80, LLC",
+          "region_bene_share_pct": 49.5862,
+          "national_earned": 26474039.0
+        },
+        {
+          "aco_name": "Aledade Accountable Care 200, LLC",
+          "region_bene_share_pct": 48.2926,
+          "national_earned": 13732146.0
+        },
+        {
+          "aco_name": "Responsive Care Solutions, LLC",
+          "region_bene_share_pct": 27.4843,
+          "national_earned": 0.0
+        },
+        {
+          "aco_name": "Vytalize Health Enhanced ACO LLC",
+          "region_bene_share_pct": 23.8716,
+          "national_earned": 10165787.0
+        },
+        {
+          "aco_name": "Privia Quality Network Maryland LLC",
+          "region_bene_share_pct": 23.523,
+          "national_earned": 19936053.0
+        },
+        {
+          "aco_name": "Mid-Atlantic Collaborative Care, LLC",
+          "region_bene_share_pct": 19.6246,
+          "national_earned": 2981883.0
+        },
+        {
+          "aco_name": "Netrin Primary Care ACO, LLC",
+          "region_bene_share_pct": 15.6748,
+          "national_earned": 2926562.0
+        },
+        {
+          "aco_name": "Aledade Accountable Care 101, LLC",
+          "region_bene_share_pct": 13.1941,
+          "national_earned": 8899967.0
+        }
+      ],
+      "reach_note": "0 region ACOs have ACO REACH performance rows — REACH is dropped from the region picture."
+    },
+    "framing_guardrails": [
+      "Every MSSP shared-savings dollar figure in Part 2 is **national, ACO-wide — NOT a Baltimore P&L**. These ACOs operate across many states; only their county-beneficiary share is regional.",
+      "**0 of the region ACOs are Maryland-domiciled** (`aco_state = 'Maryland'`): the metro's Medicare panel is served by ACOs headquartered elsewhere.",
+      "The **only regionally-defensible ACO-economics number is the Part-1 county TCOC / HCC-risk baseline** (`fact_county_expenditure_risk` is county-keyed, so every figure is a true regional fact).",
+      "The bene-share-weighted metro **FLOOR assumes uniform per-beneficiary savings** across each ACO's national footprint and covers only **25 of 334** region ACOs (the other 309 have CMS-suppressed county person-years) — it is an **understated approximation**, never a metro P&L.",
+      "`earn_shr_savings` is **empty in this vintage and is deliberately NOT used**; `earn_save_loss` is the earned figure throughout.",
+      "ACO **REACH contributes 0 region ACOs** and is dropped from the region ACO-economics picture."
+    ],
+    "ahead_tie_in": "Under Maryland's AHEAD global budgets the county TCOC baseline above is the spend a fixed hospital budget must beat — so reducing that per-capita cost is retained margin (the incentive flip), not lost FFS."
+  },
   "outliers": {
     "figure_id": "outliers_e11",
     "baltimore_cbsa": "12580",
@@ -2840,11 +3054,11 @@ window.SHOWCASE = {
       "mentor_role": "Orioles team physician (MedStar; E10)",
       "group": "Medstar Medical Group Ii Llc",
       "org_pac_id": "0547413825",
-      "providers": 762,
+      "providers": 763,
       "panel": 256200,
       "avg_mips": 81.13,
       "county": "Baltimore city",
-      "annual_oppty": 169758839,
+      "annual_oppty": 169858220,
       "annual_oppty_display": "$169,758,839",
       "note": "Warm path = mentor billing affiliation → E2 high-opportunity group (COMPLETE BILLS_THROUGH). The sports → MedStar → our-graph chain ties a beloved team's doctor to the single biggest recoverable group in the metro."
     },
@@ -3236,6 +3450,19 @@ window.SHOWCASE = {
       },
       "source_query": "e4_techstars_ecosystem.py (roster) + e2 TAM + e2 region_resolution.region_count (ZIP→county resolution) · findings 01b–01f, 04, 11"
     },
+    "techstars_anchor_aco": {
+      "title": "Techstars anchor → ACO reach (facility & provider-membership channels)",
+      "formula": "Channel A (facility/org→ACO): ACOs each anchor's Facilities join via the NEW Facility-PARTICIPATES_IN→ACO edge (6,426 nationally, was 5), plus region providers reachable through those ACOs. Only MedStar participates (9 ACOs → 267 region providers); Johns Hopkins / UMMS / CareFirst = 0 — facility affiliation stays regionally sparse for Baltimore (C-5 resolved nationally, not regionally). Channel B (provider-membership bridge): anchor region providers' ACO memberships (BILLS_THROUGH + Provider-MEMBER_OF→ACO, both complete) → co-member region providers — Johns Hopkins 93→1,155, UMMS 87→1,081, MedStar 50→829, CareFirst 0.",
+      "inputs": {
+        "medstar_facility_acos": 9,
+        "medstar_facility_reach_providers": 267,
+        "johns_hopkins_facility_acos": 0,
+        "umms_facility_acos": 0,
+        "carefirst_facility_acos": 0,
+        "provider_bridge_channel": "Johns Hopkins 93→1155, UMMS 87→1081, MedStar 50→829, CareFirst 0"
+      },
+      "source_query": "e14_graph_insights.py · anchor_aco_reach (Facility-PARTICIPATES_IN→ACO channel A + Provider-MEMBER_OF→ACO bridge channel B) · findings/18 + findings/19"
+    },
     "targeting_funnel": {
       "title": "Fit funnel — scored → amenable → ideal first customers",
       "formula": "Region-scored providers gated to the care-management-amenable set (E6 fit gate: is_chronic_specialty OR is_high_chronic_prescriber); the ideal-first-customers cohort = amenable AND annual_oppty ≥ p75(annual_oppty) AND complete_leverage ≥ nonzero-median(complete_leverage).",
@@ -3268,6 +3495,29 @@ window.SHOWCASE = {
         "leverage_source": "e3 degree centrality (MEMBER_OF + BILLS_THROUGH)"
       },
       "source_query": "e2_opportunity_targets.py (amenable_providers.ranked) + e3 leverage · findings 04, 05"
+    },
+    "aco_economics_tcoc": {
+      "title": "County TCOC & HCC-risk baseline (region-defensible)",
+      "formula": "Per-county per-capita total-cost-of-care + avg HCC risk by beneficiary cohort (aged-dual / aged-non-dual / disabled / ESRD) from fact_county_expenditure_risk (county-keyed → a true regional fact). Region rollup is person-year-weighted across the 6 DISTINCT counties; Baltimore city (24510) has no independent SSA code so it inherits Baltimore County (24005) and is excluded from the rollup to avoid double-counting.",
+      "inputs": {
+        "risk_year": "2024",
+        "n_distinct_counties": 6,
+        "city_collapsed_into": "24005",
+        "cohorts": "agdu, agnd, dis, esrd"
+      },
+      "source_query": "e15_aco_economics.py · fact_county_expenditure_risk (py-weighted 6-distinct-county rollup, city collapsed) · part1_county_tcoc"
+    },
+    "aco_economics_context": {
+      "title": "ACO shared-savings context (NATIONAL — not a Baltimore P&L)",
+      "formula": "Region ACO set = distinct ACOs with ≥1 assigned-beneficiary row in the 7 region counties (fact_aco_beneficiaries_county) intersected with the latest-year MSSP performance (fact_aco_performance_mssp); earned figure = earn_save_loss (earn_shr_savings is empty this vintage). Every $ is national/ACO-wide. The bene-share-weighted FLOOR sums earn_save_loss × (region_py / nat_py) over the 25 measurable ACOs — an understated, uniform-per-bene approximation, never a metro P&L. 0 region ACOs are Maryland-domiciled; REACH contributes 0.",
+      "inputs": {
+        "n_region_acos": 334,
+        "n_measurable": 25,
+        "n_md_domiciled": 0,
+        "bene_share_floor_earned_usd": 37003339.55,
+        "caveat": "national context — labeled, not attributed as metro savings"
+      },
+      "source_query": "e15_aco_economics.py · fact_aco_beneficiaries_county ∩ fact_aco_performance_mssp (latest year, earn_save_loss) + bene-share floor · fact_aco_performance_reach (0 rows) · part2_region_aco_economics"
     },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD — Orioles team physician (NPI 1659348738)",
@@ -3773,7 +4023,7 @@ window.SHOWCASE = {
         {
           "edge": "MEMBER_OF",
           "neighbor": "ACO",
-          "count": 1302
+          "count": 1569
         }
       ],
       "source": "findings/11 §1 (experiment e9 · queries/e9_census_providers.cypher, e9_census_facilities.cypher, e9_subgraph_edges.cypher)"
@@ -3987,9 +4237,9 @@ window.SHOWCASE = {
       "n_datasets": 38,
       "n_tables": 16,
       "n_tables_with_download_url": 16,
-      "n_queries": 56,
-      "n_sql_queries": 35,
-      "n_cypher_queries": 21,
+      "n_queries": 72,
+      "n_sql_queries": 39,
+      "n_cypher_queries": 33,
       "n_research_topics": 13,
       "n_multi_source_topics": 12,
       "n_public_download_urls": 35,
@@ -5099,6 +5349,142 @@ window.SHOWCASE = {
         ]
       },
       {
+        "query": "e14_aco_landscape.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_anchor_facility_org_aco.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_anchor_provider_aco_reach.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_bridge_providers.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_comembership_pairs.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_community_labelprop.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_community_wcc.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_facility_multi_aco.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_md_facility_aco.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_region_aco_census.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_region_facility_aco.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e14_region_org_aco.cypher",
+        "experiments": [
+          "e14"
+        ],
+        "kind": "cypher",
+        "source_tables": []
+      },
+      {
+        "query": "e15_aco_mssp_performance.sql",
+        "experiments": [
+          "e15"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_aco_performance_mssp"
+        ]
+      },
+      {
+        "query": "e15_aco_reach.sql",
+        "experiments": [
+          "e15"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_aco_performance_reach"
+        ]
+      },
+      {
+        "query": "e15_county_tcoc.sql",
+        "experiments": [
+          "e15"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_county_expenditure_risk"
+        ]
+      },
+      {
+        "query": "e15_region_aco_benes.sql",
+        "experiments": [
+          "e15"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_aco_beneficiaries_county"
+        ]
+      },
+      {
         "query": "e1_caremgmt_footprint.sql",
         "experiments": [
           "e1"
@@ -5484,6 +5870,15 @@ window.SHOWCASE = {
       "TGT-md-strip": [
         "targets"
       ],
+      "aco_economics": [
+        "ahead"
+      ],
+      "aco_economics_context": [
+        "ahead"
+      ],
+      "aco_economics_tcoc": [
+        "ahead"
+      ],
       "ahead_incentive_flip": [
         "ahead",
         "facilities"
@@ -5616,6 +6011,9 @@ window.SHOWCASE = {
       "targeting_top_to_know": [
         "targeting"
       ],
+      "techstars_anchor_aco": [
+        "techstars"
+      ],
       "techstars_card": [
         "hero",
         "techstars"
@@ -5637,8 +6035,8 @@ window.SHOWCASE = {
       ]
     },
     "figure_page_index_coverage": {
-      "n_figures": 60,
-      "n_mapped": 60,
+      "n_figures": 63,
+      "n_mapped": 63,
       "n_unmapped": 0,
       "unmapped": []
     },
@@ -6312,6 +6710,24 @@ window.SHOWCASE = {
             "multi_source": true
           }
         ]
+      },
+      "aco_economics_context": {
+        "presenting_pages": [
+          "ahead"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "aco_economics_tcoc": {
+        "presenting_pages": [
+          "ahead"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": []
       },
       "ahead_incentive_flip": {
         "presenting_pages": [
@@ -8638,6 +9054,92 @@ window.SHOWCASE = {
           }
         ],
         "research": []
+      },
+      "techstars_anchor_aco": {
+        "presenting_pages": [
+          "techstars"
+        ],
+        "experiments": [
+          "e4"
+        ],
+        "tables": [
+          "dim_provider",
+          "fact_provider_quality_mips",
+          "fact_provider_service",
+          "fact_provider_summary"
+        ],
+        "datasets": [
+          {
+            "name": "Clinician Compare (Doctors and Clinicians)",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/52c3f098d7e56028a298fd297cb0b38d_1774905035/DAC_NationalDownloadableFile.csv"
+          },
+          {
+            "name": "MIPS Clinician Public Reporting — Overall Performance",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6b9e57db797c95853b034b329b1212b2_1763510763/ec_score_file.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider (Summary)",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/22edfd1e-d17a-4478-ad6b-92cac2a5a3c4/MUP_PHY_R25_P05_V20_D23_Prov.csv"
+          },
+          {
+            "name": "Medicare Physician & Other Practitioners — by Provider and Service",
+            "url": "https://data.cms.gov/sites/default/files/2025-04/e3f823f8-db5b-4cc7-ba04-e7ae92b99757/MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv"
+          },
+          {
+            "name": "PECOS Public Provider Enrollment",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/34bcea36-32e2-402a-944c-bf127b4a5c75/PPEF_Enrollment_Extract_2026.04.01.csv"
+          },
+          {
+            "name": "Fiscal Intermediary Attending and Rendering Providers",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/a70ec2d9-5d99-446b-8076-d40c1be601f9/FISS_AR_20260430.csv"
+          },
+          {
+            "name": "Order and Referring File",
+            "url": "https://data.cms.gov/sites/default/files/2026-04/f7f00172-7177-4d8e-a3bc-54e89599f521/OrderReferring_20260430.csv"
+          },
+          {
+            "name": "NPPES NPI Registry",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_April_2026_V2.zip"
+          },
+          {
+            "name": "List of Excluded Individuals/Entities (LEIE)",
+            "url": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv"
+          }
+        ],
+        "research": [
+          {
+            "topic": "techstars_baltimore",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "techstars_interviewers",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health",
+              "https://www.techstars.com/about/managing-director-nick-culbertson"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "techstars_roster",
+            "urls": [
+              "https://www.techstars.com/accelerators/baltimore-ai-health"
+            ],
+            "multi_source": true
+          },
+          {
+            "topic": "nick_culbertson",
+            "urls": [
+              "https://www.techstars.com/about/managing-director-nick-culbertson",
+              "https://pattillmanfoundation.org/meet-our-scholars/nicholas-culbertson",
+              "https://www.citybiz.co/article/696149/qa-with-nick-culbertson-managing-director-of-techstars-ai-health-accelerator",
+              "https://councils.forbes.com/profile/Nick-Culbertson-CEO-Protenus/bc03db43-8380-480c-8047-a2719db16a53"
+            ],
+            "multi_source": true
+          }
+        ]
       },
       "techstars_card": {
         "presenting_pages": [
