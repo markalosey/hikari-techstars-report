@@ -22,7 +22,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Upload artifact (site contents)
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # For a site at the repo root, keep path set to the repository root.
           # If your built output lives in another folder (e.g. ./public or ./docs),
