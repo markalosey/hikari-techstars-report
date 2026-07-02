@@ -312,6 +312,40 @@ window.SR_PAGE = function (sc) {
   });
 
   /* ============================================================
+   * The Maryland global-budget signature
+   * (window.SHOWCASE.facility_quality_suite.maryland_waiver_signature).
+   *
+   * Reinforces the AHEAD incentive-flip: national P4P (Hospital VBP / MSPB / HAC penalties) is
+   * WAIVED for MD hospitals under the all-payer global-budget model — quality + spend are governed
+   * by the fixed budget, not national pay-for-performance. Rendered as the SEPARATE Maryland AHEAD
+   * layer (crimson md-card + badge). Card opens the secret-sauce drawer (maryland_waiver).
+   * ============================================================ */
+  var fqs = sc.facility_quality_suite;
+  if (fqs && fqs.maryland_waiver_signature) {
+    var w = fqs.maryland_waiver_signature;
+    document.getElementById("AHEAD-waiver-subtitle").textContent =
+      "The AHEAD signature in the region's hospital-quality data — national efficiency/P4P programs simply are not present.";
+    document.getElementById("AHEAD-waiver-legend").innerHTML = window.SR.dualLegend();
+
+    function waiverFact(value, label, sub) {
+      return (
+        '<div class="col-md-4">' +
+        '  <div class="md-stat h-100">' +
+        '    <div class="md-stat-value">' + value + "</div>" +
+        '    <div class="md-stat-label">' + label + "</div>" +
+        (sub ? '    <div class="small text-muted mt-1">' + sub + "</div>" : "") +
+        "  </div></div>"
+      );
+    }
+    document.getElementById("AHEAD-waiver-facts").innerHTML =
+      waiverFact(w.vbp_region_rows.toLocaleString("en-US"), "Hospital VBP — region hospitals", "national value-based purchasing: not present") +
+      waiverFact(w.mspb_measurable.toLocaleString("en-US"), "MSPB — measurable region hospitals", "Medicare-spend-per-beneficiary: carved out") +
+      waiverFact(w.hac_penalty_populated ? "Yes" : "None", "HAC payment-reduction penalties", "hospital-acquired-condition penalties: unpopulated");
+    document.getElementById("AHEAD-waiver-note").innerHTML =
+      '<i class="bi bi-info-circle me-1"></i>' + w.note;
+  }
+
+  /* ============================================================
    * ACO Economics & County TCOC (window.SHOWCASE.aco_economics).
    *
    * Four-layer honesty pattern. The DEFENSIBLE HERO is the region-attributable county TCOC /

@@ -25,8 +25,8 @@ window.SHOWCASE = {
       "../../findings/01j-web-maryland-ahead-tcoc.md",
       "../../findings/01k-mpir-ahead-deep.md"
     ],
-    "generated_at": "2026-07-01T22:30:22.517905+00:00",
-    "git_sha": "39a1720cc6cc993119311c9a6070c45e2443f81a",
+    "generated_at": "2026-07-02T01:05:33.328309+00:00",
+    "git_sha": "a6f8be0b29b951db71a24d677e0d8eddf04d189c",
     "scope": "national",
     "note": "100% static snapshot. Every figure traces to a FACT in raw/*.json. Figures not present in the facts are labeled 'discovery pending'."
   },
@@ -57,7 +57,7 @@ window.SHOWCASE = {
     "location_line": "7 counties · Maryland (FIPS 24) · 510, 005, 003, 013, 025, 027, 035",
     "headline_stat": {
       "label": "Annual addressable market",
-      "value_usd": 496294650.86138034,
+      "value_usd": 496294650.8613803,
       "figure_id": "tam_headline"
     },
     "verdict": "The Baltimore–Columbia–Towson metro is a 7-county, 550,864-beneficiary Medicare market that only makes sense once you account for Maryland's payment model. Medicare Advantage penetration is just 25.1% — about half the national 51% — but that is not market weakness: Maryland's all-payer system sets Medicare fee-for-service hospital rates, so this population is FFS by design, and the value-based machinery (hospital global budgets and, from January 2026, the AHEAD model) is delivered to those FFS beneficiaries. That reframes everything below. The metro carries the 3rd-highest Medicare readmission rate of all 205 large U.S. metros (21.1%, 99th percentile) — precisely the avoidable utilization that, under global budgets, is retained margin rather than lost fee-for-service; Maryland's model has already generated roughly $689M in net Medicare savings. Provider supply is specialist-heavy and primary-care-light (Internal Medicine ranks #6 per capita nationally while Family Practice ranks #183 of 209) — the exact gap AHEAD's primary-care investment is meant to close. And 90.2% of the metro's providers carry no quality score at all, leaving quality- and risk-based payment on the table under AHEAD's Enhanced Primary Care Payment. Net: low managed-care penetration, the nation's worst-tier readmissions, a thin primary-care base, and near-zero care-management capture combine into a $496M/yr recoverable opportunity — and in Maryland, closing it is not just new revenue, it is how systems perform under the model.",
@@ -526,7 +526,7 @@ window.SHOWCASE = {
   },
   "tam": {
     "figure_id": "tam_headline",
-    "headline_usd": 496294650.86138034,
+    "headline_usd": 496294650.8613803,
     "headline_display": "$496,294,651",
     "region_ffs_benes": 342252,
     "region_total_benes": 551689,
@@ -545,7 +545,7 @@ window.SHOWCASE = {
       {
         "figure_id": "tam_rpm",
         "lever": "RPM",
-        "result_usd": 332398529.46314037,
+        "result_usd": 332398529.4631403,
         "result_display": "$332,398,529",
         "eligible": 298730,
         "served": 4050,
@@ -3044,6 +3044,990 @@ window.SHOWCASE = {
       ]
     }
   },
+  "facility_quality_suite": {
+    "figure_id": "facility_quality_suite",
+    "label": "Hospital Quality Suite",
+    "note": "Region hospital quality across 11 CMS facility tables — a multi-dimension concern scorecard plus best/worst panels; the national efficiency programs (VBP/MSPB/HAC) are absent under Maryland's all-payer global-budget waiver (the AHEAD signature).",
+    "coverage": [
+      {
+        "table": "fact_facility_star_rating",
+        "panel": "star",
+        "headline_measure": "hospital_overall_rating (1..5, higher=better)",
+        "direction": "high_good",
+        "n_region_facilities_measurable": 29,
+        "coverage_pct_of_region": 5.39,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_hcahps",
+        "panel": "hcahps",
+        "headline_measure": "H_STAR_RATING summary star (1..5, higher=better)",
+        "direction": "high_good",
+        "n_region_facilities_measurable": 24,
+        "coverage_pct_of_region": 4.46,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_mortality",
+        "panel": "mortality",
+        "headline_measure": "mean MORT_30_* rate (%, lower=better)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 20,
+        "coverage_pct_of_region": 3.72,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_hai",
+        "panel": "hai",
+        "headline_measure": "mean HAI_*_SIR (lower=better; >1.0 worse than benchmark)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 21,
+        "coverage_pct_of_region": 3.9,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_hac",
+        "panel": "hac",
+        "headline_measure": "total_hac_score (higher=worse)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 21,
+        "coverage_pct_of_region": 3.9,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_unplanned_visits",
+        "panel": "unplanned",
+        "headline_measure": "Hybrid_HWR hosp-wide readm % (lower=better)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 24,
+        "coverage_pct_of_region": 4.46,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_oas_cahps",
+        "panel": "oas",
+        "headline_measure": "O_PATIENT_RATE_9_10_P top-box % (higher=better)",
+        "direction": "high_good",
+        "n_region_facilities_measurable": 23,
+        "coverage_pct_of_region": 4.28,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_readmissions",
+        "panel": "readmissions",
+        "headline_measure": "discharge-weighted HRRP ERR (>1.0 worse)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 19,
+        "coverage_pct_of_region": 3.53,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_timely_care",
+        "panel": "timely",
+        "headline_measure": "OP_18b median ED minutes (lower=better)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 17,
+        "coverage_pct_of_region": 3.16,
+        "status": "populated"
+      },
+      {
+        "table": "fact_facility_vbp",
+        "panel": "vbp",
+        "headline_measure": "total_performance_score (higher=better)",
+        "direction": "high_good",
+        "n_region_facilities_measurable": 0,
+        "n_region_rows": 0,
+        "coverage_pct_of_region": 0.0,
+        "status": "absent — Maryland all-payer/global-budget waiver: MD hospitals do not participate in the national Hospital VBP program (0 region rows). EXCLUDED from the scorecard."
+      },
+      {
+        "table": "fact_facility_mspb",
+        "panel": "mspb",
+        "headline_measure": "MSPB-1 spending ratio (>1.0 worse)",
+        "direction": "low_good",
+        "n_region_facilities_measurable": 0,
+        "n_region_rows": 23,
+        "n_region_ccns_with_row": 23,
+        "coverage_pct_of_region": 0.0,
+        "status": "thin — 23 region CCNs carry an MSPB-1 row but the score is NULL for ALL of them (Maryland is carved out of the MSPB efficiency measure under the waiver). 0 measurable. EXCLUDED from the scorecard."
+      }
+    ],
+    "scorecard": {
+      "n_scored": 22,
+      "concern_distribution": {
+        "n": 22,
+        "min": 0.0,
+        "median": 3.0,
+        "max": 6.0,
+        "mean": 2.9091
+      },
+      "dimensions": [
+        {
+          "key": "star",
+          "label": "Overall hospital star",
+          "panel": "star",
+          "metric": "overall_rating",
+          "direction": "high_good",
+          "rule": "median",
+          "measure": "hospital_overall_rating (1..5)"
+        },
+        {
+          "key": "hcahps",
+          "label": "HCAHPS summary star",
+          "panel": "hcahps",
+          "metric": "hcahps_star",
+          "direction": "high_good",
+          "rule": "median",
+          "measure": "H_STAR_RATING (1..5)"
+        },
+        {
+          "key": "mortality",
+          "label": "30-day mortality (mean rate)",
+          "panel": "mortality",
+          "metric": "mean_mort_rate",
+          "direction": "low_good",
+          "rule": "median",
+          "measure": "mean of MORT_30_* rates (%)"
+        },
+        {
+          "key": "hai",
+          "label": "HAI infection ratio (mean SIR)",
+          "panel": "hai",
+          "metric": "mean_sir",
+          "direction": "low_good",
+          "rule": "threshold",
+          "threshold": 1.0,
+          "measure": "mean of HAI_*_SIR"
+        },
+        {
+          "key": "hac",
+          "label": "Hospital-acquired conditions (HAC score)",
+          "panel": "hac",
+          "metric": "total_hac_score",
+          "direction": "low_good",
+          "rule": "median",
+          "measure": "total_hac_score (higher = worse)"
+        },
+        {
+          "key": "unplanned",
+          "label": "Hospital-wide readmission (Hybrid_HWR)",
+          "panel": "unplanned",
+          "metric": "hybrid_hwr",
+          "direction": "low_good",
+          "rule": "median",
+          "measure": "Hybrid_HWR rate (%)"
+        },
+        {
+          "key": "oas",
+          "label": "Outpatient-surgery experience (rate 9-10)",
+          "panel": "oas",
+          "metric": "rate_9_10",
+          "direction": "high_good",
+          "rule": "median",
+          "measure": "O_PATIENT_RATE_9_10_P (%)"
+        },
+        {
+          "key": "readmissions",
+          "label": "HRRP excess readmission (weighted ERR)",
+          "panel": "readmissions",
+          "metric": "weighted_err",
+          "direction": "low_good",
+          "rule": "threshold",
+          "threshold": 1.0,
+          "measure": "discharge-weighted mean ERR"
+        },
+        {
+          "key": "timely",
+          "label": "ED wait (OP_18b median minutes)",
+          "panel": "timely",
+          "metric": "op_18b",
+          "direction": "low_good",
+          "rule": "median",
+          "measure": "OP_18b (minutes)"
+        }
+      ],
+      "region_medians": {
+        "star": 3.0,
+        "hcahps": 3.0,
+        "mortality": 11.375,
+        "hai": null,
+        "hac": 0.1583,
+        "unplanned": 14.5,
+        "oas": 88.0,
+        "readmissions": null,
+        "timely": 249.0
+      },
+      "median_facility": {
+        "ccn": "210056",
+        "fac_name": "MEDSTAR GOOD SAMARITAN HOSPITAL",
+        "concern_count": 3
+      },
+      "underperformers": [
+        {
+          "ccn": "210040",
+          "fac_name": "NORTHWEST HOSPITAL CENTER",
+          "county_name": "Baltimore County",
+          "anchor": null,
+          "concern_count": 6,
+          "concern_rate_pct": 66.67,
+          "concern_dimensions": [
+            "hcahps",
+            "mortality",
+            "readmissions",
+            "star",
+            "timely",
+            "unplanned"
+          ],
+          "owners": [
+            "NORTHWEST HOSPITAL CENTER, INC."
+          ]
+        },
+        {
+          "ccn": "210048",
+          "fac_name": "JOHNS HOPKINS HOWARD COUNTY MEDICAL CENTER",
+          "county_name": "Howard",
+          "anchor": "Johns Hopkins",
+          "concern_count": 6,
+          "concern_rate_pct": 66.67,
+          "concern_dimensions": [
+            "hac",
+            "mortality",
+            "oas",
+            "readmissions",
+            "timely",
+            "unplanned"
+          ],
+          "owners": [
+            "HOWARD COUNTY GENERAL HOSPITAL, INC,"
+          ]
+        },
+        {
+          "ccn": "210049",
+          "fac_name": "UMD UPPER CHESAPEAKE MEDICAL CENTER",
+          "county_name": "Harford",
+          "anchor": "University of Maryland / UMMS",
+          "concern_count": 6,
+          "concern_rate_pct": 66.67,
+          "concern_dimensions": [
+            "hac",
+            "hcahps",
+            "mortality",
+            "oas",
+            "star",
+            "timely"
+          ],
+          "owners": [
+            "UPPER CHESAPEAKE MEDICAL CENTER, INC."
+          ]
+        },
+        {
+          "ccn": "210002",
+          "fac_name": "UNIVERSITY OF MARYLAND MEDICAL CENTER",
+          "county_name": "Baltimore city",
+          "anchor": "University of Maryland / UMMS",
+          "concern_count": 4,
+          "concern_rate_pct": 44.44,
+          "concern_dimensions": [
+            "hac",
+            "oas",
+            "star",
+            "timely"
+          ],
+          "owners": [
+            "UNIVERSITY OF MARYLAND MEDICAL CENTER, LLC"
+          ]
+        },
+        {
+          "ccn": "210015",
+          "fac_name": "MEDSTAR FRANKLIN SQUARE MEDICAL CENTER",
+          "county_name": "Baltimore County",
+          "anchor": "MedStar",
+          "concern_count": 4,
+          "concern_rate_pct": 44.44,
+          "concern_dimensions": [
+            "hcahps",
+            "oas",
+            "timely",
+            "unplanned"
+          ],
+          "owners": [
+            "FRANKLIN SQUARE HOSPITAL CENTER, INC"
+          ]
+        },
+        {
+          "ccn": "210029",
+          "fac_name": "JOHNS HOPKINS BAYVIEW MEDICAL CENTER",
+          "county_name": "Baltimore city",
+          "anchor": "Johns Hopkins",
+          "concern_count": 4,
+          "concern_rate_pct": 44.44,
+          "concern_dimensions": [
+            "hac",
+            "mortality",
+            "oas",
+            "timely"
+          ],
+          "owners": [
+            "JOHNS HOPKINS BAYVIEW MEDICAL CENTER, INC."
+          ]
+        },
+        {
+          "ccn": "210038",
+          "fac_name": "UNIVERSITY OF MD MEDICAL CENTER MIDTOWN CAMPUS",
+          "county_name": "Baltimore city",
+          "anchor": "University of Maryland / UMMS",
+          "concern_count": 4,
+          "concern_rate_pct": 44.44,
+          "concern_dimensions": [
+            "hac",
+            "hai",
+            "hcahps",
+            "oas"
+          ],
+          "owners": [
+            "MARYLAND GENERAL HOSPITAL INC"
+          ]
+        },
+        {
+          "ccn": "210008",
+          "fac_name": "MERCY MEDICAL CENTER INC",
+          "county_name": "Baltimore city",
+          "anchor": null,
+          "concern_count": 3,
+          "concern_rate_pct": 33.33,
+          "concern_dimensions": [
+            "mortality",
+            "readmissions",
+            "unplanned"
+          ],
+          "owners": [
+            "MERCY MEDICAL CENTER INC"
+          ]
+        },
+        {
+          "ccn": "210009",
+          "fac_name": "JOHNS HOPKINS HOSPITAL, THE",
+          "county_name": "Baltimore city",
+          "anchor": "Johns Hopkins",
+          "concern_count": 3,
+          "concern_rate_pct": 33.33,
+          "concern_dimensions": [
+            "hac",
+            "timely",
+            "unplanned"
+          ],
+          "owners": [
+            "THE JOHNS HOPKINS HOSPITAL"
+          ]
+        },
+        {
+          "ccn": "210012",
+          "fac_name": "SINAI HOSPITAL OF BALTIMORE",
+          "county_name": "Baltimore city",
+          "anchor": null,
+          "concern_count": 3,
+          "concern_rate_pct": 33.33,
+          "concern_dimensions": [
+            "hac",
+            "hcahps",
+            "star"
+          ],
+          "owners": [
+            "SINAI HOSPITAL OF BALTIMORE, INC"
+          ]
+        },
+        {
+          "ccn": "210033",
+          "fac_name": "CARROLL HOSPITAL CENTER",
+          "county_name": "Carroll",
+          "anchor": null,
+          "concern_count": 3,
+          "concern_rate_pct": 33.33,
+          "concern_dimensions": [
+            "mortality",
+            "readmissions",
+            "unplanned"
+          ],
+          "owners": [
+            "CARROLL HOSPITAL CENTER, INC."
+          ]
+        },
+        {
+          "ccn": "210056",
+          "fac_name": "MEDSTAR GOOD SAMARITAN HOSPITAL",
+          "county_name": "Baltimore city",
+          "anchor": "MedStar",
+          "concern_count": 3,
+          "concern_rate_pct": 33.33,
+          "concern_dimensions": [
+            "hcahps",
+            "oas",
+            "unplanned"
+          ],
+          "owners": [
+            "THE GOOD SAMARITAN HOSPITAL OF MARYLAND, INC"
+          ]
+        },
+        {
+          "ccn": "21020F",
+          "fac_name": "VA MARYLAND HEALTHCARE SYSTEM - BALTIMORE",
+          "county_name": "Baltimore city",
+          "anchor": null,
+          "concern_count": 3,
+          "concern_rate_pct": 60.0,
+          "concern_dimensions": [
+            "hai",
+            "hcahps",
+            "unplanned"
+          ],
+          "owners": []
+        },
+        {
+          "ccn": "210023",
+          "fac_name": "LUMINIS HEALTH ANNE ARUNDEL MEDICAL CENTER, INC",
+          "county_name": "Anne Arundel",
+          "anchor": null,
+          "concern_count": 2,
+          "concern_rate_pct": 22.22,
+          "concern_dimensions": [
+            "readmissions",
+            "unplanned"
+          ],
+          "owners": [
+            "LUMINIS HEALTH ANNE ARUNDEL MEDICAL CENTER, INC."
+          ]
+        },
+        {
+          "ccn": "210034",
+          "fac_name": "MEDSTAR HARBOR HOSPITAL",
+          "county_name": "Anne Arundel",
+          "anchor": "MedStar",
+          "concern_count": 2,
+          "concern_rate_pct": 22.22,
+          "concern_dimensions": [
+            "mortality",
+            "oas"
+          ],
+          "owners": [
+            "HARBOR HOSPITAL, INC."
+          ]
+        }
+      ]
+    },
+    "panel_highlights": {
+      "star": {
+        "metric": "overall_rating",
+        "worst": {
+          "ccn": "210002",
+          "fac_name": "UNIVERSITY OF MARYLAND MEDICAL CENTER",
+          "value": 2.0
+        },
+        "best": {
+          "ccn": "210063",
+          "fac_name": "UNIVERSITY OF MD ST JOSEPH MEDICAL CENTER",
+          "value": 5.0
+        }
+      },
+      "mortality": {
+        "metric": "mean_mort_rate",
+        "worst": {
+          "ccn": "210040",
+          "fac_name": "NORTHWEST HOSPITAL CENTER",
+          "value": 14.34
+        },
+        "best": {
+          "ccn": "210009",
+          "fac_name": "JOHNS HOPKINS HOSPITAL, THE",
+          "value": 7.85
+        }
+      },
+      "hai": {
+        "metric": "mean_sir",
+        "worst": {
+          "ccn": "210038",
+          "fac_name": "UNIVERSITY OF MD MEDICAL CENTER MIDTOWN CAMPUS",
+          "value": 1.841333
+        },
+        "best": {
+          "ccn": "210064",
+          "fac_name": "LEVINDALE HEBREW GERIATRIC CENTER AND HOSPITAL",
+          "value": 0.15
+        }
+      },
+      "hcahps": {
+        "metric": "hcahps_star",
+        "worst": {
+          "ccn": "210011",
+          "fac_name": "SAINT AGNES HOSPITAL",
+          "value": 2.0
+        },
+        "best": {
+          "ccn": "210063",
+          "fac_name": "UNIVERSITY OF MD ST JOSEPH MEDICAL CENTER",
+          "value": 4.0
+        }
+      },
+      "readmissions": {
+        "metric": "weighted_err",
+        "worst": {
+          "ccn": "210008",
+          "fac_name": "MERCY MEDICAL CENTER INC",
+          "value": 1.077317
+        },
+        "best": {
+          "ccn": "210024",
+          "fac_name": "MEDSTAR UNION MEMORIAL HOSPITAL",
+          "value": 0.910272
+        }
+      }
+    },
+    "maryland_waiver_signature": {
+      "vbp_region_rows": 0,
+      "mspb_measurable": 0,
+      "hac_penalty_populated": false,
+      "note": "National efficiency programs (Hospital VBP, MSPB, HAC penalties) are absent/waived for MD hospitals under the all-payer global-budget model — the AHEAD signature: quality+spend governed by the fixed budget, not national P4P."
+    }
+  },
+  "facility_ownership": {
+    "figure_id": "facility_ownership",
+    "label": "Facility Ownership & Readmission Spider",
+    "note": "Region facility ownership (thin, immediate-corporation edge) + the worst-readmission spider with owners — DIRECTIONAL ownership context, not a complete census (see limitations).",
+    "limitations": [
+      "Thin region coverage: only 57 of 538 region facilities carry an ownership record (272 edges) — fact_facility_ownership is a lean derived ccn->org_npi edge, not a rich owner registry (no embedded ownership type/%/dates).",
+      "Owner-name match UNDERSTATES parent systems: the edge names the immediate hospital corporation, not the parent — e.g. MedStar shows 0 owned-by-name despite operating Good Samaritan/Harbor/Franklin Square/Union Memorial (they appear individually).",
+      "Top owners skew to FQHC/community-health networks (Total Health Care, Baltimore Medical System, Chase Brexton) — not the acute-care systems.",
+      "fact_provider_facility (provider->facility) is regionally sparse (~2.9%, C-5) and NOT used as load-bearing; fact_facility_aco is ~0 in region.",
+      "Interpretation: use this panel for the readmission-exposure SPIDER + directional ownership context, NOT as a complete ownership census."
+    ],
+    "landscape": {
+      "n_region_facilities": 538,
+      "n_region_facilities_with_owner": 57,
+      "n_ownership_edges": 272,
+      "n_distinct_owner_org_npi": 111,
+      "n_distinct_owner_name_keys": 36
+    },
+    "ownership_type_mix": {
+      "control_type": [
+        {
+          "value": "Proprietary",
+          "count": 241
+        },
+        {
+          "value": "(null)",
+          "count": 147
+        },
+        {
+          "value": "Limited Liability Corporation",
+          "count": 45
+        },
+        {
+          "value": "Corporation",
+          "count": 40
+        },
+        {
+          "value": "Nonprofit Corporation",
+          "count": 18
+        },
+        {
+          "value": "Non-Profit",
+          "count": 16
+        },
+        {
+          "value": "Individual",
+          "count": 5
+        },
+        {
+          "value": "Proprietary - Corporation",
+          "count": 5
+        },
+        {
+          "value": "Non-Profit - Private",
+          "count": 4
+        },
+        {
+          "value": "Church Related",
+          "count": 3
+        },
+        {
+          "value": "Other Nonprofit",
+          "count": 3
+        },
+        {
+          "value": "FOR PROFIT - CORPORATION",
+          "count": 2
+        },
+        {
+          "value": "Non-Profit - Corporation",
+          "count": 2
+        },
+        {
+          "value": "Non-Profit - Other",
+          "count": 2
+        },
+        {
+          "value": "Other",
+          "count": 2
+        },
+        {
+          "value": "Partnership",
+          "count": 2
+        },
+        {
+          "value": "Government Operated",
+          "count": 1
+        }
+      ]
+    },
+    "top_owners": [
+      {
+        "display_name": "TOTAL HEALTH CARE INC",
+        "n_region_facilities": 8
+      },
+      {
+        "display_name": "BALTIMORE MEDICAL SYSTEM INC",
+        "n_region_facilities": 7
+      },
+      {
+        "display_name": "CHASE BREXTON HEALTH SERVICES, INC.",
+        "n_region_facilities": 4
+      },
+      {
+        "display_name": "PARK WEST HEALTH SYSTEMS INCORPORATED",
+        "n_region_facilities": 3
+      },
+      {
+        "display_name": "PARK WEST HEALTH SYSTEM INCORPORATED",
+        "n_region_facilities": 3
+      },
+      {
+        "display_name": "OWENSVILLE PRIMARY CARE, INC",
+        "n_region_facilities": 3
+      },
+      {
+        "display_name": "HEALTH CARE FOR THE HOMELESS, INC",
+        "n_region_facilities": 3
+      },
+      {
+        "display_name": "UPPER CHESAPEAKE MEDICAL CENTER, INC.",
+        "n_region_facilities": 2
+      },
+      {
+        "display_name": "COMPTROLLER OF MARYLAND CENTRAL PAYROLL BUREAU",
+        "n_region_facilities": 2
+      },
+      {
+        "display_name": "STATE OF MARYLAND CENTRAL PAYROLL BUREAU",
+        "n_region_facilities": 2
+      }
+    ],
+    "hubs": {
+      "n_hubs": 11,
+      "largest": {
+        "display_name": "TOTAL HEALTH CARE INC",
+        "n_region_facilities": 8
+      }
+    },
+    "owner_readmission_exposure": [
+      {
+        "owner": "MERCY MEDICAL CENTER INC",
+        "mean_err": 1.077317,
+        "n_facilities": 1,
+        "share_worse_than_expected": 100.0
+      },
+      {
+        "owner": "HOWARD COUNTY GENERAL HOSPITAL, INC,",
+        "mean_err": 1.042594,
+        "n_facilities": 1,
+        "share_worse_than_expected": 100.0
+      },
+      {
+        "owner": "NORTHWEST HOSPITAL CENTER, INC.",
+        "mean_err": 1.037215,
+        "n_facilities": 1,
+        "share_worse_than_expected": 100.0
+      },
+      {
+        "owner": "CARROLL HOSPITAL CENTER, INC.",
+        "mean_err": 1.022187,
+        "n_facilities": 1,
+        "share_worse_than_expected": 100.0
+      },
+      {
+        "owner": "LUMINIS HEALTH ANNE ARUNDEL MEDICAL CENTER, INC.",
+        "mean_err": 1.000098,
+        "n_facilities": 1,
+        "share_worse_than_expected": 100.0
+      },
+      {
+        "owner": "ST. AGNES HEALTHCARE, INC.",
+        "mean_err": 0.996486,
+        "n_facilities": 1,
+        "share_worse_than_expected": 0.0
+      },
+      {
+        "owner": "THE GOOD SAMARITAN HOSPITAL OF MARYLAND, INC",
+        "mean_err": 0.995911,
+        "n_facilities": 1,
+        "share_worse_than_expected": 0.0
+      },
+      {
+        "owner": "UPPER CHESAPEAKE MEDICAL CENTER, INC.",
+        "mean_err": 0.980462,
+        "n_facilities": 1,
+        "share_worse_than_expected": 0.0
+      },
+      {
+        "owner": "MARYLAND GENERAL HOSPITAL INC",
+        "mean_err": 0.9799,
+        "n_facilities": 1,
+        "share_worse_than_expected": 0.0
+      },
+      {
+        "owner": "SINAI HOSPITAL OF BALTIMORE, INC",
+        "mean_err": 0.964146,
+        "n_facilities": 1,
+        "share_worse_than_expected": 0.0
+      }
+    ],
+    "spider_worst_facilities": [
+      {
+        "ccn": "210008",
+        "fac_name": "MERCY MEDICAL CENTER INC",
+        "county_name": "Baltimore city",
+        "weighted_err": 1.077317,
+        "worse_than_expected": true,
+        "owners": [
+          "MERCY MEDICAL CENTER INC"
+        ]
+      },
+      {
+        "ccn": "210048",
+        "fac_name": "JOHNS HOPKINS HOWARD COUNTY MEDICAL CENTER",
+        "county_name": "Howard",
+        "weighted_err": 1.042594,
+        "worse_than_expected": true,
+        "owners": [
+          "HOWARD COUNTY GENERAL HOSPITAL, INC,"
+        ]
+      },
+      {
+        "ccn": "210040",
+        "fac_name": "NORTHWEST HOSPITAL CENTER",
+        "county_name": "Baltimore County",
+        "weighted_err": 1.037215,
+        "worse_than_expected": true,
+        "owners": [
+          "NORTHWEST HOSPITAL CENTER, INC."
+        ]
+      },
+      {
+        "ccn": "210033",
+        "fac_name": "CARROLL HOSPITAL CENTER",
+        "county_name": "Carroll",
+        "weighted_err": 1.022187,
+        "worse_than_expected": true,
+        "owners": [
+          "CARROLL HOSPITAL CENTER, INC."
+        ]
+      },
+      {
+        "ccn": "210023",
+        "fac_name": "LUMINIS HEALTH ANNE ARUNDEL MEDICAL CENTER, INC",
+        "county_name": "Anne Arundel",
+        "weighted_err": 1.000098,
+        "worse_than_expected": true,
+        "owners": [
+          "LUMINIS HEALTH ANNE ARUNDEL MEDICAL CENTER, INC."
+        ]
+      },
+      {
+        "ccn": "210011",
+        "fac_name": "SAINT AGNES HOSPITAL",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.996486,
+        "worse_than_expected": false,
+        "owners": [
+          "ST. AGNES HEALTHCARE, INC."
+        ]
+      },
+      {
+        "ccn": "210056",
+        "fac_name": "MEDSTAR GOOD SAMARITAN HOSPITAL",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.995911,
+        "worse_than_expected": false,
+        "owners": [
+          "THE GOOD SAMARITAN HOSPITAL OF MARYLAND, INC"
+        ]
+      },
+      {
+        "ccn": "210049",
+        "fac_name": "UMD UPPER CHESAPEAKE MEDICAL CENTER",
+        "county_name": "Harford",
+        "weighted_err": 0.980462,
+        "worse_than_expected": false,
+        "owners": [
+          "UPPER CHESAPEAKE MEDICAL CENTER, INC."
+        ]
+      },
+      {
+        "ccn": "210038",
+        "fac_name": "UNIVERSITY OF MD MEDICAL CENTER MIDTOWN CAMPUS",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.9799,
+        "worse_than_expected": false,
+        "owners": [
+          "MARYLAND GENERAL HOSPITAL INC"
+        ]
+      },
+      {
+        "ccn": "210012",
+        "fac_name": "SINAI HOSPITAL OF BALTIMORE",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.964146,
+        "worse_than_expected": false,
+        "owners": [
+          "SINAI HOSPITAL OF BALTIMORE, INC"
+        ]
+      },
+      {
+        "ccn": "210063",
+        "fac_name": "UNIVERSITY OF MD ST JOSEPH MEDICAL CENTER",
+        "county_name": "Baltimore County",
+        "weighted_err": 0.961108,
+        "worse_than_expected": false,
+        "owners": [
+          "UNIVERSITY OF MARYLAND ST. JOSEPH MEDICAL CENTER, LLC"
+        ]
+      },
+      {
+        "ccn": "210002",
+        "fac_name": "UNIVERSITY OF MARYLAND MEDICAL CENTER",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.95956,
+        "worse_than_expected": false,
+        "owners": [
+          "UNIVERSITY OF MARYLAND MEDICAL CENTER, LLC"
+        ]
+      },
+      {
+        "ccn": "210034",
+        "fac_name": "MEDSTAR HARBOR HOSPITAL",
+        "county_name": "Anne Arundel",
+        "weighted_err": 0.955846,
+        "worse_than_expected": false,
+        "owners": [
+          "HARBOR HOSPITAL, INC."
+        ]
+      },
+      {
+        "ccn": "210015",
+        "fac_name": "MEDSTAR FRANKLIN SQUARE MEDICAL CENTER",
+        "county_name": "Baltimore County",
+        "weighted_err": 0.951333,
+        "worse_than_expected": false,
+        "owners": [
+          "FRANKLIN SQUARE HOSPITAL CENTER, INC"
+        ]
+      },
+      {
+        "ccn": "210044",
+        "fac_name": "GREATER BALTIMORE MEDICAL CENTER",
+        "county_name": "Baltimore County",
+        "weighted_err": 0.937001,
+        "worse_than_expected": false,
+        "owners": [
+          "GREATER BALTIMORE MEDICAL CENTER, INC."
+        ]
+      },
+      {
+        "ccn": "210009",
+        "fac_name": "JOHNS HOPKINS HOSPITAL, THE",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.926394,
+        "worse_than_expected": false,
+        "owners": [
+          "THE JOHNS HOPKINS HOSPITAL"
+        ]
+      },
+      {
+        "ccn": "210029",
+        "fac_name": "JOHNS HOPKINS BAYVIEW MEDICAL CENTER",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.924294,
+        "worse_than_expected": false,
+        "owners": [
+          "JOHNS HOPKINS BAYVIEW MEDICAL CENTER, INC."
+        ]
+      },
+      {
+        "ccn": "210043",
+        "fac_name": "UNIVERSITY OF MD BALTIMORE WASHINGTON MEDICAL CENTER",
+        "county_name": "Anne Arundel",
+        "weighted_err": 0.922334,
+        "worse_than_expected": false,
+        "owners": [
+          "BALTIMORE WASHINGTON MEDICAL CENTER INC."
+        ]
+      },
+      {
+        "ccn": "210024",
+        "fac_name": "MEDSTAR UNION MEMORIAL HOSPITAL",
+        "county_name": "Baltimore city",
+        "weighted_err": 0.910272,
+        "worse_than_expected": false,
+        "owners": [
+          "THE UNION MEMORIAL HOSPITAL"
+        ]
+      }
+    ],
+    "anchor_footprint": {
+      "Johns Hopkins": {
+        "n_region_facilities": 2,
+        "n_facilities_with_err": 2,
+        "err_mean": 0.9253,
+        "facilities": [
+          {
+            "fac_name": "JOHNS HOPKINS HOSPITAL, THE",
+            "weighted_err": 0.926394
+          },
+          {
+            "fac_name": "JOHNS HOPKINS BAYVIEW MEDICAL CENTER",
+            "weighted_err": 0.924294
+          }
+        ]
+      },
+      "MedStar": {
+        "n_region_facilities": 0,
+        "n_facilities_with_err": 0,
+        "err_mean": null,
+        "facilities": []
+      },
+      "University of Maryland / UMMS": {
+        "n_region_facilities": 4,
+        "n_facilities_with_err": 2,
+        "err_mean": 0.9603,
+        "facilities": [
+          {
+            "fac_name": "UNIVERSITY OF MARYLAND MEDICAL CENTER",
+            "weighted_err": 0.95956
+          },
+          {
+            "fac_name": "UNIVERSITY OF MD ST JOSEPH MEDICAL CENTER",
+            "weighted_err": 0.961108
+          },
+          {
+            "fac_name": "SPRINGFIELD HOSPITAL CENTER",
+            "weighted_err": null
+          },
+          {
+            "fac_name": "SPRING GROVE HOSPITAL CENTER",
+            "weighted_err": null
+          }
+        ]
+      }
+    }
+  },
   "growth_contacts": {
     "figure_id": "growth_reach",
     "intro": "Growth intelligence (E8) — the ranked contact list Techstars Investment Manager Emily McLanahan asked for: people / orgs reachable through each mentor in the Baltimore region, over COMPLETE graph edges (BILLS_THROUGH, MEMBER_OF, org-name match), intersected with E2 opportunity + E6 fit. Ranked by recoverable annual_oppty.",
@@ -3518,6 +4502,59 @@ window.SHOWCASE = {
         "caveat": "national context — labeled, not attributed as metro savings"
       },
       "source_query": "e15_aco_economics.py · fact_aco_beneficiaries_county ∩ fact_aco_performance_mssp (latest year, earn_save_loss) + bene-share floor · fact_aco_performance_reach (0 rows) · part2_region_aco_economics"
+    },
+    "facility_quality_suite": {
+      "title": "Hospital Quality Suite — 11-table coverage",
+      "formula": "Region hospitals (two-tier CCN resolution) profiled across 11 CMS facility-quality tables (star, HCAHPS, mortality, HAI, HAC, unplanned-visits, OAS-CAHPS, HRRP readmissions, timely-care, + waived VBP/MSPB). Each table's headline measure + region-measurable coverage % is reported; direction (high/low good) noted per measure.",
+      "inputs": {
+        "n_tables": 11,
+        "region_facilities": 538,
+        "headline_panels": "star, hcahps, mortality, hai, hac, unplanned, oas, readmissions, timely"
+      },
+      "source_query": "e17_facility_quality_suite.py · dim_facility + bridge_zcta_county + fact_facility_{star_rating,hcahps,mortality,hai,hac,unplanned_visits,oas_cahps,readmissions,timely_care} · per_table_coverage"
+    },
+    "facility_quality_scorecard": {
+      "title": "Multi-dimension concern scorecard (worst region hospitals)",
+      "formula": "For the 22 scored region hospitals, each of 9 quality dimensions is flagged a CONCERN vs the region median (or the 1.0 benchmark for HAI SIR / HRRP ERR); facilities ranked by concern_count (dimensions failing). Top-15 underperformers carried with their failing dimensions, anchor, and owner names.",
+      "inputs": {
+        "n_scored": 22,
+        "dimensions": 9,
+        "concern_count_median": 3,
+        "concern_count_max": 6
+      },
+      "source_query": "e17_facility_quality_suite.py · scorecard (per-dimension median/threshold concern flags) · findings 17"
+    },
+    "maryland_waiver": {
+      "title": "Maryland all-payer waiver signature (national P4P absent)",
+      "formula": "National efficiency/pay-for-performance programs are absent for MD hospitals under the all-payer global-budget waiver: Hospital VBP has 0 region rows; MSPB carries region rows but the score is NULL for all (0 measurable); HAC payment-reduction is unpopulated. The AHEAD signature — quality + spend governed by the fixed budget, not national P4P.",
+      "inputs": {
+        "vbp_region_rows": 0,
+        "mspb_measurable": 0,
+        "hac_penalty_populated": false
+      },
+      "source_query": "e17_facility_quality_suite.py · fact_facility_vbp (0 region rows) + fact_facility_mspb (23 rows, 0 scored) + fact_facility_hac (payment-reduction null) · thin_panels + hac_payment_reduction_mix"
+    },
+    "facility_ownership": {
+      "title": "Facility ownership landscape (thin — directional only)",
+      "formula": "Region facilities joined to fact_facility_ownership (a lean derived ccn→org_npi edge, INV-H2 provenance-carrying) resolved to dim_organization owner names; ownership control-type mix + top owners by region-facility count + ownership hubs. COVERAGE IS THIN (57 of 538 facilities, 272 edges) and the edge names the immediate corporation not the parent system — directional context, NOT a complete census.",
+      "inputs": {
+        "n_region_facilities": 538,
+        "n_with_owner": 57,
+        "n_ownership_edges": 272,
+        "n_distinct_owner_org_npi": 111,
+        "caveat": "understates parent systems; skews to FQHC/community-health owners"
+      },
+      "source_query": "e16_facility_ownership.py · dim_facility + fact_facility_ownership + dim_organization · ownership_landscape / owners_ranked_by_region_facilities · findings 18"
+    },
+    "facility_ownership_spider": {
+      "title": "Worst-readmission spider (facility → owner)",
+      "formula": "The 19 rankable region facilities by discharge-weighted HRRP ERR, each linked to its ownership edge (owner name) — the customer-acquisition spider feed: worst-readmission hospitals + who owns them + owner-level ERR exposure. Anchor footprint (Hopkins/UMMS owned facilities + ERR) carried; MedStar shows 0 owned-by-name (edge names individual hospitals, not the parent).",
+      "inputs": {
+        "n_spider_facilities": 19,
+        "owner_readmission_exposure_ranked": 19,
+        "anchors": "Johns Hopkins, MedStar (0 by name), University of Maryland / UMMS"
+      },
+      "source_query": "e16_facility_ownership.py · fact_facility_readmissions × fact_facility_ownership · spider_feed_worst_readmissions_with_owner / owner_readmission_exposure_ranked / anchor_ownership_footprint · findings 18"
     },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD — Orioles team physician (NPI 1659348738)",
@@ -4237,14 +5274,14 @@ window.SHOWCASE = {
       "n_datasets": 38,
       "n_tables": 16,
       "n_tables_with_download_url": 16,
-      "n_queries": 72,
-      "n_sql_queries": 39,
+      "n_queries": 93,
+      "n_sql_queries": 60,
       "n_cypher_queries": 33,
       "n_research_topics": 13,
       "n_multi_source_topics": 12,
       "n_public_download_urls": 35,
       "n_research_urls": 29,
-      "n_showcase_figures": 60,
+      "n_showcase_figures": 63,
       "public_download_urls": [
         "https://api.census.gov/data/2023/acs/acs5",
         "https://api.census.gov/data/timeseries/poverty/saipe",
@@ -4755,6 +5792,8 @@ window.SHOWCASE = {
         ],
         "experiments_using_it": [
           "e1",
+          "e16",
+          "e17",
           "e2",
           "e7"
         ]
@@ -4783,6 +5822,8 @@ window.SHOWCASE = {
           "https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/hospital-enrollment"
         ],
         "experiments_using_it": [
+          "e16",
+          "e17",
           "e7"
         ]
       },
@@ -4869,6 +5910,8 @@ window.SHOWCASE = {
           "https://data.cms.gov/provider-data/sites/default/files/resources/a171bc36c488d3e0dc33ec63abb469a6_1770163617/FY_2026_Hospital_Readmissions_Reduction_Program_Hospital.csv"
         ],
         "experiments_using_it": [
+          "e16",
+          "e17",
           "e7"
         ]
       },
@@ -4882,6 +5925,8 @@ window.SHOWCASE = {
           "https://data.cms.gov/provider-data/sites/default/files/resources/0437b5494ac61507ad90f2af6b8085a7_1770163650/Timely_and_Effective_Care-Hospital.csv"
         ],
         "experiments_using_it": [
+          "e16",
+          "e17",
           "e7"
         ]
       },
@@ -5485,6 +6530,218 @@ window.SHOWCASE = {
         ]
       },
       {
+        "query": "e16_facility_aco_caveat.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_aco"
+        ]
+      },
+      {
+        "query": "e16_owner_names.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_organization"
+        ]
+      },
+      {
+        "query": "e16_provider_facility_caveat.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_provider_facility"
+        ]
+      },
+      {
+        "query": "e16_readmissions.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_readmissions"
+        ]
+      },
+      {
+        "query": "e16_region_facilities.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_facility",
+          "bridge_zcta_county"
+        ]
+      },
+      {
+        "query": "e16_region_ownership.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_ownership"
+        ]
+      },
+      {
+        "query": "e16_timely_care.sql",
+        "experiments": [
+          "e16"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_timely_care"
+        ]
+      },
+      {
+        "query": "e17_hac.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_hac"
+        ]
+      },
+      {
+        "query": "e17_hai.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_hai"
+        ]
+      },
+      {
+        "query": "e17_hcahps.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_hcahps"
+        ]
+      },
+      {
+        "query": "e17_mortality.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_mortality"
+        ]
+      },
+      {
+        "query": "e17_mspb.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_mspb"
+        ]
+      },
+      {
+        "query": "e17_oas_cahps.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_oas_cahps"
+        ]
+      },
+      {
+        "query": "e17_owner_names.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_organization"
+        ]
+      },
+      {
+        "query": "e17_readmissions.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_readmissions"
+        ]
+      },
+      {
+        "query": "e17_region_facilities.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "dim_facility",
+          "bridge_zcta_county"
+        ]
+      },
+      {
+        "query": "e17_region_ownership.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_ownership"
+        ]
+      },
+      {
+        "query": "e17_star_rating.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_star_rating"
+        ]
+      },
+      {
+        "query": "e17_timely_care.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_timely_care"
+        ]
+      },
+      {
+        "query": "e17_unplanned_visits.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_unplanned_visits"
+        ]
+      },
+      {
+        "query": "e17_vbp.sql",
+        "experiments": [
+          "e17"
+        ],
+        "kind": "sql",
+        "source_tables": [
+          "fact_facility_vbp"
+        ]
+      },
+      {
         "query": "e1_caremgmt_footprint.sql",
         "experiments": [
           "e1"
@@ -5904,6 +7161,20 @@ window.SHOWCASE = {
       "fac_readmissions": [
         "facilities"
       ],
+      "facility_ownership": [
+        "facilities"
+      ],
+      "facility_ownership_spider": [
+        "facilities"
+      ],
+      "facility_quality_scorecard": [
+        "ahead",
+        "facilities"
+      ],
+      "facility_quality_suite": [
+        "ahead",
+        "facilities"
+      ],
       "graph_anchor_reach": [
         "graph"
       ],
@@ -5957,6 +7228,10 @@ window.SHOWCASE = {
       ],
       "kpi_uninsured": [
         "hero"
+      ],
+      "maryland_waiver": [
+        "ahead",
+        "facilities"
       ],
       "missing_quality": [
         "targets"
@@ -6035,8 +7310,8 @@ window.SHOWCASE = {
       ]
     },
     "figure_page_index_coverage": {
-      "n_figures": 63,
-      "n_mapped": 63,
+      "n_figures": 68,
+      "n_mapped": 68,
       "n_unmapped": 0,
       "unmapped": []
     },
@@ -7323,6 +8598,44 @@ window.SHOWCASE = {
         ],
         "research": []
       },
+      "facility_ownership": {
+        "presenting_pages": [
+          "facilities"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "facility_ownership_spider": {
+        "presenting_pages": [
+          "facilities"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "facility_quality_scorecard": {
+        "presenting_pages": [
+          "ahead",
+          "facilities"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
+      "facility_quality_suite": {
+        "presenting_pages": [
+          "ahead",
+          "facilities"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
+        "research": []
+      },
       "graph_anchor_reach": {
         "presenting_pages": [
           "graph"
@@ -7895,6 +9208,16 @@ window.SHOWCASE = {
             "url": "https://www2.census.gov/programs-surveys/sahie/datasets/time-series/estimates-acs/sahie-2023-csv.zip"
           }
         ],
+        "research": []
+      },
+      "maryland_waiver": {
+        "presenting_pages": [
+          "ahead",
+          "facilities"
+        ],
+        "experiments": [],
+        "tables": [],
+        "datasets": [],
         "research": []
       },
       "missing_quality": {

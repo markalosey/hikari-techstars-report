@@ -415,6 +415,36 @@
       "inputs": {"n_region_acos": 334, "n_measurable": 25, "n_md_domiciled": 0, "bene_share_floor_earned_usd": 37003339.55, "caveat": "national context \u2014 labeled, not attributed as metro savings"},
       "source_query": "e15_aco_economics.py \u00b7 fact_aco_beneficiaries_county \u2229 fact_aco_performance_mssp (latest year, earn_save_loss) + bene-share floor \u00b7 fact_aco_performance_reach (0 rows) \u00b7 part2_region_aco_economics"
     },
+    "facility_quality_suite": {
+      "title": "Hospital Quality Suite \u2014 11-table coverage",
+      "formula": "Region hospitals (two-tier CCN resolution) profiled across 11 CMS facility-quality tables (star, HCAHPS, mortality, HAI, HAC, unplanned-visits, OAS-CAHPS, HRRP readmissions, timely-care, + waived VBP/MSPB). Each table's headline measure + region-measurable coverage % is reported; direction (high/low good) noted per measure.",
+      "inputs": {"n_tables": 11, "region_facilities": 538, "headline_panels": "star, hcahps, mortality, hai, hac, unplanned, oas, readmissions, timely"},
+      "source_query": "e17_facility_quality_suite.py \u00b7 dim_facility + bridge_zcta_county + fact_facility_{star_rating,hcahps,mortality,hai,hac,unplanned_visits,oas_cahps,readmissions,timely_care} \u00b7 per_table_coverage"
+    },
+    "facility_quality_scorecard": {
+      "title": "Multi-dimension concern scorecard (worst region hospitals)",
+      "formula": "For the 22 scored region hospitals, each of 9 quality dimensions is flagged a CONCERN vs the region median (or the 1.0 benchmark for HAI SIR / HRRP ERR); facilities ranked by concern_count (dimensions failing). Top-15 underperformers carried with their failing dimensions, anchor, and owner names.",
+      "inputs": {"n_scored": 22, "dimensions": 9, "concern_count_median": 3, "concern_count_max": 6},
+      "source_query": "e17_facility_quality_suite.py \u00b7 scorecard (per-dimension median/threshold concern flags) \u00b7 findings 17"
+    },
+    "maryland_waiver": {
+      "title": "Maryland all-payer waiver signature (national P4P absent)",
+      "formula": "National efficiency/pay-for-performance programs are absent for MD hospitals under the all-payer global-budget waiver: Hospital VBP has 0 region rows; MSPB carries region rows but the score is NULL for all (0 measurable); HAC payment-reduction is unpopulated. The AHEAD signature \u2014 quality + spend governed by the fixed budget, not national P4P.",
+      "inputs": {"vbp_region_rows": 0, "mspb_measurable": 0, "hac_penalty_populated": false},
+      "source_query": "e17_facility_quality_suite.py \u00b7 fact_facility_vbp (0 region rows) + fact_facility_mspb (23 rows, 0 scored) + fact_facility_hac (payment-reduction null) \u00b7 thin_panels + hac_payment_reduction_mix"
+    },
+    "facility_ownership": {
+      "title": "Facility ownership landscape (thin \u2014 directional only)",
+      "formula": "Region facilities joined to fact_facility_ownership (a lean derived ccn\u2192org_npi edge, INV-H2 provenance-carrying) resolved to dim_organization owner names; ownership control-type mix + top owners by region-facility count + ownership hubs. COVERAGE IS THIN (57 of 538 facilities, 272 edges) and the edge names the immediate corporation not the parent system \u2014 directional context, NOT a complete census.",
+      "inputs": {"n_region_facilities": 538, "n_with_owner": 57, "n_ownership_edges": 272, "n_distinct_owner_org_npi": 111, "caveat": "understates parent systems; skews to FQHC/community-health owners"},
+      "source_query": "e16_facility_ownership.py \u00b7 dim_facility + fact_facility_ownership + dim_organization \u00b7 ownership_landscape / owners_ranked_by_region_facilities \u00b7 findings 18"
+    },
+    "facility_ownership_spider": {
+      "title": "Worst-readmission spider (facility \u2192 owner)",
+      "formula": "The 19 rankable region facilities by discharge-weighted HRRP ERR, each linked to its ownership edge (owner name) \u2014 the customer-acquisition spider feed: worst-readmission hospitals + who owns them + owner-level ERR exposure. Anchor footprint (Hopkins/UMMS owned facilities + ERR) carried; MedStar shows 0 owned-by-name (edge names individual hospitals, not the parent).",
+      "inputs": {"n_spider_facilities": 19, "owner_readmission_exposure_ranked": 19, "anchors": "Johns Hopkins, MedStar (0 by name), University of Maryland / UMMS"},
+      "source_query": "e16_facility_ownership.py \u00b7 fact_facility_readmissions \u00d7 fact_facility_ownership \u00b7 spider_feed_worst_readmissions_with_owner / owner_readmission_exposure_ranked / anchor_ownership_footprint \u00b7 findings 18"
+    },
     "sports_curl": {
       "title": "Leigh Ann Curl, MD \u2014 Orioles team physician (NPI 1659348738)",
       "formula": "Name search (Curl / Leigh%) over national dim_provider \u2192 1 match; profile from fact_provider_quality_mips + fact_provider_summary + fact_provider_service + hikari_national node/edges. Celebration framing: only flattering stats surfaced (spec \u00a74b-sports).",

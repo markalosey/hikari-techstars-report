@@ -86,6 +86,35 @@
       </div>
     </div>
 
+    <!-- ===== The Maryland global-budget signature (facility_quality_suite.maryland_waiver_signature) =====
+         Reinforces the AHEAD incentive-flip: national pay-for-performance (Hospital VBP / MSPB / HAC
+         penalties) is WAIVED for MD hospitals — the fixed global budget governs quality + spend.
+         Rendered by page-ahead.js; the card opens the secret-sauce drawer (maryland_waiver). -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-4 mb-2"
+         id="AHEAD-waiver-section" data-eid="AHEAD-waiver-section">
+      <h4 class="mb-0">
+        <i class="bi bi-shield-slash me-2" style="color: var(--hikari-maryland);"></i>The Maryland global-budget signature
+        <span class="md-badge align-middle"><i class="bi bi-layers-half"></i>Maryland AHEAD</span>
+      </h4>
+    </div>
+    <div class="card md-card figure-card mb-4" id="AHEAD-waiver-card"
+         data-figure-id="maryland_waiver" data-eid="AHEAD-waiver-card" role="button">
+      <div class="kpi-band"></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-1">
+          <div>
+            <h5 class="card-title mb-1">
+              <i class="bi bi-slash-circle me-2" style="color: var(--hikari-maryland);"></i>National P4P is absent — the fixed budget governs
+            </h5>
+            <div class="text-secondary small mb-2" id="AHEAD-waiver-subtitle" data-eid="AHEAD-waiver-subtitle"></div>
+          </div>
+          <div id="AHEAD-waiver-legend" data-eid="AHEAD-waiver-legend"></div>
+        </div>
+        <div class="row g-2" id="AHEAD-waiver-facts" data-eid="AHEAD-waiver-facts"></div>
+        <div class="small text-muted mt-2" id="AHEAD-waiver-note" data-eid="AHEAD-waiver-note"></div>
+      </div>
+    </div>
+
     <!-- ===== ACO Economics & County TCOC panel (page id prefix AHEAD; sub-ids AHEAD-aco-*) =====
          Four-layer honesty pattern: (1) intro + AHEAD tie-in, (2) DEFENSIBLE HERO county TCOC/HCC
          risk (region-attributable, county-keyed CMS data), (3) explicitly-labeled NATIONAL ACO

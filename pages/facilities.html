@@ -59,6 +59,107 @@
     </div>
     <p class="text-muted small" id="FAC-ed-note" data-eid="FAC-ed-note"></p>
 
+    <!-- =====================================================================
+         Hospital Quality Suite (e17 / findings 17) — a multi-dimension concern
+         scorecard across 11 CMS facility-quality tables. Two clickable figure
+         cards: the header (facility_quality_suite) + the scorecard hero
+         (facility_quality_scorecard). Rendered by page-facilities.js from
+         window.SHOWCASE.facility_quality_suite. Hikari (CMS) layer — NOT merged
+         with the crimson Maryland AHEAD layer.
+         ===================================================================== -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-5 mb-2"
+         id="FAC-qs-section" data-eid="FAC-qs-section">
+      <h4 class="mb-0"><i class="bi bi-clipboard2-pulse me-2" style="color: var(--hikari-facility);"></i>Hospital Quality Suite
+        <span class="badge text-bg-light align-middle">11 CMS facility tables</span></h4>
+    </div>
+
+    <!-- header card → drawer facility_quality_suite -->
+    <div class="card figure-card mb-3" id="FAC-qs-card" data-figure-id="facility_quality_suite"
+         data-eid="FAC-qs-card" role="button">
+      <div class="kpi-band" style="background: var(--hikari-facility);"></div>
+      <div class="card-body">
+        <h5 class="card-title mb-1" id="FAC-qs-title"></h5>
+        <p class="text-secondary small mb-3" id="FAC-qs-note"></p>
+        <div class="small fw-semibold mb-1"><i class="bi bi-grid-3x3-gap me-1"></i>Table coverage — region-measurable facilities per CMS table</div>
+        <div class="table-responsive" id="FAC-qs-coverage" data-eid="FAC-qs-coverage"></div>
+      </div>
+    </div>
+
+    <!-- scorecard hero card → drawer facility_quality_scorecard (the acquisition targets) -->
+    <div class="card figure-card mb-3" id="FAC-qs-scorecard-card" data-figure-id="facility_quality_scorecard"
+         data-eid="FAC-qs-scorecard" role="button">
+      <div class="kpi-band" style="background: var(--hikari-facility);"></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-1">
+          <h5 class="card-title mb-0"><i class="bi bi-bullseye me-2" style="color: var(--hikari-facility);"></i>Multi-dimension concern scorecard — who to pursue</h5>
+        </div>
+        <div class="text-secondary small mb-2" id="FAC-qs-scorecard-context"></div>
+        <div class="table-responsive" id="FAC-qs-scorecard"></div>
+      </div>
+    </div>
+
+    <!-- best/worst panel highlights (Hikari CMS layer) -->
+    <div class="row g-2 mb-4" id="FAC-qs-highlights" data-eid="FAC-qs-highlights"></div>
+
+    <!-- =====================================================================
+         Facility Ownership & Readmission Spider (e16 / findings 18).
+         THIN, DIRECTIONAL ownership context — the limitations disclaimer is
+         rendered PROMINENTLY on-page (alert alert-warning), not buried in the
+         drawer. Two clickable figure cards: the header (facility_ownership) +
+         the spider hero (facility_ownership_spider). Rendered by
+         page-facilities.js from window.SHOWCASE.facility_ownership.
+         ===================================================================== -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-5 mb-2"
+         id="FAC-own-section" data-eid="FAC-own-section">
+      <h4 class="mb-0"><i class="bi bi-diagram-2 me-2" style="color: var(--hikari-facility);"></i>Facility Ownership &amp; Readmission Spider
+        <span class="badge text-bg-warning align-middle">thin · directional</span></h4>
+    </div>
+
+    <!-- header card → drawer facility_ownership -->
+    <div class="card figure-card mb-3" id="FAC-own-card" data-figure-id="facility_ownership"
+         data-eid="FAC-own-card" role="button">
+      <div class="kpi-band" style="background: var(--hikari-facility);"></div>
+      <div class="card-body">
+        <h5 class="card-title mb-1" id="FAC-own-title"></h5>
+        <p class="text-secondary small mb-0" id="FAC-own-note"></p>
+      </div>
+    </div>
+
+    <!-- REQUIRED: prominent on-page data-limitations disclaimer (NOT hidden in the drawer) -->
+    <div class="alert alert-warning" id="FAC-own-disclaimer" data-eid="FAC-own-disclaimer" role="alert">
+      <h6 class="alert-heading mb-2"><i class="bi bi-exclamation-triangle-fill me-2"></i>Data limitations — read before interpreting ownership</h6>
+      <ul class="small mb-0" id="FAC-own-disclaimer-list"></ul>
+    </div>
+
+    <!-- landscape stats + ownership-type mix -->
+    <div class="mb-3" id="FAC-own-landscape" data-eid="FAC-own-landscape"></div>
+
+    <!-- top owners + hubs -->
+    <div class="card mb-3">
+      <div class="card-header bg-transparent fw-semibold"><i class="bi bi-building me-1"></i>Top owners by region-facility count
+        <span class="text-muted fw-normal small" id="FAC-own-hubs"></span></div>
+      <div class="card-body p-0"><div class="table-responsive" id="FAC-own-top" data-eid="FAC-own-top"></div></div>
+    </div>
+
+    <!-- spider hero card → drawer facility_ownership_spider (the acquisition spider) -->
+    <div class="card figure-card mb-3" id="FAC-own-spider-card" data-figure-id="facility_ownership_spider"
+         data-eid="FAC-own-spider" role="button">
+      <div class="kpi-band" style="background: var(--hikari-facility);"></div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-1">
+          <h5 class="card-title mb-0"><i class="bi bi-crosshair me-2" style="color: var(--hikari-facility);"></i>Readmission spider — worst-ERR facilities &amp; who owns them</h5>
+        </div>
+        <div class="text-secondary small mb-2" id="FAC-own-spider-subtitle"></div>
+        <div class="row g-3">
+          <div class="col-lg-8"><div class="table-responsive" id="FAC-own-spider"></div></div>
+          <div class="col-lg-4"><div class="table-responsive" id="FAC-own-exposure"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- anchor footprint (Hopkins / MedStar / UMMS) -->
+    <div class="mb-4" id="FAC-own-anchor" data-eid="FAC-own-anchor"></div>
+
     <p class="text-muted small mt-3">
       <i class="bi bi-shield-lock me-1"></i>Click the metric header cell for the measure's formula + source query.
       Facility→provider linkage runs on the COMPLETE graph (BILLS_THROUGH / org_pac_id), never the sparse PRACTICES_AT edge (C-5).
